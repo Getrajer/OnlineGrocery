@@ -10,5 +10,11 @@ namespace OnlineGrocery.Models
         UserModel GetUser(int Id);
 
         IEnumerable<UserModel> GetAllUsers();
+
+        UserModel Add(UserModel userModel);
+
+        UserModel Update(UserModel edit_user);
+
+        UserModel Delete(int Id);
     }
 }

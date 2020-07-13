@@ -39,6 +39,22 @@ namespace OnlineGrocery.Models
             }
         }
 
+        public UserModel Add(UserModel userModel)
+        {
+            throw new NotImplementedException();
+        }
+
+        public UserModel Delete(int Id)
+        {
+            UserModel user = _users.FirstOrDefault(e => e.Id == Id);
+            if(user != null)
+            {
+                _users.Remove(user);
+            }
+
+            return user;
+        }
+
         public IEnumerable<UserModel> GetAllUsers()
         {
             return _users;
@@ -49,6 +65,22 @@ namespace OnlineGrocery.Models
             return _users.FirstOrDefault(e => e.Id == Id);
         }
 
+        public UserModel Update(UserModel edit_user)
+        {
+            UserModel user = _users.FirstOrDefault(e => e.Id == edit_user.Id);
+            if (user != null)
+            {
+                user.FirstName = edit_user.FirstName;
+                user.LastName = edit_user.LastName;
+                user.City = edit_user.City;
+                user.Email = edit_user.Email;
+                user.Password = edit_user.Password;
+                user.PostCode = edit_user.PostCode;
+                user.StreetName = edit_user.StreetName;
+                user.StreetNumber = edit_user.StreetNumber;
+            }
 
+            return user;
+        }
     }
 }
