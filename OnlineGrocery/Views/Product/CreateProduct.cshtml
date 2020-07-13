@@ -19,7 +19,7 @@
                 <span class="text-danger" asp-validation-for="Name"></span>
             </div>
 
-            <div class="form_box">
+            <div class="form_box_textarea">
                 <label asp-for="Description"></label>
                 <textarea asp-for="Description"></textarea>
                 <span class="text-danger" asp-validation-for="Description"></span>
@@ -39,20 +39,16 @@
                 </div>
             </div>
 
-            <div class="form-group row">
+            <div class="form_box">
                 <label asp-for="Photo"></label>
-                <div class="form_box">
-                    <div class="custom-file">
-                        <input asp-for="Photo" class="custom-file-input">
-                        <label class="custom-file-label">Choose File...</label>
-                    </div>
+                <div class="custom-file">
+                    <input asp-for="Photo" class="custom-file-input">
+                    <label class="custom-file-label">Choose File...</label>
                 </div>
             </div>
 
-            <div class="form-group row">
-                <div class="form-group row">
-                    <button class="btn btn-success" type="submit">Add Product</button>
-                </div>
+            <div class="form_box">
+                <button class="btn btn-success" type="submit">Add Product</button>
             </div>
 
             <div asp-validation-summary="All" class="text-danger"></div>
