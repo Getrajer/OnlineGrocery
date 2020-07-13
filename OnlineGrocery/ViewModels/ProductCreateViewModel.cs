@@ -16,6 +16,8 @@ namespace OnlineGrocery.ViewModels
         public double Price { get; set; }
         [Required, MaxLength(100)]
         public string Description { get; set; }
+        [Required, MinLength(1)]
+        public int Quantity { get; set; }
         public IFormFile Photo { get; set; }
     }
 }

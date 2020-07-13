@@ -1,12 +1,13 @@
 ﻿@model IEnumerable<UserModel>
 
-@{ 
+@{
     ViewBag.Title = "Online Grocary";
 }
 
 <div class="text-center">
-    @foreach(var o in Model)
+    @foreach (var o in Model)
     {
         <p>@o.FirstName</p>
     }
 </div>
+

@@ -1,0 +1,74 @@
+﻿@model ProductCreateViewModel
+
+<head>
+    <link rel="stylesheet" href="../css/create_product_style.css"/>
+</head>
+
+<section class="create_product_page">
+    <div class="create_product_page_container">
+
+        <div class="title">
+            <h1>Create new product</h1>
+        </div>
+
+        <form enctype="multipart/form-data" asp-controller="Product" asp-action="CreateProduct" method="post">
+
+            <div class="form_box">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" />
+                <span class="text-danger" asp-validation-for="Name"></span>
+            </div>
+
+            <div class="form_box">
+                <label asp-for="Description"></label>
+                <textarea asp-for="Description"></textarea>
+                <span class="text-danger" asp-validation-for="Description"></span>
+            </div>
+
+            <div class="two_boxes">
+                <div class="form_box">
+                    <label asp-for="Quantity"></label>
+                    <input  asp-for="Quantity" />
+                    <span class="text-danger" asp-validation-for="Quantity"></span>
+                </div>
+
+                <div class="form_box">
+                    <label asp-for="Price"></label>
+                    <input asp-for="Price" />
+                    <span class="text-danger" asp-validation-for="Price"></span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="Photo"></label>
+                <div class="form_box">
+                    <div class="custom-file">
+                        <input asp-for="Photo" class="custom-file-input">
+                        <label class="custom-file-label">Choose File...</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="form-group row">
+                    <button class="btn btn-success" type="submit">Add Product</button>
+                </div>
+            </div>
+
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            @section Scripts {
+                <script>
+                    $(document).ready(function () {
+                        $('.custom-file-input').on("change", function () {
+                            var fileName = $(this).val().split("\\").pop();
+                            $(this).next('.custom-file-label').html(fileName);
+                        });
+                    });
+                </script>
+            }
+
+        </form>
+
+    </div>
+</section>

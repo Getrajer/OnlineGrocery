@@ -15,6 +15,7 @@ namespace OnlineGrocery.Models
         public double Price { get; set; }
         [Required, MaxLength(100)]
         public string Description { get; set; }
+        public int Quantity { get; set; }
         public string ImgPath { get; set; }
     }
 }
