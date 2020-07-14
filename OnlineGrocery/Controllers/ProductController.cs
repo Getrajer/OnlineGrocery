@@ -21,6 +21,13 @@ namespace OnlineGrocery.Controllers
             _productRepository = productRepository;
         }
 
+        public IActionResult DisplayProducts()
+        {
+            var model = _productRepository.GetAllProducts();
+
+            return View(model);
+        }
+
         [HttpGet]
         public IActionResult CreateProduct()
         {

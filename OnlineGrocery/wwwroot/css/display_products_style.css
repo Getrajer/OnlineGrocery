@@ -1,0 +1,233 @@
+﻿
+button:focus {
+    outline: unset;
+}
+
+/*Products section*/
+
+.products{
+    display:flex;
+    justify-content:center;
+    margin: 10em 0;
+}
+
+.products .products_container{
+    width: 100%;
+    max-width: 1550px;
+}
+
+.products .title{
+    display:grid;
+    grid-template-columns: 15% 80%;
+    background-color:#307e69;
+    padding:1em 0;
+
+    border-top-right-radius:0.5em;
+    border-top-left-radius:0.5em;
+
+}
+
+.products .title h1{
+    margin:0;
+    font-size:5rem;
+    letter-spacing:8px;
+    color:white;
+}
+
+.products .products_display{
+    display:grid;
+    grid-template-columns: 15% 85%;
+    height: 1000px;
+}
+
+.products .products_menu{
+    background-color:white;
+    border-bottom-left-radius:0.5em;
+}
+
+.products ul{
+    list-style: none;
+    padding: 1.5em 1em;
+}
+
+.products ul li{
+    padding:0.8em 0;
+}
+
+.products ul button{
+    background-color: #307e69;
+    color:white;
+    border-radius: 0.3em;
+    width:100%;
+    padding:0.7em 0;
+    height:100%;
+    border:unset;
+    font-size: 1.2rem;
+    font-weight:700;
+    letter-spacing:3px;
+    transition: 0.5s;
+}
+
+.products ul button:hover{
+    background-color: #3ea086;
+}
+
+.products .products_list{
+    padding:2em 3em 0 3em;
+    display:grid;
+    grid-template-columns: 4% 92% 4%;
+    grid-gap: 20px;
+}
+
+.products .products_list .left_button_container{
+    height:100%;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-content:center;
+    align-items:center;
+    cursor:pointer;
+    transition: 0.5s background-color;
+}
+
+.products .products_list .left_button_container:hover{
+    background-color:rgba(0, 55, 23, 0.40);
+}
+
+.products .products_list .left_button p{
+    font-size:4rem;
+    color:white;
+}
+
+.products .products_list .right_button_container{
+    height:100%;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-content:center;
+    align-items:center;
+    cursor:pointer;
+    transition: 0.5s background-color;
+}
+
+.products .products_list .right_button_container:hover{
+    background-color:rgba(0, 55, 23, 0.40);
+}
+
+.products .products_list .right_button p{
+    font-size:4rem;
+    color:white;
+}
+
+.products .products_list_container{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.products .products_list_container .product{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    height:323px;
+    transition: 0.5s;
+}
+
+.products .products_list_container .product:hover{
+    transform: translateY(-3px);
+}
+
+.products .products_list_container .product_container{
+    background-color:white;
+    border-radius:0.5em;
+    width:100%;
+    box-shadow:  5px 5px 10px rgba(0, 0, 0, 0.40);
+}
+
+.products .img_container{
+    padding:0.5em;
+    display:flex;
+    justify-content:center;
+    align-content:center;
+    align-items:center;
+}
+
+.products .product img{
+    width:160px;
+    height:120px;
+}
+
+.products .product .name{
+    background-color:#307e69;
+    color:white;
+    text-align:center;
+    margin: 0.5em 0;
+    padding:0.3em 0;
+}
+
+.products .add_to_chart{
+    padding: 0.5em;
+    margin-bottom:0.5em;
+    display:grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 5px;
+    z-index:100;
+}
+
+.products .add_to_chart label{
+    display:block;
+    text-align:center;
+    font-weight:700;
+    font-size:1.2rem;
+}
+
+.products .add_to_chart input{
+    width:100%;
+    text-align:center;
+}
+
+.products .add_button{
+    padding: 0 0.8em;
+}
+
+.products .add_button button{
+    width:100%;
+    height:100%;
+    background-color:#307e69;
+    color:white;
+    border-radius: 0.5em;
+    border:unset;
+    text-transform:uppercase;
+    font-weight:600;
+
+    transition: 0.5s background-color;
+}
+
+.products .add_button button:hover{
+    background-color:#3ea086;
+}
+
+.products .details{
+    width:100%;
+    text-align:center;
+    background-color:#307e69;
+    padding:0.3em 0;
+    border-bottom-left-radius:0.5em;
+    border-bottom-right-radius:0.5em;
+}
+
+.products .product .details a{
+    color:white;
+    letter-spacing:3px;
+    font-weight:600;
+    cursor:pointer;
+    transition: 0.5s color;
+}
+
+.products .product .details a:hover{
+    color:#53d5b3;
+}
+
+
+/*End of products section*/
+

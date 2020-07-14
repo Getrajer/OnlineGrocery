@@ -1,0 +1,115 @@
+﻿@model IEnumerable<ProductModel>
+
+<head>
+    <link rel="stylesheet" href="~/css/display_products_style.css" />
+</head>
+
+<section class="products">
+    <div class="products_container">
+
+        <div class="title">
+            <div class="left_tile">
+
+            </div>
+            <div class="right_title">
+                <h1>All Products</h1>
+            </div>
+        </div>
+
+
+
+        <div class="products_display">
+            <div class="products_menu">
+                <ul>
+                    <li>
+                        <button>All Products</button>
+                    </li>
+                    <li>
+                        <button>Vegetables</button>
+                    </li>
+                    <li>
+                        <button>Fruits</button>
+                    </li>
+                    <li>
+                        <button>Meats</button>
+                    </li>
+                    <li>
+                        <button>Fish</button>
+                    </li>
+                    <li>
+                        <button>Drinks</button>
+                    </li>
+                    <li>
+                        <button>Creams</button>
+                    </li>
+                    <li>
+                        <button>Dates, Nuts</button>
+                    </li>
+                    <li>
+                        <button>Bakeary</button>
+                    </li>
+                    <li>
+                        <button>Baby</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="products_list">
+
+                <div class="left_button">
+                    <!--
+                    <div class="left_button_container">
+                        <p>&lt;</p>
+                    </div>
+                    -->
+
+
+                </div>
+                <div class="products_list_container">
+
+                    @foreach (var p in Model)
+                    {
+                        <div class="product">
+                            <div class="product_container">
+                                <div class="img_container">
+                                    <img src="~/images/@p.ImgPath" alt="@p.Name" />
+                                </div>
+
+                                <div class="name">
+                                    <h3>@p.Name (@p.Price£)</h3>
+                                </div>
+
+                                <div class="add_to_chart">
+                                    <div class="input">
+                                        <label>Quantity</label>
+                                        <input placeholder="1" />
+                                    </div>
+
+                                    <div class="add_button">
+                                        <button>Add</button>
+                                    </div>
+                                </div>
+
+                                <div class="details">
+                                    <a>See details</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
+
+
+                </div>
+
+                <div class="right_button">
+                    <div class="left_button_container">
+                        <p>&gt;</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
