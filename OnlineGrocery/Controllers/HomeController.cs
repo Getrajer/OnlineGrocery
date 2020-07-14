@@ -16,21 +16,23 @@ namespace OnlineGrocery.Controllers
 
         private readonly IUserRepository _userRepository;
 
-        public HomeController(ILogger<HomeController> logger, IUserRepository userRepository)
+        private readonly IProductRepository _productRepository;
+
+        public HomeController(ILogger<HomeController> logger, IUserRepository userRepository, IProductRepository productRepository)
         {
             _logger = logger;
             _userRepository = userRepository;
+            _productRepository = productRepository;
         }
 
         public IActionResult Index()
         {
             HomeIndexViewModel homeIndexViewModel = new HomeIndexViewModel()
             {
-                User = _userRepository.GetUser(1),
-                PageTitle = "Lloodsa"
+                
             };
 
-            var model = _userRepository.GetAllUsers();
+            var model = _productRepository.GetAllProducts();
 
             return View(model);
         }

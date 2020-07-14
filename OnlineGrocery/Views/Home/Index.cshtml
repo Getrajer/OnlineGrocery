@@ -1,4 +1,4 @@
-﻿@model IEnumerable<UserModel>
+﻿@model IEnumerable<ProductModel>
 
 @{
     ViewBag.Title = "Online Grocary";
@@ -81,7 +81,7 @@
                         <button>Drinks</button>
                     </li>
                     <li>
-                        <button>Yogurths,Creams</button>
+                        <button>Creams</button>
                     </li>
                     <li>
                         <button>Dates, Nuts</button>
@@ -96,37 +96,59 @@
             </div>
 
             <div class="products_list">
-                <div class="products_list_container">
 
-                    <div class="product">
-                        <div class="product_container">
-                            <div class="img_container">
-                                <img src="~/tomato.png" alt="tomato" />
-                            </div>
-                            
-                            <div class="name">
-                                <h3>Tomato</h3>
-                            </div>
-
-                            <div class="add_to_chart">
-                                <div class="input">
-                                    <label>Quantity</label>
-                                    <input placeholder="1"/>
-                                </div>
-
-                                <div class="add_button">
-                                    <button>Add</button>
-                                </div>
-                            </div>
-
-                            <div class="details">
-                                <a>See details</a>
-                            </div>
-
-                        </div>
+                <div class="left_button">
+                    <!--
+                    <div class="left_button_container">
+                        <p>&lt;</p>
                     </div>
+                    -->
+
 
                 </div>
+                <div class="products_list_container">
+
+                    @foreach (var p in Model)
+                    {
+                        <div class="product">
+                            <div class="product_container">
+                                <div class="img_container">
+                                    <img src="~/images/@p.ImgPath" alt="@p.Name" />
+                                </div>
+
+                                <div class="name">
+                                    <h3>@p.Name (@p.Price£)</h3>
+                                </div>
+
+                                <div class="add_to_chart">
+                                    <div class="input">
+                                        <label>Quantity</label>
+                                        <input placeholder="1" />
+                                    </div>
+
+                                    <div class="add_button">
+                                        <button>Add</button>
+                                    </div>
+                                </div>
+
+                                <div class="details">
+                                    <a>See details</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
+
+
+                </div>
+
+                <div class="right_button">
+                    <div class="left_button_container">
+                        <p>&gt;</p>
+                    </div>
+                </div>
+
             </div>
         </div>
 
