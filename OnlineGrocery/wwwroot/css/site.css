@@ -3,7 +3,6 @@ for details on configuring this project to bundle and minify static web assets. 
 
 body {
     background-color: rgba(81, 151, 89, 0.50);
-    min-height: 90vh;
 }
 
 a.navbar-brand {
@@ -56,7 +55,7 @@ html {
 
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 60px;
+  min-height:100vh;
 }
 .footer {
   position: absolute;
