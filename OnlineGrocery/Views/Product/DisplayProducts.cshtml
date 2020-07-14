@@ -65,40 +65,45 @@
 
 
                 </div>
-                <div class="products_list_container">
+                <div class="l_container">
 
-                    @foreach (var p in Model)
-                    {
-                        <div class="product">
-                            <div class="product_container">
-                                <div class="img_container">
-                                    <img src="~/images/@p.ImgPath" alt="@p.Name" />
-                                </div>
 
-                                <div class="name">
-                                    <h3>@p.Name (@p.Price£)</h3>
-                                </div>
+                    <div class="products_list_container">
 
-                                <div class="add_to_chart">
-                                    <div class="input">
-                                        <label>Quantity</label>
-                                        <input placeholder="1" />
+                        @foreach (var p in Model)
+                        {
+                            <div class="product">
+                                <div class="product_container">
+                                    <div class="img_container">
+                                        <img src="~/images/@p.ImgPath" alt="@p.Name" />
                                     </div>
 
-                                    <div class="add_button">
-                                        <button>Add</button>
+                                    <div class="name">
+                                        <h3>@p.Name (@p.Price£)</h3>
                                     </div>
-                                </div>
 
-                                <div class="details">
-                                    <a>See details</a>
+                                    <div class="add_to_chart">
+                                        <div class="input">
+                                            <label>Quantity</label>
+                                            <input placeholder="1" />
+                                        </div>
+
+                                        <div class="add_button">
+                                            <button>Add</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="details">
+                                        <a>See details</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    }
+                        }
 
 
 
+
+                    </div>
 
                 </div>
 
