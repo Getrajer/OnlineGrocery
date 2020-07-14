@@ -1,0 +1,93 @@
+﻿
+header {
+    height: 900px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-content:center;
+    align-items:center;
+}
+
+header .header_container{
+    width:100%;
+    max-width:1750px;
+    height:800px;
+    display:grid;
+    background-color:white;
+    grid-template-columns: 1fr 1fr;
+}
+
+header .left_side{
+    display:flex;
+    justify-content:center;
+    padding: 0 6em;
+}
+
+header .left_side h1{
+    margin-top:1.4em;
+    font-size:7rem;
+}
+
+header .left_side p{
+    padding-top:1.3em;
+    font-size:1.2rem;
+}
+
+header .left_side .thematic_images{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+header .left_side .icon{
+    margin-top:4.5em;
+    text-align:center;
+    border-radius: 50%;
+    transition: 0.5s;
+}
+
+header .left_side .icon:hover{
+    color:  rgba(81, 151, 89, 1);
+}
+
+header .left_side .icon i{
+    font-size:3rem;
+}
+
+header .left_side .icon p{
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing:3px;
+}
+
+header .right_side{
+    background-image:url(../other_images/BacgroundHeaderImg.jpg);
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+    
+    display:flex;
+    justify-content:center;
+    align-content:center;
+    align-items:center;
+}
+
+header .right_side button{
+    font-size:1.8rem;
+    background-color:white;
+    border: unset;
+    height:200px;
+    width:200px;
+    text-transform:uppercase;
+    font-weight:600;
+    letter-spacing:2px;
+    border-radius:50%;
+    transition: 0.5s;
+}
+
+header .right_side button:hover{
+    transform:translateY(-8px);
+}
+
+
+
+
