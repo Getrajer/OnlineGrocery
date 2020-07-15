@@ -1,17 +1,20 @@
-﻿@model ProductCreateViewModel
+﻿@model EditProductViewModel
 
 <head>
-    <link rel="stylesheet" href="~/css/create_product_style.css"/>
+    <link rel="stylesheet" href="~/css/create_product_style.css" />
+    <title>@Model.Title</title>
 </head>
 
 <section class="create_product_page">
     <div class="create_product_page_container">
 
         <div class="title">
-            <h1>Create new product</h1>
+            <h1>@Model.Title</h1>
         </div>
 
-        <form enctype="multipart/form-data" asp-controller="Product" asp-action="CreateProduct" method="post">
+        <form enctype="multipart/form-data" asp-controller="Product" asp-action="EditProduct" method="post">
+            <input hidden asp-for="Id" />
+            <input hidden asp-for="PhotoPath" />
 
             <div class="form_box">
                 <label asp-for="Name"></label>
@@ -28,7 +31,7 @@
             <div class="two_boxes">
                 <div class="form_box">
                     <label asp-for="Quantity"></label>
-                    <input  asp-for="Quantity" />
+                    <input asp-for="Quantity" />
                     <span class="text-danger" asp-validation-for="Quantity"></span>
                 </div>
 
@@ -47,9 +50,16 @@
                 </div>
             </div>
 
-            <div class="form_box">
-                <button class="btn btn-success" type="submit">Add Product</button>
+            <div class="button_box">
+                <button asp-action="DisplayProducts" asp-controller="Product" class="btn btn-success">Cancel</button>
             </div>
+
+
+            <div class="button_box">
+                <button class="btn btn-success" type="submit">Edit</button>
+            </div>
+
+            @Model.PhotoPath Dupa Dupa
 
             <div asp-validation-summary="All" class="text-danger"></div>
 

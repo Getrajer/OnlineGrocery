@@ -126,3 +126,72 @@ header .right_side button:hover{
 
 /*End of header*/
 
+
+/*About*/
+.about{
+    margin:10em 0;
+    display:flex;
+    justify-content:center;
+}
+
+.about .about_container{
+    width:100%;
+    max-width: 1550px;
+
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap:20px;
+}
+
+.about img{
+    width:100%;
+    height:500px;
+}
+
+.about .about_card{
+    display:flex;
+    justify-content:center;
+}
+
+.about .about_card_container{
+    width:100%;
+    max-width:500px;
+    box-shadow:  12px 12px 24px rgba(0, 0, 0, 0.40);
+}
+
+.about .description{
+    background-color:white;
+}
+
+.about p{
+    margin:0;
+}
+
+.about .title{
+    text-align:center;
+    padding:2em 0;
+}
+
+.about .title h3{
+    font-size:2.7rem;
+    letter-spacing:4px;
+    font-weight:700;
+}
+
+.about .text{
+    padding:1em 2.5em 4em 2.5em;
+}
+
+.about .text p{
+    line-height:33px;
+}
+
+
+@media screen and (max-width: 900px){
+    .about .about_container {
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+}
+
+/*End of about*/

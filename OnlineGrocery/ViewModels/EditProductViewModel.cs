@@ -1,14 +1,15 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace OnlineGrocery.Models
+namespace OnlineGrocery.ViewModels
 {
-    public class ProductModel
+    public class EditProductViewModel
     {
+        public string Title { get; set; }
         public int Id { get; set; }
         [Required, MaxLength(60)]
         public string Name { get; set; }
@@ -16,8 +17,10 @@ namespace OnlineGrocery.Models
         public double Price { get; set; }
         [Required, MaxLength(100)]
         public string Description { get; set; }
+        [Required]
         public int Quantity { get; set; }
         public string Type { get; set; }
-        public string ImgPath { get; set; }
+        public string PhotoPath { get; set; }
+        public IFormFile Photo { get; set; }
     }
 }

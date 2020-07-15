@@ -46,8 +46,8 @@ namespace OnlineGrocery.Models
 
         public ProductModel Update(ProductModel edit_product)
         {
-            var user = context.Products.Attach(edit_product);
-            user.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            var product = context.Products.Attach(edit_product);
+            product.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             context.SaveChanges();
             return edit_product;
         }

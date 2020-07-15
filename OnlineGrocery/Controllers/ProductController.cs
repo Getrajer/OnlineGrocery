@@ -87,7 +87,64 @@ namespace OnlineGrocery.Controllers
 
         }
 
+        /// <summary>
+        /// This function will pass EditProductViewmodel to the edit window and it will display edit window
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public IActionResult EditProduct(int Id)
+        {
+            EditProductViewModel model = new EditProductViewModel();
 
+            ProductModel p = _productRepository.GetProduct(Id);
+
+            model.Id = Id;
+            model.Description = p.Description;
+            model.Name = p.Name;
+            model.Price = p.Price;
+            model.Quantity = p.Quantity;
+            model.Title = "Edit " + p.Name;
+            model.PhotoPath = p.ImgPath;
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult EditProduct(EditProductViewModel viewModel)
+        {
+            string ImgPath = "";
+
+            if (ModelState.IsValid)
+            {
+                //If there was an old image and user is editing one then chage image
+                if(viewModel.Photo != null)
+                {
+                    string filepath = Path.Combine(_hostingEnvironment.WebRootPath, "images", viewModel.PhotoPath);
+                    System.IO.File.Delete(filepath);
+                    ProductCreateViewModel pm = new ProductCreateViewModel();
+
+                    ImgPath = ProcessEditFile(viewModel);
+                }
+
+                //Create new file with edited variables
+                ProductModel new_p = new ProductModel();
+                new_p.Id = viewModel.Id;
+                new_p.Description = viewModel.Description;
+                new_p.ImgPath = ImgPath;
+                new_p.Name = viewModel.Name;
+                new_p.Price = viewModel.Price;
+                new_p.Quantity = viewModel.Quantity;
+                new_p.Type = viewModel.Type;
+
+
+                _productRepository.Update(new_p);
+            }
+
+            return RedirectToAction("DisplayProducts");
+        }
+
+        #region Helping Functions
         /// <summary>
         /// This function will process image path
         /// </summary>
@@ -110,6 +167,28 @@ namespace OnlineGrocery.Controllers
         }
 
 
+        /// <summary>
+        /// This function will process image path
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        private string ProcessEditFile(EditProductViewModel model)
+        {
+            string uniqueFileName = null;
+            if (model.Photo != null)
+            {
+                string uploadsFolder = Path.Combine(_hostingEnvironment.WebRootPath, "images");
+                uniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(model.Photo.FileName);
+                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    model.Photo.CopyTo(fileStream);
+                }
+            }
+            return uniqueFileName;
+        }
+
+        #endregion
     }
 }
 

@@ -40,11 +40,11 @@ button:focus {
 
 .products .products_menu{
     position:relative;
-    background-color:white;
+    background-color:#1e4e41;
     border-bottom-left-radius:0.5em;
     height:100%;
     width:100%;
-    max-width:190px;
+    max-width:220px;
 }
 
 .products ul{
@@ -58,7 +58,8 @@ button:focus {
 }
 
 .products ul button{
-    background-color: #307e69;
+    background-color:unset;
+    text-align:left;
     color:white;
     border-radius: 0.3em;
     width:100%;
@@ -72,7 +73,7 @@ button:focus {
 }
 
 .products ul button:hover{
-    background-color: #3ea086;
+    color:#53d5b3;
 }
 
 .products .l_container{

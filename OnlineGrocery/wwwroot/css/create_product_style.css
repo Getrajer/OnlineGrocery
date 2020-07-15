@@ -77,9 +77,8 @@ button:focus{
 
 .create_product_page textarea {
     width: 100%;
-    border: unset;
+    border:3px solid #c4c4c4;
     border-radius: unset;
-    border-bottom: 3px solid #c4c4c4;
     transition: 0.5s border;
     height: 100px;
     resize: none;
@@ -107,7 +106,7 @@ button:focus{
 }
 
 .create_product_page textarea:focus {
-    border-bottom: 3px solid #307e69;
+    border: 3px solid #307e69;
 }
 
 .create_product_page button{
@@ -126,4 +125,16 @@ button:focus{
 
 .create_product_page button:hover{
     background-color:#3ea086;
+}
+
+.button_box {
+    display: block;
+    padding: 1em 0;
+    text-align:right;
+}
+
+.button_box button{
+    margin:0;
+    float:unset;
+    width: 200px;
 }
