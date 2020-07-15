@@ -52,6 +52,7 @@ namespace OnlineGrocery.Controllers
                 product.Name = model.Name;
                 product.Price = model.Price;
                 product.Quantity = model.Quantity;
+                product.Type = model.Type;
 
                 _productRepository.Add(product);
 
@@ -106,10 +107,17 @@ namespace OnlineGrocery.Controllers
             model.Quantity = p.Quantity;
             model.Title = "Edit " + p.Name;
             model.PhotoPath = p.ImgPath;
+            model.Type = p.Type;
+            model.Photo = null;
 
             return View(model);
         }
 
+        /// <summary>
+        /// This function will post editing the file to the database
+        /// </summary>
+        /// <param name="viewModel"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult EditProduct(EditProductViewModel viewModel)
         {
@@ -131,15 +139,42 @@ namespace OnlineGrocery.Controllers
                 ProductModel new_p = new ProductModel();
                 new_p.Id = viewModel.Id;
                 new_p.Description = viewModel.Description;
-                new_p.ImgPath = ImgPath;
                 new_p.Name = viewModel.Name;
                 new_p.Price = viewModel.Price;
                 new_p.Quantity = viewModel.Quantity;
                 new_p.Type = viewModel.Type;
 
 
+                if(ImgPath != "")
+                {
+                    new_p.ImgPath = ImgPath;
+                }
+                else
+                {
+                    new_p.ImgPath = viewModel.PhotoPath;
+                }
+
                 _productRepository.Update(new_p);
             }
+            return RedirectToAction("DisplayProducts");
+        }
+
+        /// <summary>
+        /// This function will delete product from the database and image from images folder
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        public IActionResult DeleteProduct(EditProductViewModel viewModel)
+        {
+
+            //Delete image
+            if(viewModel.PhotoPath != null)
+            {
+                string filepath = Path.Combine(_hostingEnvironment.WebRootPath, "images", viewModel.PhotoPath);
+                System.IO.File.Delete(filepath);
+            }
+
+            _productRepository.Delete(viewModel.Id);
 
             return RedirectToAction("DisplayProducts");
         }

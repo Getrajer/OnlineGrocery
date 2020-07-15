@@ -17,11 +17,23 @@ button:focus{
     outline:unset;
 }
 
-.create_product_page .create_product_page_container{
-    width:100%;
-    max-width:600px;
-    margin:4em 0;
-    background-color:white;
+.create_product_page{
+    padding:5em 0 10em 0;
+}
+
+.create_product_page .create_product_page_container {
+    width: 100%;
+    max-width: 600px;
+    background-color: white;
+}
+
+.create_product_page .form_box_radio{
+    padding:1em 0;
+}
+
+.create_product_page .form_box_radio input{
+    display:inline;
+    width:30px;
 }
 
 .create_product_page .title{
@@ -130,11 +142,12 @@ button:focus{
 .button_box {
     display: block;
     padding: 1em 0;
-    text-align:right;
+    text-align:center;
 }
 
 .button_box button{
     margin:0;
     float:unset;
-    width: 200px;
+    font-weight:700;
+    width: 300px;
 }

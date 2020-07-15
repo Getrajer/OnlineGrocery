@@ -5,6 +5,11 @@
     <title>@Model.Title</title>
 </head>
 
+@{
+    Types typeList = new Types();
+}
+
+
 <section class="create_product_page">
     <div class="create_product_page_container">
 
@@ -42,6 +47,23 @@
                 </div>
             </div>
 
+            @Model.Type
+
+            <div class="form_box_radio">
+                <label class="label">Select type of product</label>
+                @foreach (var item in typeList.TypesList)
+                {
+                    @if(item == Model.Type)
+                    {
+                        <p><input checked asp-for="Type" type="radio" value="@item" /> @item</p>
+                    }
+                    else
+                    {
+                        <p><input asp-for="Type" type="radio" value="@item" /> @item</p>
+                    }
+                }
+            </div>
+
             <div class="form_box">
                 <label asp-for="Photo"></label>
                 <div class="custom-file">
@@ -54,12 +76,15 @@
                 <button asp-action="DisplayProducts" asp-controller="Product" class="btn btn-success">Cancel</button>
             </div>
 
-
             <div class="button_box">
                 <button class="btn btn-success" type="submit">Edit</button>
             </div>
 
-            @Model.PhotoPath Dupa Dupa
+            <div class="button_box">
+                <button asp-action="DeleteProduct" asp-controller="Product" class="btn btn-success">Delete Product</button>
+            </div>
+
+
 
             <div asp-validation-summary="All" class="text-danger"></div>
 

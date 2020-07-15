@@ -4,6 +4,10 @@
     <link rel="stylesheet" href="~/css/create_product_style.css"/>
 </head>
 
+@{ 
+    Types typeList = new Types();
+}
+
 <section class="create_product_page">
     <div class="create_product_page_container">
 
@@ -28,7 +32,7 @@
             <div class="two_boxes">
                 <div class="form_box">
                     <label asp-for="Quantity"></label>
-                    <input  asp-for="Quantity" />
+                    <input asp-for="Quantity" />
                     <span class="text-danger" asp-validation-for="Quantity"></span>
                 </div>
 
@@ -38,6 +42,16 @@
                     <span class="text-danger" asp-validation-for="Price"></span>
                 </div>
             </div>
+
+            <div class="form_box_radio">
+                <label class="label">Select type of product</label>
+                    @foreach (var item in typeList.TypesList)
+                    {
+                        <p><input asp-for="Type" type="radio" value="@item" /> @item</p>
+                    }
+            </div>
+
+
 
             <div class="form_box">
                 <label asp-for="Photo"></label>
