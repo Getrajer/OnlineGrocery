@@ -137,25 +137,30 @@ header .right_side button:hover{
 .about .about_container{
     width:100%;
     max-width: 1550px;
-
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap:20px;
 }
 
 .about img{
     width:100%;
-    height:500px;
+    height:660px;
 }
 
 .about .about_card{
     display:flex;
     justify-content:center;
+    padding:4em 0;
 }
 
 .about .about_card_container{
     width:100%;
-    max-width:500px;
+    display:grid;
+    grid-template-columns: 60% 40%;
+    box-shadow:  12px 12px 24px rgba(0, 0, 0, 0.40);
+}
+
+.about .about_card_container_right{
+    width:100%;
+    display:grid;
+    grid-template-columns: 40% 60%;
     box-shadow:  12px 12px 24px rgba(0, 0, 0, 0.40);
 }
 
@@ -169,29 +174,65 @@ header .right_side button:hover{
 
 .about .title{
     text-align:center;
-    padding:2em 0;
+    padding:10em 0 2em 0;
 }
 
 .about .title h3{
-    font-size:2.7rem;
+    font-size:3rem;
     letter-spacing:4px;
     font-weight:700;
 }
 
 .about .text{
-    padding:1em 2.5em 4em 2.5em;
+    padding:3em 2.5em 4em 2.5em;
 }
 
 .about .text p{
-    line-height:33px;
+    line-height:35px;
+    font-size:1.2rem;
+    font-weight:600;
+    letter-spacing:3px;
 }
 
 
-@media screen and (max-width: 900px){
-    .about .about_container {
-        width: 100%;
-        grid-template-columns: 1fr;
+@media screen and (max-width: 1160px){
+    .about .title {
+        text-align: center;
+        padding: 5em 0 2em 0;
+    }
+
+    .about .text {
+        padding: 2em 2.5em 4em 2.5em;
+    }
+
+    .about .text p{
+        line-height:32px;
     }
 }
 
-/*End of about*/
+@media screen and (max-width: 1000px) {
+    .about .about_card_container_right {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "Img"
+            "TXT";
+        width:100%;
+        max-width:500px;
+    }
+
+    .about .about_card_container_right .img_container{
+        grid-area: Img;
+    }
+
+    .about .about_card_container_right .description {
+        grid-area: TXT;
+    }
+
+    .about .about_card_container {
+        grid-template-columns: 1fr;
+        width: 100%;
+        max-width: 500px;
+    }
+}
+
+    /*End of about*/
