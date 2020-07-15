@@ -57,7 +57,7 @@ button:focus {
     padding:0.8em 0;
 }
 
-.products ul button{
+.products ul a{
     background-color:unset;
     text-align:left;
     color:white;
@@ -69,10 +69,11 @@ button:focus {
     font-size: 1.2rem;
     font-weight:700;
     letter-spacing:3px;
+    text-decoration:unset;
     transition: 0.5s;
 }
 
-.products ul button:hover{
+.products ul a:hover{
     color:#53d5b3;
 }
 
@@ -90,8 +91,15 @@ button:focus {
     grid-gap: 20px;
 }
 
+.products .products_list .left_button{
+    display:flex;
+    justify-content:center;
+    align-content:center;
+    align-items:center;
+}
+
 .products .products_list .left_button_container{
-    height:100%;
+    height:50%;
     width:100%;
     display:flex;
     justify-content:center;
@@ -110,8 +118,15 @@ button:focus {
     color:white;
 }
 
+.products .products_list .right_button{
+    display:flex;
+    justify-content:center;
+    align-content:center;
+    align-items:center;
+}
+
 .products .products_list .right_button_container{
-    height:100%;
+    height:50%;
     width:100%;
     display:flex;
     justify-content:center;

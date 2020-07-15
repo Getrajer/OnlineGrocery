@@ -21,9 +21,69 @@ namespace OnlineGrocery.Controllers
             _productRepository = productRepository;
         }
 
-        public IActionResult DisplayProducts()
+        public IActionResult DisplayProducts(int Id)
         {
-            var model = _productRepository.GetAllProducts();
+            DisplayProductsViewModel model = new DisplayProductsViewModel();
+
+            List<ProductModel> Products = (_productRepository.GetAllProducts()).ToList();
+
+            model.CurrentType = Id;
+
+            //If user sorts to diffrent categort reset item counter
+            if(model.CurrentType != Id) { model.ItemCount = 0; }
+
+            string type_choice = "";
+
+            switch (Id)
+            {
+                case 1: type_choice = "All"; break;
+                case 2: type_choice = "Vegetables"; break;
+                case 3: type_choice = "Fruits"; break;
+                case 4: type_choice = "Meats"; break;
+                case 5: type_choice = "Fish"; break;
+                case 6: type_choice = "Drinks"; break;
+                case 7: type_choice = "Creams"; break;
+                case 8: type_choice = "DatesNuts"; break;
+                case 9: type_choice = "Bakeary"; break;
+                case 10: type_choice = "Baby"; break;
+                case 11: type_choice = "Other"; break;
+            }
+
+            //If to showcase all products there is no if() statement
+            if(type_choice == "All")
+            {
+                for (int i = 0; i < 15; i++)
+                {
+                    model.Products.Add(Products[i]);
+                    model.ItemCount++;
+
+                    //If there is more than 15 items allow user to scroll for them
+                    if (i + 1 == 15 && (i + 1 >= Products.Count)) { model.ShowNext = true; }
+
+                    //If there is no more products
+                    if (Products.Count == i + 1)
+                    {
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < 15; i++)
+                {
+                    if (Products[i].Type == type_choice) { model.Products.Add(Products[i]); }
+                    model.ItemCount++;
+
+                    //If there is more than 15 items allow user to scroll for them
+                    if (i + 1 == 15 && (i + 1 >= Products.Count)) { model.ShowNext = true; }
+
+                    //If there is no more products
+                    if (Products.Count == i + 1)
+                    {
+                        break;
+                    }
+                }
+            }
 
             return View(model);
         }
@@ -56,10 +116,8 @@ namespace OnlineGrocery.Controllers
 
                 _productRepository.Add(product);
 
-
                 return RedirectToAction("ProductDetails", new { id = product.Id });
             }
-
             return View();
         }
 
@@ -81,11 +139,9 @@ namespace OnlineGrocery.Controllers
             {
                 product = product,
                 PageTitle = product.Name
-
             };
 
             return View(productDetailsViewModel);
-
         }
 
         /// <summary>

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ProductModel>
+﻿@model DisplayProductsViewModel
 
 <head>
     <link rel="stylesheet" href="~/css/display_products_style.css" />
@@ -22,55 +22,59 @@
             <div class="products_menu">
                 <ul>
                     <li>
-                        <button>All Products</button>
+                        <a asp-action="DisplayProducts" asp-controller="Product" asp-route-id="1">All Products</a>
                     </li>
                     <li>
-                        <button><i class="fas fa-carrot"></i> Vegetables</button>
+                        <a asp-action="DisplayProducts" asp-controller="Product" asp-route-id="2"><i class="fas fa-carrot"></i> Vegetables</a>
                     </li>
                     <li>
-                        <button><i class="fas fa-apple-alt"></i> Fruits</button>
+                        <a asp-action="DisplayProducts" asp-controller="Product" asp-route-id="3"><i class="fas fa-apple-alt"></i> Fruits</a>
                     </li>
                     <li>
-                        <button><i class="fas fa-drumstick-bite"></i> Meats</button>
+                        <a asp-action="DisplayProducts" asp-controller="Product" asp-route-id="4"><i class="fas fa-drumstick-bite"></i> Meats</a>
                     </li>
                     <li>
-                        <button><i class="fas fa-fish"></i> Fish</button>
+                        <a asp-action="DisplayProducts" asp-controller="Product" asp-route-id="5"><i class="fas fa-fish"></i> Fish</a>
                     </li>
                     <li>
-                        <button><i class="fas fa-wine-bottle"></i> Drinks</button>
+                        <a asp-action="DisplayProducts" asp-controller="Product" asp-route-id="6"><i class="fas fa-wine-bottle"></i> Drinks</a>
                     </li>
                     <li>
-                        <button><i class="fas fa-blender"></i> Creams</button>
+                        <a asp-action="DisplayProducts" asp-controller="Product" asp-route-id="7"><i class="fas fa-blender"></i> Creams</a>
                     </li>
                     <li>
-                        <button><i class="fab fa-nutritionix"></i> Dates, Nuts</button>
+                        <a asp-action="DisplayProducts" asp-controller="Product" asp-route-id="8"><i class="fab fa-nutritionix"></i> Dates, Nuts</a>
                     </li>
                     <li>
-                        <button><i class="fas fa-bread-slice"></i> Bakeary</button>
+                        <a asp-action="DisplayProducts" asp-controller="Product" asp-route-id="9"><i class="fas fa-bread-slice"></i> Bakeary</a>
                     </li>
                     <li>
-                        <button><i class="fas fa-baby"></i> Baby</button>
+                        <a asp-action="DisplayProducts" asp-controller="Product" asp-route-id="10"><i class="fas fa-baby"></i> Baby</a>
+                    </li>
+                    <li>
+                        <a asp-action="DisplayProducts" asp-controller="Product" asp-route-id="11"><i class="fas fa-boxes"></i> Other</a>
                     </li>
                 </ul>
             </div>
-
+            
             <div class="products_list">
 
                 <div class="left_button">
-                    <!--
-                    <div class="left_button_container">
-                        <p>&lt;</p>
-                    </div>
-                    -->
+
+                    @if (Model.ShowPrevious == true)
+                    {
+                        <div class="left_button_container">
+                            <p>&lt;</p>
+                        </div>
+                    }
+
 
 
                 </div>
                 <div class="l_container">
-
-
                     <div class="products_list_container">
 
-                        @foreach (var p in Model)
+                        @foreach (var p in Model.Products)
                         {
                             <div class="product">
                                 <div class="product_container">
@@ -79,7 +83,7 @@
                                     </div>
 
                                     <div class="name">
-                                        <h3>@p.Type (@p.Price£)</h3>
+                                        <h3>@p.Name (@p.Price£)</h3>
                                     </div>
 
                                     <div class="add_to_chart">
@@ -93,23 +97,22 @@
                                         </div>
                                     </div>
                                     <div class="details">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="EditProduct" asp-route-id="@p.Id">Edit</a>
+                                        <a class="nav-link text-dark" asp-controller="Product" asp-action="EditProduct" asp-route-id="@p.Id">Edit</a>
                                     </div>
                                 </div>
                             </div>
                         }
 
-
-
-
                     </div>
-
                 </div>
 
                 <div class="right_button">
-                    <div class="left_button_container">
-                        <p>&gt;</p>
-                    </div>
+                    @if (Model.ShowNext == true)
+                    {
+                        <div class="left_button_container">
+                            <p>&gt;</p>
+                        </div>
+                    }
                 </div>
 
             </div>
