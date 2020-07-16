@@ -1,4 +1,6 @@
-﻿
+﻿@model AdminNavViewModel
+
+
     <div class="admin_navigation">
         <div class="admin_navigation_container">
             <div class="admin_profile">
@@ -21,9 +23,19 @@
                 </div>
 
                 <ul>
-                    <li >
-                        <a class="link" asp-controller="Admin" asp-action="MainAdminPage"><i class="fas fa-home"></i> Main Page</a>
-                    </li>
+                    @if (Model.LinkId == 1)
+                    {
+                        <li class="on_site">
+                            <a class="link" asp-controller="Admin" asp-action="MainAdminPage"><i class="fas fa-home"></i> Main Page</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a class="link" asp-controller="Admin" asp-action="MainAdminPage"><i class="fas fa-home"></i> Main Page</a>
+                        </li>
+                    }
+
                 </ul>
             </div>
 
@@ -33,13 +45,33 @@
                 </div>
 
                 <ul>
-                    <li>
-                        <a class="link" asp-controller="Product" asp-action="CreateProduct"><i class="fas fa-plus-circle"></i> Create Product</a>
-                    </li>
 
-                    <li>
-                        <a asp-controller="Product" asp-action="ProductsListAdmin" class="link"><i class="fas fa-list"></i> Display Products</a>
-                    </li>
+                    @if (Model.LinkId == 2)
+                    {
+                        <li class="on_site">
+                            <a class="link" asp-controller="Product" asp-action="CreateProduct"><i class="fas fa-plus-circle"></i> Create Product</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a class="link" asp-controller="Product" asp-action="CreateProduct"><i class="fas fa-plus-circle"></i> Create Product</a>
+                        </li>
+                    }
+
+                    @if (Model.LinkId == 3)
+                    {
+                        <li class="on_site">
+                            <a asp-controller="Product" asp-action="ProductsListAdmin" class="link"><i class="fas fa-list"></i> Display Products</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a asp-controller="Product" asp-action="ProductsListAdmin" class="link"><i class="fas fa-list"></i> Display Products</a>
+                        </li>
+                    }
+
                 </ul>
             </div>
 
@@ -50,9 +82,20 @@
                 </div>
 
                 <ul>
-                    <li>
-                        <a asp-controller="Users" asp-action="UsersListAdmin" class="link"><i class="fas fa-users"></i>Display users</a>
-                    </li>
+
+                    @if (Model.LinkId == 4)
+                    {
+                        <li class="on_site">
+                            <a asp-controller="Users" asp-action="UsersListAdmin" class="link"><i class="fas fa-users"></i> Display users</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a asp-controller="Users" asp-action="UsersListAdmin" class="link"><i class="fas fa-users"></i> Display users</a>
+                        </li>
+                    }
+
 
                     <li>
                         <a class="link"><i class="fas fa-user-friends"></i> Open statistics</a>

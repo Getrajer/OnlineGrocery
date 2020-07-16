@@ -19,5 +19,7 @@ namespace OnlineGrocery.Models
         public DbSet<UserModel> Users { get; set; }
 
         public DbSet<ProductModel> Products { get; set; }
+
+        public DbSet<CMSIndexPageModel> IndexPageModel { get; set; }
     }
 }
