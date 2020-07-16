@@ -1,6 +1,7 @@
 ﻿
 <head>
     <link rel="stylesheet" href="~/css/main_admin_style.css" />
+    <link rel="stylesheet" href="~/css/admin_display_products_style.css"/>
 </head>
 
 <section class="admin_site">
@@ -58,7 +59,7 @@
 
                     <ul>
                         <li>
-                            <a class="link" ><i class="fas fa-users"></i> See users</a>
+                            <a asp-controller="Users" asp-action="UsersListAdmin" class="link"><i class="fas fa-users"></i>Display users</a>
                         </li>
 
                         <li>

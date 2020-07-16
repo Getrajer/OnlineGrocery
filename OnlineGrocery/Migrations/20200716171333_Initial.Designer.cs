@@ -9,8 +9,8 @@ using OnlineGrocery.Models;
 namespace OnlineGrocery.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200714141035_ChangingProduct")]
-    partial class ChangingProduct
+    [Migration("20200716171333_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -72,6 +72,12 @@ namespace OnlineGrocery.Migrations
 
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("MoneySpent")
+                        .HasColumnType("float");
+
+                    b.Property<int>("OrdersAmmount")
+                        .HasColumnType("int");
 
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");

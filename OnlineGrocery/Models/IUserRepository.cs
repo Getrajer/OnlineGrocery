@@ -16,5 +16,6 @@ namespace OnlineGrocery.Models
         UserModel Update(UserModel edit_user);
 
         UserModel Delete(int Id);
+
     }
 }

@@ -1,14 +1,9 @@
-﻿@model EditProductViewModel
+﻿@model IEnumerable<UserModel>
 
 <head>
     <link rel="stylesheet" href="~/css/main_admin_style.css" />
-    <link rel="stylesheet" href="~/css/create_product_style.css" />
-    <title>@Model.Title</title>
+    <link rel="stylesheet" href="~/css/admin_display_products_style.css"/>
 </head>
-
-@{
-    Types typeList = new Types();
-}
 
 <section class="admin_site">
     <div class="admin_site_container">
@@ -51,7 +46,7 @@
                             <a class="link" asp-controller="Product" asp-action="CreateProduct"><i class="fas fa-plus-circle"></i> Create Product</a>
                         </li>
 
-                        <li class="on_site">
+                        <li>
                             <a asp-controller="Product" asp-action="ProductsListAdmin" class="link"><i class="fas fa-list"></i> Display Products</a>
                         </li>
                     </ul>
@@ -64,8 +59,8 @@
                     </div>
 
                     <ul>
-                        <li>
-                            <a asp-controller="Users" asp-action="UsersListAdmin" class="link"><i class="fas fa-users"></i> Display users</a>
+                        <li class="on_site">
+                            <a asp-controller="Users" asp-action="UsersListAdmin" class="link"><i class="fas fa-users"></i> Displey users</a>
                         </li>
 
                         <li>
@@ -151,98 +146,44 @@
         </div>
 
         <div class="admin_content_page">
-            <section class="create_product_page">
-                <div class="create_product_page_container">
+            <div class="table_page">
+                <div class="table_page_container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">City</th>
+                                <th scope="col">Orders</th>
+                                <th scope="col">Spent Money</th>
+                                <th></th>
+                            </tr>
+                        </thead>
 
-                    <div class="title">
-                        <h1>@Model.Title</h1>
-                    </div>
-
-                    <form enctype="multipart/form-data" asp-controller="Product" asp-action="EditProduct" method="post">
-                        <input hidden asp-for="Id" />
-                        <input hidden asp-for="PhotoPath" />
-
-                        <div class="form_box">
-                            <label asp-for="Name"></label>
-                            <input asp-for="Name" />
-                            <span class="text-danger" asp-validation-for="Name"></span>
-                        </div>
-
-                        <div class="form_box_textarea">
-                            <label asp-for="Description"></label>
-                            <textarea asp-for="Description"></textarea>
-                            <span class="text-danger" asp-validation-for="Description"></span>
-                        </div>
-
-                        <div class="two_boxes">
-                            <div class="form_box">
-                                <label asp-for="Quantity"></label>
-                                <input asp-for="Quantity" />
-                                <span class="text-danger" asp-validation-for="Quantity"></span>
-                            </div>
-
-                            <div class="form_box">
-                                <label asp-for="Price"></label>
-                                <input asp-for="Price" />
-                                <span class="text-danger" asp-validation-for="Price"></span>
-                            </div>
-                        </div>
-
-                        <div class="form_box_radio">
-                            <label class="label">Select type of product</label>
-                            @foreach (var item in typeList.TypesList)
+                        <tbody>
+                            @foreach (var u in Model)
                             {
-                                @if (item == Model.Type)
-                                {
-                                    <p><input checked asp-for="Type" type="radio" value="@item" /> @item</p>
-                                }
-                                else
-                                {
-                                    <p><input asp-for="Type" type="radio" value="@item" /> @item</p>
-                                }
+                                <tr>
+                                    <td>@u.Id</td>
+                                    <td>@u.FirstName @u.LastName</td>
+                                    <td>@u.Email</td>
+                                    <td>@u.City</td>
+                                    <td>@u.OrdersAmmount</td>
+                                    <td>@u.MoneySpent£</td>
+                                    <td>
+                                        <a asp-controller="Product" asp-action="EditProduct" asp-route-id="@u.Id">Edit</a>
+                                    </td>
+                                </tr>
                             }
-                        </div>
-
-                        <div class="form_box">
-                            <label asp-for="Photo"></label>
-                            <div class="custom-file">
-                                <input asp-for="Photo" class="custom-file-input">
-                                <label class="custom-file-label">Choose File...</label>
-                            </div>
-                        </div>
-
-                        <div class="button_box">
-                            <button asp-action="DisplayProducts" asp-controller="Product" class="btn btn-success">Cancel</button>
-                        </div>
-
-                        <div class="button_box">
-                            <button class="btn btn-success" type="submit">Edit</button>
-                        </div>
-
-                        <div class="button_box">
-                            <button asp-action="DeleteProduct" asp-controller="Product" class="btn btn-success">Delete Product</button>
-                        </div>
-
-
-
-                        <div asp-validation-summary="All" class="text-danger"></div>
-
-                        @section Scripts {
-                            <script>
-                                $(document).ready(function () {
-                                    $('.custom-file-input').on("change", function () {
-                                        var fileName = $(this).val().split("\\").pop();
-                                        $(this).next('.custom-file-label').html(fileName);
-                                    });
-                                });
-                            </script>
-                        }
-
-                    </form>
-
+                        </tbody>
+                    </table>
                 </div>
-            </section>
+            </div>
         </div>
 
     </div>
 </section>
+
+
+

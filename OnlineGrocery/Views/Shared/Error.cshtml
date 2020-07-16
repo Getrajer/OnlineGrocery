@@ -1,25 +1,24 @@
-﻿@model ErrorViewModel
-@{
-    ViewData["Title"] = "Error";
-}
+﻿<h3>
+    An occured while processing your request. The support
+    team is notified and we are working on the fix
+</h3>
+<h5>Please contact us on onlineshop@gmail.com</h5>
+<hr />
+<h3>Exception Details:</h3>
+<div class="alert alert-danger">
+    <h5>Exception Path</h5>
+    <hr />
+    <p>@ViewBag.ExceptionPath</p>
+</div>
 
-<h1 class="text-danger">Error.</h1>
-<h2 class="text-danger">An error occurred while processing your request.</h2>
+<div class="alert alert-danger">
+    <h5>Exception Message</h5>
+    <hr />
+    <p>@ViewBag.ExceptionMessage</p>
+</div>
 
-@if (Model.ShowRequestId)
-{
-    <p>
-        <strong>Request ID:</strong> <code>@Model.RequestId</code>
-    </p>
-}
-
-<h3>Development Mode</h3>
-<p>
-    Swapping to <strong>Development</strong> environment will display more detailed information about the error that occurred.
-</p>
-<p>
-    <strong>The Development environment shouldn't be enabled for deployed applications.</strong>
-    It can result in displaying sensitive information from exceptions to end users.
-    For local debugging, enable the <strong>Development</strong> environment by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong>
-    and restarting the app.
-</p>
+<div class="alert alert-danger">
+    <h5>Exception Stack Trace</h5>
+    <hr />
+    <p>@ViewBag.StackTrace</p>
+</div>

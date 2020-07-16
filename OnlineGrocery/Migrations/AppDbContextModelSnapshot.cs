@@ -71,6 +71,12 @@ namespace OnlineGrocery.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<double>("MoneySpent")
+                        .HasColumnType("float");
+
+                    b.Property<int>("OrdersAmmount")
+                        .HasColumnType("int");
+
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
 

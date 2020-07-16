@@ -2,7 +2,7 @@
 .table_page{
     display:flex;
     justify-content:center;
-    padding-top:5em;
+    padding: 6em 0;
 }
 
 .table_page .table_page_container{

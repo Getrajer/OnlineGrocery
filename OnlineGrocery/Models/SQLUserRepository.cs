@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -12,6 +13,8 @@ namespace OnlineGrocery.Models
         public SQLUserRepository(AppDbContext context)
         {
             this.context = context;
+
+
         }
 
         public UserModel Add(UserModel userModel)
@@ -43,6 +46,9 @@ namespace OnlineGrocery.Models
         {
             return context.Users.Find(Id);
         }
+
+
+
 
         public UserModel Update(UserModel edit_user)
         {
