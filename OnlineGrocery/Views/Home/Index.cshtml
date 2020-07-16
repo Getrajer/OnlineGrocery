@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ProductModel>
+﻿@model IndexViewModel
 
 @{
     ViewBag.Title = "Online Grocary";
@@ -106,6 +106,112 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+<section class="our_products">
+    <div class="our_products_container">
+        <div class="title">
+            <h1>Our Products</h1>
+        </div>
+
+        <div class="button_container">
+            <div class="button_c">
+                <a asp-controller="Product" asp-action="DisplayProducts"  asp-route-id="1">GO <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="contact_form">
+    <div class="contact_form_container">
+
+        <div class="left_contact">
+            <div class="left_contact_container">
+                <div class="title">
+                    <h3>Lets get in touch</h3>
+                </div>
+
+                <div class="text">
+                    <p>Leave us review or advice ;)</p>
+                </div>
+
+
+                <div class="contact_means">
+                    <div class="contact">
+                        <div class="icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+
+                        <div class="desc">
+                            <p>+44 569458423</p>
+                            <p>+44 548625987</p>
+                        </div>
+                    </div>
+
+
+                    <div class="contact">
+                        <div class="icon">
+                            <i class="fas fa-envelope-open-text"></i>
+                        </div>
+
+                        <div class="desc">
+                            <p>onlinegrocery@gmail.com</p>
+                            <p>organicnetwork@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact">
+                        <div class="icon">
+                            <i class="fas fa-search-location"></i>
+                        </div>
+
+                        <div class="desc">
+                            <p>11 High Road</p>
+                            <p>N64 LT</p>
+                            <p>London</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="right_contact">
+            <div class="right_contact_container">
+                <form enctype="multipart/form-data" method="post">
+
+                    <div class="form_box">
+                        <label asp-for="Name"><i class="fas fa-user"></i> Your Name</label>
+                        <input asp-for="Name" />
+                        <span class="text-danger" asp-validation-for="Name"></span>
+                    </div>
+
+                    <div class="form_box">
+                        <label asp-for="Email"><i class="fas fa-envelope-open-text"></i> Your Email</label>
+                        <input asp-for="Email" />
+                        <span class="text-danger" asp-validation-for="Email"></span>
+                    </div>
+
+                    <div class="form_box">
+                        <label asp-for="Message"><i class="fas fa-comment-dots"></i> Your Message</label>
+                        <textarea asp-for="Message"></textarea>
+                        <span class="text-danger" asp-validation-for="Message"></span>
+                    </div>
+
+                    <div class="form_box">
+                        <button type="submit">Send Message</button>
+                    </div>
+
+                </form>
             </div>
         </div>
 

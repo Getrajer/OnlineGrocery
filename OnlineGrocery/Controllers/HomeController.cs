@@ -27,14 +27,7 @@ namespace OnlineGrocery.Controllers
 
         public IActionResult Index()
         {
-            HomeIndexViewModel homeIndexViewModel = new HomeIndexViewModel()
-            {
-                
-            };
-
-            var model = _productRepository.GetAllProducts();
-
-            return View(model);
+            return View();
         }
 
         public JsonResult Details(int id)

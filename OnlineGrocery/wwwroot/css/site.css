@@ -10,6 +10,9 @@ a {
     text-decoration: unset;
 }
 
+input:focus, textarea:focus{
+    outline:unset!important;
+}
 
 a.navbar-brand {
   white-space: normal;
