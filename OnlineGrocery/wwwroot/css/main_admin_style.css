@@ -9,11 +9,12 @@
     height:100%;
     min-height:100vh;
     display: grid;
-    grid-template-columns: 270px auto;
+    grid-template-columns: 290px auto;
 }
 
 .admin_site .admin_navigation{
     height:100%;
+    width:100%;
 }
 
 
@@ -59,7 +60,7 @@
 }
 
 .admin_site .controll_list{
-    padding: 1em 0.2em;
+    padding: 1em 0.5em;
     border-bottom: 1px solid rgba(48, 111, 122, 0.50);
 }
 
@@ -75,17 +76,23 @@
 }
 
 .admin_site .controll_list ul li{
-    padding: 0.5em 0;
+    padding: 0.5em 0.4em;
+    border-radius:0.3em;
 }
 
-.admin_site .controll_list a{
-    cursor:pointer;
-    transition:0.5s color;
-    font-size:1.1rem;
-    font-weight:600;
-    letter-spacing:3px;
+.on_site{
+    background-color: #22515a;
 }
 
-.admin_site .controll_list a:hover{
-    color:rgba(35, 134, 151, 1);
+.admin_site .controll_list li .link {
+    cursor: pointer;
+    transition: 0.5s color;
+    font-size: 1.1rem;
+    color:white;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+.admin_site .controll_list .link:hover {
+    color: rgba(35, 134, 151, 1);
 } 

@@ -22,7 +22,7 @@
             <div class="products_menu">
                 <ul>
                     <li>
-                        <a asp-action="DisplayProducts" asp-controller="Product" asp-route-id="1">All Products</a>
+                        <a asp-action="DisplayProducts" asp-controller="Product" asp-route-id="1"><i class="fas fa-layer-group"></i> All Products</a>
                     </li>
                     <li>
                         <a asp-action="DisplayProducts" asp-controller="Product" asp-route-id="2"><i class="fas fa-carrot"></i> Vegetables</a>
@@ -97,7 +97,7 @@
                                         </div>
                                     </div>
                                     <div class="details">
-                                        <a class="nav-link text-dark" asp-controller="Product" asp-action="EditProduct" asp-route-id="@p.Id">Edit</a>
+                                        <a asp-controller="Product" asp-action="EditProduct" asp-route-id="@p.Id">Edit</a>
                                     </div>
                                 </div>
                             </div>

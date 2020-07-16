@@ -235,6 +235,18 @@ namespace OnlineGrocery.Controllers
             return RedirectToAction("DisplayProducts");
         }
 
+        /// <summary>
+        /// This function will show list of products for admin managment system
+        /// </summary>
+        /// <returns></returns>
+        public IActionResult ProductsListAdmin()
+        {
+            var model = _productRepository.GetAllProducts();
+
+            return View(model);
+        }
+
+
         #region Helping Functions
         /// <summary>
         /// This function will process image path
