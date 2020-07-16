@@ -1,0 +1,91 @@
+﻿
+.admin_site{
+    height:100%;
+    min-height:100vh;
+}
+
+.admin_site .admin_site_container {
+    width: 100%;
+    height:100%;
+    min-height:100vh;
+    display: grid;
+    grid-template-columns: 270px auto;
+}
+
+.admin_site .admin_navigation{
+    height:100%;
+}
+
+
+.admin_site .admin_navigation_container {
+    background-color: #07252a;
+    height:100%;
+    color: white;
+    padding-bottom:4em;
+}
+
+.admin_site .admin_profile{
+    background-color:#1b4148;
+}
+
+
+.admin_site .profile_img{
+    display:flex;
+    justify-content:center;
+    padding:1em 0;
+}
+
+.admin_site .profile_img_container{
+    width:200px;
+    height:200px;
+    background-color:white;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-content:center;
+    align-items:center;
+}
+
+
+.admin_site .profile_description{
+    text-align:center;
+    padding:1em 0;
+}
+
+.admin_site .profile_description p{
+    font-size:1.1rem;
+    font-weight: 700;
+    letter-spacing:3px;
+}
+
+.admin_site .controll_list{
+    padding: 1em 0.2em;
+    border-bottom: 1px solid rgba(48, 111, 122, 0.50);
+}
+
+.admin_site .controll_name p{
+    font-size:1.2rem;
+    font-weight:700;
+    letter-spacing:4px;
+    padding-left: 0.5em;
+}
+
+.admin_site .controll_list ul{
+    list-style:none;
+}
+
+.admin_site .controll_list ul li{
+    padding: 0.5em 0;
+}
+
+.admin_site .controll_list a{
+    cursor:pointer;
+    transition:0.5s color;
+    font-size:1.1rem;
+    font-weight:600;
+    letter-spacing:3px;
+}
+
+.admin_site .controll_list a:hover{
+    color:rgba(35, 134, 151, 1);
+} 
