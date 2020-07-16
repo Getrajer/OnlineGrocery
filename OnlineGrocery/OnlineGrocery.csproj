@@ -14,7 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\CMS\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 

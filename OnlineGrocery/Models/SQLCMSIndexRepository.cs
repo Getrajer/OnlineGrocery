@@ -14,6 +14,18 @@ namespace OnlineGrocery.Models
             _context = context;
         }
 
+        public CMSIndexPageModel Add(CMSIndexPageModel pageModel)
+        {
+            _context.IndexPageModel.Add(pageModel);
+            _context.SaveChanges();
+            return pageModel;
+        }
+
+        public CMSIndexPageModel Get(int Id)
+        {
+            return _context.IndexPageModel.Find(Id);
+        }
+
         public CMSIndexPageModel Update(CMSIndexPageModel pageModel)
         {
             var page = _context.IndexPageModel.Attach(pageModel);

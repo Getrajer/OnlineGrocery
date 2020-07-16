@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace OnlineGrocery.Models
 {
-    public class MockData
+    public class MockUserDataLoader
     {
         private IUserRepository _userRepository;
 
-        public MockData(IUserRepository user)
+        public MockUserDataLoader(IUserRepository user)
         {
             _userRepository = user;
         }

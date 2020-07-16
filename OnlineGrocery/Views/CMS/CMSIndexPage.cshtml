@@ -1,0 +1,237 @@
+﻿@model CMSIndexViewModel
+
+<head>
+    <link rel="stylesheet" href="~/css/main_admin_style.css" />
+    <link rel="stylesheet" href="~/css/index_cover.css" />
+</head>
+
+@{
+    //Change style for link with this ID
+    AdminNavViewModel m = new AdminNavViewModel();
+
+
+    m.LinkId = 9;
+}
+
+<section class="admin_site">
+    <div class="admin_site_container">
+
+        <partial name="_AdminNavigationPartial" model="m" />
+
+        <div class="admin_content_page">
+
+            <header>
+                <div class="header_container">
+
+                    <div class="left_side">
+
+                        <div class="text_content">
+                            <input asp-for="Page.Header_H1"/>
+                            <textarea asp-for="Page.Header_P1_Welcome"></textarea>
+
+                            <div class="thematic_images">
+                                <div class="icon">
+                                    <i class="fas fa-seedling"></i>
+                                    <p>Organic</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-apple-alt"></i>
+                                    <p>Fresh</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-hamburger"></i>
+                                    <p>Your creation</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="right_side">
+
+                        <button>Explore <i class="fas fa-arrow-right"></i></button>
+
+                    </div>
+
+                </div>
+            </header>
+
+
+            <section class="about">
+                <div class="about_container">
+
+                    <div class="about_card">
+                        <div class="about_card_container">
+
+                            <div class="img_container">
+                                <img src="~/other_images/about_quality.jpg" />
+                            </div>
+
+                            <div class="description">
+                                <div class="title">
+                                    <input asp-for="Page.About_1_H3"/>
+                                </div>
+
+                                <div class="text">
+                                    <textarea asp-for="Page.About_1_Text"></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="about_card">
+                        <div class="about_card_container_right">
+
+                            <div class="description">
+                                <div class="title">
+                                    <input asp-for="Page.About_2_H3"/>
+                                </div>
+
+                                <div class="text">
+                                    <textarea asp-for="Page.About_2_Text"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="img_container">
+                                <img src="~/other_images/supliers.jpg" />
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="about_card">
+                        <div class="about_card_container">
+
+                            <div class="img_container">
+                                <img src="~/other_images/organic_about.jpg" />
+                            </div>
+
+                            <div class="description">
+                                <div class="title">
+                                    <input asp-for="Page.About_3_H3"/>
+                                </div>
+
+                                <div class="text">
+                                    <textarea asp-for="Page.About_3_Text"></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+
+
+            <section class="our_products">
+                <div class="our_products_container">
+                    <div class="title">
+                        <h1>Our Products</h1>
+                    </div>
+
+                    <div class="button_container">
+                        <div class="button_c">
+                            <a asp-controller="Product" asp-action="DisplayProducts" asp-route-id="1">GO <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <section class="contact_form">
+                <div class="contact_form_container">
+
+                    <div class="left_contact">
+                        <div class="left_contact_container">
+                            <div class="title">
+                                <input asp-for="Page.Contact_H3"/>
+                            </div>
+
+                            <div class="text">
+                                <textarea asp-for="Page.Contact_P"></textarea>
+                            </div>
+
+
+                            <div class="contact_means">
+                                <div class="contact">
+                                    <div class="icon">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+
+                                    <div class="desc">
+                                        <input asp-for="Page.Contact_Phone_1"/>
+                                        <input asp-for="Page.Contact_Phone_2"/>
+                                    </div>
+                                </div>
+
+
+                                <div class="contact">
+                                    <div class="icon">
+                                        <i class="fas fa-envelope-open-text"></i>
+                                    </div>
+
+                                    <div class="desc">
+                                        <input asp-for="Page.Contact_Email_1" />
+                                        <input asp-for="Page.Contact_Email_2" />
+                                    </div>
+                                </div>
+
+                                <div class="contact">
+                                    <div class="icon">
+                                        <i class="fas fa-search-location"></i>
+                                    </div>
+
+                                    <div class="desc">
+                                        <input asp-for="Page.Contact_Address_Street"/>
+                                        <input asp-for="Page.Contact_Address_Postcode"/>
+                                        <input asp-for="Page.Contact_Address_City" />
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="right_contact">
+                        <div class="right_contact_container">
+                            <form enctype="multipart/form-data" method="post">
+
+                                <div class="form_box">
+                                    <label asp-for="Name"><i class="fas fa-user"></i> Your Name</label>
+                                    <input asp-for="Name" />
+                                    <span class="text-danger" asp-validation-for="Name"></span>
+                                </div>
+
+                                <div class="form_box">
+                                    <label asp-for="Email"><i class="fas fa-envelope-open-text"></i> Your Email</label>
+                                    <input asp-for="Email" />
+                                    <span class="text-danger" asp-validation-for="Email"></span>
+                                </div>
+
+                                <div class="form_box">
+                                    <label asp-for="Message"><i class="fas fa-comment-dots"></i> Your Message</label>
+                                    <textarea asp-for="Message"></textarea>
+                                    <span class="text-danger" asp-validation-for="Message"></span>
+                                </div>
+
+                                <div class="form_box">
+                                    <button type="submit">Send Message</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+
+        </div>
+
+    </div>
+</section>

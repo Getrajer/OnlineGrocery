@@ -130,9 +130,19 @@
                 </div>
 
                 <ul>
-                    <li>
-                        <a class="link"><i class="fas fa-edit"></i> Edit Main Page</a>
-                    </li>
+                    @if (Model.LinkId == 9)
+                    {
+                        <li class="on_site">
+                            <a asp-controller="CMS" asp-action="CMSIndexPage" class="link"><i class="fas fa-edit"></i> Edit Main Page</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a asp-controller="CMS" asp-action="CMSIndexPage" class="link"><i class="fas fa-edit"></i> Edit Main Page</a>
+                        </li>
+                    }
+
 
                     <li>
                         <a class="link"><i class="fas fa-edit"></i> Edit Products Page</a>
