@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnlineGrocery.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,5 +13,6 @@ namespace OnlineGrocery.ViewModels
         public string Email { get; set; }
         public string Message { get; set; }
 
+        public CMSIndexPageModel PageData { get; set; }
     }
 }

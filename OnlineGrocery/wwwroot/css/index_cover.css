@@ -469,3 +469,115 @@ header .right_side button:hover{
 }
 
 /*End of contact form*/
+
+
+/*Style for CMS*/
+.CMSIndex label {
+    display: block;
+}
+
+.CMSIndex header input {
+    display: block;
+    font-size: 3rem;
+    padding: 0.5em;
+    margin:2em 0;
+}
+
+.CMSIndex header textarea {
+    display: block;
+    font-size: 1.3rem;
+    width:100%;
+    height:200px;
+    padding: 0.5em;
+    margin: 1em 0;
+}
+
+.CMSIndex .about textarea {
+    font-size: 1.3rem;
+    width: 100%;
+    height: 200px;
+}
+
+
+.CMSIndex .about input {
+    display: block;
+    font-size: 2.5rem;
+    margin-left:1em;
+}
+
+.CMSIndex .left_contact_container textarea {
+    font-size: 1.3rem;
+    width: 100%;
+    height: 150px;
+    border-radius: unset;
+    margin-left:1.1em;
+    color: black;
+    border: 1px solid black;
+}
+
+.CMSIndex .left_contact_container input {
+    display: block;
+    font-size: 1.4rem;
+    margin-left: 1em;
+    border-radius: unset;
+    color: black;
+    border: 1px solid black;
+}
+
+.CMSIndex .form_box{
+    padding: 1em 3em;
+}
+
+.CMSIndex .about_card_container {
+    background-color:white;
+}
+
+.CMSIndex .about_card_container_right {
+    background-color:white;
+}
+
+.CMSIndex .contact_form .empty{
+}
+
+.CMSIndex .button_container_cm{
+    padding: 1em 3em;
+}
+
+.CMSIndex .button_container_cm button{
+    border-radius:unset;
+    background-color:white;
+    border: unset;
+    color:black;
+    transition:0.5s;
+}
+
+.CMSIndex .button_container_cm button:hover {
+    background-color:rgb(50, 154, 128);
+    color:white;
+}
+
+.CMSIndex .contact_form{
+    margin-bottom: 0;
+}
+
+.CMSIndex .command_button {
+    display: flex;
+    justify-content: center;
+    margin:4em 0 6em 0;
+}
+
+.CMSIndex .command_button_container button{
+    padding:0.5em 0.3em;
+    font-size:2.5em;
+    font-weight:700;
+    background-color:white;
+    border:unset;
+    transition:0.5s;
+}
+
+.CMSIndex .command_button_container button:hover{
+    background-color:rgb(35, 117, 97);
+    color:white;
+}
+
+/*End of style for CMS*/

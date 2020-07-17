@@ -16,18 +16,22 @@ namespace OnlineGrocery.Controllers
 
         private readonly IUserRepository _userRepository;
 
-        private readonly IProductRepository _productRepository;
+        private readonly ICMSIndexRepository _cMSIndexRepository;
 
-        public HomeController(ILogger<HomeController> logger, IUserRepository userRepository, IProductRepository productRepository)
+        public HomeController(ILogger<HomeController> logger, IUserRepository userRepository, ICMSIndexRepository cMSIndexRepository)
         {
             _logger = logger;
             _userRepository = userRepository;
-            _productRepository = productRepository;
+            _cMSIndexRepository = cMSIndexRepository;
         }
 
         public IActionResult Index()
         {
-            return View();
+            IndexViewModel model = new IndexViewModel();
+
+            model.PageData = _cMSIndexRepository.Get(3);
+
+            return View(model);
         }
 
         public JsonResult Details(int id)

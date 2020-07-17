@@ -7,7 +7,7 @@ namespace OnlineGrocery.Models
 {
     public class CMSIndexLoader
     {
-        
+        //Loads hardcoded mock data
 
         public CMSIndexPageModel PageLoad()
         {

@@ -14,9 +14,8 @@
         <div class="left_side">
 
             <div class="text_content">
-                <h1>Online <br /> Grocery</h1>
-                <p>Welcome to our online grocery. Get the best quality products delivered to your door. We get our products from local farmers and producers. Try our offer and become member of our family.</p>
-
+                <h1>@Model.PageData.Header_H1</h1>
+                <p>@Model.PageData.Header_P1_Welcome</p>
                 <div class="thematic_images">
                     <div class="icon">
                         <i class="fas fa-seedling"></i>
@@ -53,16 +52,16 @@
             <div class="about_card_container">
 
                 <div class="img_container">
-                    <img src="~/other_images/about_quality.jpg" />
+                    <img src="@Model.PageData.About_1_Img_Path" alt="@Model.PageData.About_1_H3 image"/>
                 </div>
 
                 <div class="description">
                     <div class="title">
-                        <h3>Quality product</h3>
+                        <h3>@Model.PageData.About_1_H3</h3>
                     </div>
 
                     <div class="text">
-                        <p>CONFERMATA LA DATA DI USCITA DEL 16 LUGLIO! ⚡ Per i nuovi charms Pandora Harry Potter! Non li troverete né online né alla vendita al pubblico nei negozi prima di giovedì, ma ci sono già! Potete chiamare nei negozi e chiedere conferma!</p>
+                        <p>@Model.PageData.About_1_Text</p>
                     </div>
                 </div>
 
@@ -74,16 +73,16 @@
 
                 <div class="description">
                     <div class="title">
-                        <h3>Trusted suppliers</h3>
+                        <h3>@Model.PageData.About_2_H3</h3>
                     </div>
 
                     <div class="text">
-                        <p>CONFERMATA LA DATA DI USCITA DEL 16 LUGLIO! ⚡ Per i nuovi charms Pandora Harry Potter! Non li troverete né online né alla vendita al pubblico nei negozi prima di giovedì, ma ci sono già! Potete chiamare nei negozi e chiedere conferma!</p>
+                        <p>@Model.PageData.About_2_Text</p>
                     </div>
                 </div>
 
                 <div class="img_container">
-                    <img src="~/other_images/supliers.jpg" />
+                    <img src="@Model.PageData.About_2_Img_Path" alt="@Model.PageData.About_2_H3 image" />
                 </div>
 
             </div>
@@ -93,16 +92,16 @@
             <div class="about_card_container">
 
                 <div class="img_container">
-                    <img src="~/other_images/organic_about.jpg" />
+                    <img src="@Model.PageData.About_3_Img_Path" alt="@Model.PageData.About_3_H3 image" />
                 </div>
 
                 <div class="description">
                     <div class="title">
-                        <h3>Organic</h3>
+                        <h3>@Model.PageData.About_3_H3</h3>
                     </div>
 
                     <div class="text">
-                        <p>CONFERMATA LA DATA DI USCITA DEL 16 LUGLIO! ⚡ Per i nuovi charms Pandora Harry Potter! Non li troverete né online né alla vendita al pubblico nei negozi prima di giovedì, ma ci sono già! Potete chiamare nei negozi e chiedere conferma!</p>
+                        <p>@Model.PageData.About_3_Text</p>
                     </div>
                 </div>
 
@@ -136,11 +135,11 @@
         <div class="left_contact">
             <div class="left_contact_container">
                 <div class="title">
-                    <h3>Lets get in touch</h3>
+                    <h3>@Model.PageData.Contact_H3</h3>
                 </div>
 
                 <div class="text">
-                    <p>Leave us review or advice</p>
+                    <p>@Model.PageData.Contact_P</p>
                 </div>
 
 
@@ -151,8 +150,8 @@
                         </div>
 
                         <div class="desc">
-                            <p>+44 569458423</p>
-                            <p>+44 548625987</p>
+                            <p>@Model.PageData.Contact_Phone_1</p>
+                            <p>@Model.PageData.Contact_Phone_2</p>
                         </div>
                     </div>
 
@@ -163,8 +162,8 @@
                         </div>
 
                         <div class="desc">
-                            <p>onlinegrocery@gmail.com</p>
-                            <p>organicnetwork@gmail.com</p>
+                            <p>@Model.PageData.Contact_Email_1</p>
+                            <p>@Model.PageData.Contact_Email_2</p>
                         </div>
                     </div>
 
@@ -174,9 +173,9 @@
                         </div>
 
                         <div class="desc">
-                            <p>11 High Road</p>
-                            <p>N64 LT</p>
-                            <p>London</p>
+                            <p>@Model.PageData.Contact_Address_Street</p>
+                            <p>@Model.PageData.Contact_Address_Postcode</p>
+                            <p>@Model.PageData.Contact_Address_City</p>
                         </div>
                     </div>
 
