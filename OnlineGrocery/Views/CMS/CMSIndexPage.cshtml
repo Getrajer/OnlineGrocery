@@ -16,6 +16,9 @@
     <section class="admin_site">
         <div class="admin_site_container">
             <input hidden asp-for="Page.Id" />
+            <input hidden asp-for="Page.About_1_Img_Path" />
+            <input hidden asp-for="Page.About_2_Img_Path" />
+            <input hidden asp-for="Page.About_3_Img_Path" />
 
             <partial name="_AdminNavigationPartial" model="m" />
 
@@ -27,9 +30,8 @@
                         <div class="left_side">
 
                             <div class="text_content">
-                                <input asp-for="Page.Header_H1"/>
+                                <input asp-for="Page.Header_H1" />
                                 <textarea asp-for="Page.Header_P1_Welcome"></textarea>
-                                <p>@Model.Page.Id</p>
                                 <div class="thematic_images">
                                     <div class="icon">
                                         <i class="fas fa-seedling"></i>
