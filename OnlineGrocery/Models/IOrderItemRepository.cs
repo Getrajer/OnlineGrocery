@@ -12,5 +12,7 @@ namespace OnlineGrocery.Models
         public IEnumerable<OrderItemModel> GetAllItems();
 
         public OrderItemModel GetItem(int Id);
+
+        public List<OrderItemModel> GetOrderItemsByOrderId(int Id);
     }
 }

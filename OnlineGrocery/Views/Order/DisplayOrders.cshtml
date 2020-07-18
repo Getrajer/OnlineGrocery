@@ -1,8 +1,61 @@
 ﻿@model List<OrderModel>
 
+<head>
+    <link rel="stylesheet" href="~/css/main_admin_style.css" />
+    <link rel="stylesheet" href="~/css/admin_display_products_style.css" />
+</head>
 
-
-@foreach(var o in Model)
-{
-    <p>@o.SupplierName</p>
+@{
+    //Change style for link with this ID
+    AdminNavViewModel m = new AdminNavViewModel();
+    m.LinkId = 13;
 }
+
+<section class="admin_site">
+    <div class="admin_site_container">
+
+        <partial name="_AdminNavigationPartial" model="m" />
+
+        <div class="admin_content_page">
+
+            <div class="admin_main_panel">
+                <div class="table_page">
+                    <div class="table_page_container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Supplier Name</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Items Ammount</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                @foreach (var p in Model)
+                                {
+                                    <tr>
+                                        <td>@p.Id</td>
+                                        <td>@p.SupplierName</td>
+                                        <td>@p.OrderDate.Date</td>
+                                        <td>@p.FullItemsAmmount</td>
+
+                                        <td>
+                                            <a asp-controller="Suppliers" asp-action="EditSupplier" asp-route-id="@p.Id">Details</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+

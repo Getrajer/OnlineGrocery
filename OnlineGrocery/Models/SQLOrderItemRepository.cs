@@ -30,5 +30,21 @@ namespace OnlineGrocery.Models
         {
             return _context.OrderItems.Find(Id);
         }
+
+        public List<OrderItemModel> GetOrderItemsByOrderId(int Id)
+        {
+            List<OrderItemModel> unsorted = _context.OrderItems.ToList();
+            List<OrderItemModel> sorted = new List<OrderItemModel>();
+
+            for(int i = 0; i < unsorted.Count; i++)
+            {
+                if(unsorted[i].OrderId == Id)
+                {
+                    sorted.Add(unsorted[i]);
+                }
+            }
+
+            return sorted;
+        }
     }
 }

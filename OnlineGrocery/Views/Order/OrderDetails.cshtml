@@ -1,0 +1,29 @@
+﻿@model OrderDetailsViewModel
+
+<head>
+    <link rel="stylesheet" href="~/css/main_admin_style.css" />
+    <link rel="stylesheet" href="~/css/admin_display_products_style.css" />
+</head>
+
+@{
+    //Change style for link with this ID
+    AdminNavViewModel m = new AdminNavViewModel();
+    m.LinkId = 13;
+}
+
+<section class="admin_site">
+    <div class="admin_site_container">
+
+        <partial name="_AdminNavigationPartial" model="m" />
+
+        <div class="admin_content_page">
+            <div class="admin_main_panel">
+                <div class="admin_main_panel_container">
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

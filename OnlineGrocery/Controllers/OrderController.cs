@@ -110,5 +110,23 @@ namespace OnlineGrocery.Controllers
             List<OrderModel> Orders = _orderRepository.ReturnOrders().ToList();
             return View(Orders);
         }
+
+
+        /// <summary>
+        /// Will show details of the order
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        public IActionResult OrderDetails(int Id)
+        {
+            OrderModel order = _orderRepository.GetOrder(Id);
+            List<OrderItemModel> orderItems = _orderItemRepository.GetOrderItemsByOrderId(Id);
+
+            OrderDetailsViewModel viewModel = new OrderDetailsViewModel();
+            viewModel.Items = orderItems;
+            viewModel.Order = order;
+
+            return View(viewModel);
+        }
     }
 }

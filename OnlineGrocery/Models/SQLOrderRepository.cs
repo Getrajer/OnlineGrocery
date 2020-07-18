@@ -21,6 +21,11 @@ namespace OnlineGrocery.Models
             return model;
         }
 
+        public OrderModel GetOrder(int Id)
+        {
+            return _context.Orders.Find(Id);
+        }
+
         public int OrdersCount()
         {
             return _context.Orders.Count();

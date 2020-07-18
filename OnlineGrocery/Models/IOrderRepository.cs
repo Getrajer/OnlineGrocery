@@ -11,6 +11,8 @@ namespace OnlineGrocery.Models
 
         IEnumerable<OrderModel> ReturnOrders();
 
+        OrderModel GetOrder(int Id);
+
         int OrdersCount();
     }
 }
