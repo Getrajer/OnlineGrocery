@@ -30,6 +30,7 @@
                     <form enctype="multipart/form-data" asp-controller="Suppliers" asp-action="EditSupplier" method="post">
 
                         <input hidden asp-for="Id" />
+                        <input hidden asp-for="OldName" />
 
                         <div class="form_box">
                             <label asp-for="Name"></label>

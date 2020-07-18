@@ -16,5 +16,7 @@ namespace OnlineGrocery.Models
         ProductModel Delete(int Id);
 
         ProductModel Update(ProductModel edit_product);
+
+        List<ProductModel> GetProductsOfSupplier(string type);
     }
 }

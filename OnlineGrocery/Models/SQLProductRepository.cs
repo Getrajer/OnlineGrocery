@@ -45,6 +45,22 @@ namespace OnlineGrocery.Models
             return context.Products.Find(Id);
         }
 
+        public List<ProductModel> GetProductsOfSupplier(string supplier)
+        {
+            List<ProductModel> products = context.Products.ToList();
+            List<ProductModel> sorted_products = new List<ProductModel>();
+
+            for (int i = 0; i < products.Count; i++)
+            {
+                if(products[i].SupplierName == supplier)
+                {
+                    sorted_products.Add(products[i]);
+                }
+            }
+
+            return sorted_products;
+        }
+
         public ProductModel Update(ProductModel edit_product)
         {
             var product = context.Products.Attach(edit_product);

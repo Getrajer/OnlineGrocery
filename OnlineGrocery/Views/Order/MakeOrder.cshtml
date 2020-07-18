@@ -1,0 +1,27 @@
+﻿@model List<OrderItemModel>
+
+
+<head>
+    <link rel="stylesheet" href="~/css/main_admin_style.css" />
+</head>
+
+@{
+    //Change style for link with this ID
+    AdminNavViewModel m = new AdminNavViewModel();
+    m.LinkId = 1;
+}
+
+<section class="admin_site">
+    <div class="admin_site_container">
+
+        <partial name="_AdminNavigationPartial" model="m" />
+
+        <div class="admin_content_page">
+            @foreach(var o in Model)
+            {
+                <h1>@o.ProductName</h1>
+            }
+        </div>
+
+    </div>
+</section>

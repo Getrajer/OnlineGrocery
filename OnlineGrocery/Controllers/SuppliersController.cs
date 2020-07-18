@@ -11,15 +11,17 @@ namespace OnlineGrocery.Controllers
     public class SuppliersController : Controller
     {
         private ISupplierRepository _supplierRepository;
+        private IProductRepository _productRepository;
 
-        public SuppliersController(ISupplierRepository supplierRepository)
+        public SuppliersController(ISupplierRepository supplierRepository, IProductRepository productRepository)
         {
             _supplierRepository = supplierRepository;
+            _productRepository = productRepository;
         }
 
         public IActionResult SuppliersDisplay()
         {
-            var suppliers = _supplierRepository.ReturnSuppliers();
+            List<SuppliersModel> suppliers = _supplierRepository.ReturnSuppliers().ToList();
             return View(suppliers);
         }
 
@@ -65,6 +67,7 @@ namespace OnlineGrocery.Controllers
                 model.Name = supplier.Name;
                 model.PhoneNumber = supplier.PhoneNumber;
                 model.Id = supplier.Id;
+                model.OldName = supplier.Name;
                 return View(model);
             }
 
@@ -77,14 +80,23 @@ namespace OnlineGrocery.Controllers
             if (ModelState.IsValid)
             {
                 SuppliersModel new_model = new SuppliersModel();
-
+                
                 new_model.Email = supplier.Email;
                 new_model.Id = supplier.Id;
                 new_model.Name = supplier.Name;
                 new_model.PhoneNumber = supplier.PhoneNumber;
 
-                _supplierRepository.EditSupplier(new_model);
+                //Update supplier name for the products
+                List<ProductModel> products = _productRepository.GetProductsOfSupplier(supplier.OldName);
+                for(int i = 0; i < products.Count; i++)
+                {
+                    ProductModel product = new ProductModel();
+                    product = products[i];
+                    product.SupplierName = new_model.Name;
+                    _productRepository.Update(product);
+                }
 
+                _supplierRepository.EditSupplier(new_model);
                 return RedirectToAction("SuppliersDisplay");
             }
 

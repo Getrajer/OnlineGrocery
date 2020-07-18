@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SuppliersModel>
+﻿@model List<SuppliersModel>
 
 <head>
     <link rel="stylesheet" href="~/css/main_admin_style.css" />
@@ -41,7 +41,7 @@
                                     <td>@p.PhoneNumber</td>
 
                                     <td>
-                                        <a asp-controller="Product" asp-action="EditProduct" asp-route-id="@p.Id">Place Order</a>
+                                        <a asp-controller="Order" asp-action="MakeOrder" asp-route-id="@p.Id">Place Order</a>
                                     </td>
 
                                     <td>
