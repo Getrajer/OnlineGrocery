@@ -1,0 +1,36 @@
+﻿.table_page_container
+{
+    background-color:transparent!important;
+}
+
+.table_page_container table{
+    background-color:white;
+}
+
+.table_page_container tr{
+    padding:0.2em 0;
+    border-bottom: 1px solid rgba(26, 68, 86, 0.60);
+}
+
+.table_page_container input{
+    text-align:center;
+}
+
+.button_container{
+    text-align:center;
+    padding:1em 0;
+}
+
+.button_container button{
+    background-color:white;
+    border:unset;
+    font-size:1.7rem;
+    padding:0.5em 0.3em;
+    font-weight:700;
+    transition:0.5s;
+}
+
+.button_container button:hover{
+    background-color:rgb(35, 117, 97);
+    color:white;
+}

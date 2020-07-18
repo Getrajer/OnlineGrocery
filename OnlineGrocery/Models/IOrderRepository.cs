@@ -10,5 +10,7 @@ namespace OnlineGrocery.Models
         OrderModel AddOrder(OrderModel model);
 
         IEnumerable<OrderModel> ReturnOrders();
+
+        int OrdersCount();
     }
 }

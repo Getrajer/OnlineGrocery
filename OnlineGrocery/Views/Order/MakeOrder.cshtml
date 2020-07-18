@@ -1,14 +1,16 @@
-﻿@model List<OrderItemModel>
+﻿@model CreateOrderViewModel
 
 
 <head>
     <link rel="stylesheet" href="~/css/main_admin_style.css" />
+    <link rel="stylesheet" href="~/css/admin_display_products_style.css" />
+    <link rel="stylesheet" href="~/css/order_panel_style.css" />
 </head>
 
 @{
     //Change style for link with this ID
     AdminNavViewModel m = new AdminNavViewModel();
-    m.LinkId = 1;
+    m.LinkId = 11;
 }
 
 <section class="admin_site">
@@ -16,11 +18,38 @@
 
         <partial name="_AdminNavigationPartial" model="m" />
 
-        <div class="admin_content_page">
-            @foreach(var o in Model)
-            {
-                <h1>@o.ProductName</h1>
-            }
+        <div class="table_page">
+            <div class="table_page_container">
+                <form enctype="multipart/form-data" asp-controller="Order" asp-action="MakeOrder" method="post">
+                    <input hidden asp-for="SupplierName" />
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Product Name</th>
+                                <th scope="col">Quantity @Model.OrderItems[0].Ammount</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @for (int i = 0; i < Model.OrderItems.Count; i++)
+                            {
+                                <tr>
+                                    <td>@Model.OrderItems[i].ProductId</td>
+                                    <td>@Model.OrderItems[i].ProductName</td>
+                                    <td><input min="0" asp-for="@Model.OrderItems[i].Ammount" /></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                    <div class="button_container">
+                        <button type="submit">Place Order</button>
+                    </div>
+
+                </form>
+            </div>
         </div>
 
     </div>

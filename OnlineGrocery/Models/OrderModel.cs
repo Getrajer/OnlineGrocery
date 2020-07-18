@@ -10,8 +10,8 @@ namespace OnlineGrocery.Models
         //This Id is for database
         public int Id { get; set; }
         //This Id stores information about single order 
-        public int OrderId { get; set; }
         public string SupplierName { get; set; }
+        public int FullItemsAmmount { get; set; }
         public DateTime OrderDate { get; set; }
     }
 }

@@ -7,19 +7,28 @@ namespace OnlineGrocery.Models
 {
     public class SQLOrderItemRepository : IOrderItemRepository
     {
+        private readonly AppDbContext _context;
+
+        public SQLOrderItemRepository(AppDbContext context)
+        {
+            _context = context;
+        }
+
         public OrderItemModel Add(OrderItemModel model)
         {
-            throw new NotImplementedException();
+            _context.OrderItems.Add(model);
+            _context.SaveChanges();
+            return model;
         }
 
-        public OrderItemModel GetAllItems()
+        public IEnumerable<OrderItemModel> GetAllItems()
         {
-            throw new NotImplementedException();
+            return _context.OrderItems;
         }
 
-        public OrderItemModel GetItem()
+        public OrderItemModel GetItem(int Id)
         {
-            throw new NotImplementedException();
+            return _context.OrderItems.Find(Id);
         }
     }
 }

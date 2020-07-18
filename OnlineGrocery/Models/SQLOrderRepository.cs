@@ -21,6 +21,11 @@ namespace OnlineGrocery.Models
             return model;
         }
 
+        public int OrdersCount()
+        {
+            return _context.Orders.Count();
+        }
+
         public IEnumerable<OrderModel> ReturnOrders()
         {
             return _context.Orders;

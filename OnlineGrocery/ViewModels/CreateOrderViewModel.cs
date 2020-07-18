@@ -8,7 +8,7 @@ namespace OnlineGrocery.ViewModels
 {
     public class CreateOrderViewModel
     {
-
-        public List<ProductModel> Products = new List<ProductModel>();
-    }
+        public string SupplierName { get; set; }
+        public List<OrderItemModel> OrderItems { get; set; }
+}
 }

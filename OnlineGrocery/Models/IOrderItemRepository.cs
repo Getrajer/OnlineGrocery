@@ -9,8 +9,8 @@ namespace OnlineGrocery.Models
     {
         public OrderItemModel Add(OrderItemModel model);
 
-        public OrderItemModel GetAllItems();
+        public IEnumerable<OrderItemModel> GetAllItems();
 
-        public OrderItemModel GetItem();
+        public OrderItemModel GetItem(int Id);
     }
 }
