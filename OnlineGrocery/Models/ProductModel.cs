@@ -21,5 +21,6 @@ namespace OnlineGrocery.Models
         public string ImgPath { get; set; }
 
         public int SupplierId { get; set; }
+        public string SupplierName { get; set; }
     }
 }

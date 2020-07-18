@@ -14,13 +14,20 @@ namespace OnlineGrocery.Controllers
     {
         private readonly IWebHostEnvironment _hostingEnvironment;
         private readonly IProductRepository _productRepository;
+        private readonly ISupplierRepository _supplierRepository;
 
-        public ProductController(IWebHostEnvironment hostingEnvironment, IProductRepository productRepository)
+        public ProductController(IWebHostEnvironment hostingEnvironment, IProductRepository productRepository, ISupplierRepository supplierRepository)
         {
             _hostingEnvironment = hostingEnvironment;
             _productRepository = productRepository;
+            _supplierRepository = supplierRepository;
         }
 
+        /// <summary>
+        /// This function shows products in Display products page. It sorts theb by category.
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
         public IActionResult DisplayProducts(int Id)
         {
             DisplayProductsViewModel model = new DisplayProductsViewModel();
@@ -91,7 +98,9 @@ namespace OnlineGrocery.Controllers
         [HttpGet]
         public IActionResult CreateProduct()
         {
-            return View();
+            ProductCreateViewModel model = new ProductCreateViewModel();
+            model.Suppliers = (_supplierRepository.ReturnSuppliers()).ToList();
+            return View(model);
         }
 
         /// <summary>
@@ -104,6 +113,7 @@ namespace OnlineGrocery.Controllers
         {
             if (ModelState.IsValid)
             {
+                SuppliersModel s = _supplierRepository.GetSupplier(model.SupplierId);
                 string ImgPath = ProcessUploadedFile(model);
 
                 ProductModel product = new ProductModel();
@@ -113,6 +123,8 @@ namespace OnlineGrocery.Controllers
                 product.Price = model.Price;
                 product.Quantity = model.Quantity;
                 product.Type = model.Type;
+                product.SupplierId = model.SupplierId;
+                product.SupplierName = s.Name;
 
                 _productRepository.Add(product);
 
@@ -141,6 +153,8 @@ namespace OnlineGrocery.Controllers
                 PageTitle = product.Name
             };
 
+           
+
             return View(productDetailsViewModel);
         }
 
@@ -153,8 +167,8 @@ namespace OnlineGrocery.Controllers
         public IActionResult EditProduct(int Id)
         {
             EditProductViewModel model = new EditProductViewModel();
-
             ProductModel p = _productRepository.GetProduct(Id);
+
 
             model.Id = Id;
             model.Description = p.Description;
@@ -165,6 +179,9 @@ namespace OnlineGrocery.Controllers
             model.PhotoPath = p.ImgPath;
             model.Type = p.Type;
             model.Photo = null;
+
+            model.SupplierId = p.SupplierId;
+            model.Suppliers = (_supplierRepository.ReturnSuppliers()).ToList();
 
             return View(model);
         }
@@ -191,6 +208,8 @@ namespace OnlineGrocery.Controllers
                     ImgPath = ProcessEditFile(viewModel);
                 }
 
+                SuppliersModel s = _supplierRepository.GetSupplier(viewModel.SupplierId);
+
                 //Create new file with edited variables
                 ProductModel new_p = new ProductModel();
                 new_p.Id = viewModel.Id;
@@ -199,7 +218,8 @@ namespace OnlineGrocery.Controllers
                 new_p.Price = viewModel.Price;
                 new_p.Quantity = viewModel.Quantity;
                 new_p.Type = viewModel.Type;
-
+                new_p.SupplierId = viewModel.SupplierId;
+                new_p.SupplierName = s.Name;
 
                 if(ImgPath != "")
                 {
@@ -212,7 +232,7 @@ namespace OnlineGrocery.Controllers
 
                 _productRepository.Update(new_p);
             }
-            return RedirectToAction("DisplayProducts");
+            return RedirectToAction("ProductsListAdmin");
         }
 
         /// <summary>
@@ -222,7 +242,6 @@ namespace OnlineGrocery.Controllers
         /// <returns></returns>
         public IActionResult DeleteProduct(EditProductViewModel viewModel)
         {
-
             //Delete image
             if(viewModel.PhotoPath != null)
             {
@@ -232,7 +251,7 @@ namespace OnlineGrocery.Controllers
 
             _productRepository.Delete(viewModel.Id);
 
-            return RedirectToAction("DisplayProducts");
+            return RedirectToAction("ProductsListAdmin");
         }
 
         /// <summary>

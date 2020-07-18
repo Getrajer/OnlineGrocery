@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using OnlineGrocery.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -11,6 +12,7 @@ namespace OnlineGrocery.ViewModels
     {
 
         public int Id { get; set; }
+
         [Required, MaxLength(60)]
         public string Name { get; set; }
         [Required]
@@ -20,7 +22,10 @@ namespace OnlineGrocery.ViewModels
         public string Description { get; set; }
         [Required]
         public int Quantity { get; set; }
+
         public IFormFile Photo { get; set; }
 
+        public int SupplierId { get; set; }
+        public List<SuppliersModel> Suppliers = new List<SuppliersModel>();
     }
 }

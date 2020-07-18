@@ -63,6 +63,13 @@
                             }
                         </div>
 
+                        <div class="form_box_radio">
+                            <label class="label">Select supplier</label>
+                            @foreach (var item in Model.Suppliers)
+                            {
+                                <p><input asp-for="SupplierId" type="radio" value="@item.Id" /> @item.Name</p>
+                            }
+                        </div>
 
 
                         <div class="form_box">

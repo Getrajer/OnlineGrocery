@@ -9,13 +9,9 @@ namespace OnlineGrocery.Models
     {
         //This Id is for database
         public int Id { get; set; }
-
         //This Id stores information about single order 
         public int OrderId { get; set; }
-
-        public int SupplyierId { get; set; }
-        public int ProductId { get; set; }
-        public int Ammount { get; set; }
+        public string SupplierName { get; set; }
         public DateTime OrderDate { get; set; }
     }
 }
