@@ -26,13 +26,13 @@
                     @if (Model.LinkId == 1)
                     {
                         <li class="on_site">
-                            <a class="link" asp-controller="Admin" asp-action="MainAdminPage"><i class="fas fa-home"></i> Main Page</a>
+                            <a class="link" asp-controller="Admin" asp-action="MainAdminPage"><i class="fas fa-home"></i> Main Window</a>
                         </li>
                     }
                     else
                     {
                         <li>
-                            <a class="link" asp-controller="Admin" asp-action="MainAdminPage"><i class="fas fa-home"></i> Main Page</a>
+                            <a class="link" asp-controller="Admin" asp-action="MainAdminPage"><i class="fas fa-home"></i> Main Window</a>
                         </li>
                     }
 
@@ -152,13 +152,36 @@
 
             <div class="controll_list">
                 <div class="controll_name">
-                    <p>Stock</p>
+                    <p>Supply Chain</p>
                 </div>
 
                 <ul>
-                    <li>
-                        <a class="link"><i class="fas fa-truck"></i> Order Products</a>
-                    </li>
+                    @if (Model.LinkId == 11)
+                    {
+                        <li class="on_site">
+                            <a asp-controller="Suppliers" asp-action="SuppliersDisplay" class="link"><i class="fas fa-truck"></i> Suppliers</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a asp-controller="Suppliers" asp-action="SuppliersDisplay" class="link"><i class="fas fa-truck"></i> Suppliers</a>
+                        </li>
+                    }
+
+
+                    @if (Model.LinkId == 12)
+                    {
+                        <li class="on_site">
+                            <a asp-controller="Suppliers" asp-action="AddSupplier" class="link"><i class="fas fa-plus-circle"></i> Add Supplier</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a asp-controller="Suppliers" asp-action="AddSupplier" class="link"><i class="fas fa-plus-circle"></i> Add Supplier</a>
+                        </li>
+                    }
 
                     <li>
                         <a class="link"><i class="fas fa-history"></i> Orders History</a>

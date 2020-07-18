@@ -1,0 +1,62 @@
+﻿@model AddSupplierViewModel
+
+<head>
+    <link rel="stylesheet" href="~/css/create_product_style.css" />
+    <link rel="stylesheet" href="~/css/main_admin_style.css" />
+</head>
+
+@{
+    Types typeList = new Types();
+
+    //Change style for link with this ID
+    AdminNavViewModel m = new AdminNavViewModel();
+    m.LinkId = 12;
+}
+
+
+<section class="admin_site">
+    <div class="admin_site_container">
+
+        <partial name="_AdminNavigationPartial" model="m" />
+
+        <div class="admin_content_page">
+            <section class="create_product_page">
+                <div class="create_product_page_container">
+
+                    <div class="title">
+                        <h1>Add supplier</h1>
+                    </div>
+
+                    <form enctype="multipart/form-data" asp-controller="Suppliers" asp-action="AddSupplier" method="post">
+
+                        <div class="form_box">
+                            <label asp-for="Name"></label>
+                            <input asp-for="Name" />
+                            <span class="text-danger" asp-validation-for="Name"></span>
+                        </div>
+
+                        <div class="form_box_textarea">
+                            <label asp-for="Email"></label>
+                            <input asp-for="Email" />
+                            <span class="text-danger" asp-validation-for="Email"></span>
+                        </div>
+
+                        <div class="form_box">
+                            <label asp-for="PhoneNumber"></label>
+                            <input asp-for="PhoneNumber" />
+                            <span class="text-danger" asp-validation-for="PhoneNumber"></span>
+                        </div>
+
+
+                        <div class="form_box">
+                            <button class="btn btn-success" type="submit">Add Supplier</button>
+                        </div>
+
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                    </form>
+
+                </div>
+            </section>
+        </div>
+    </div>
+</section>

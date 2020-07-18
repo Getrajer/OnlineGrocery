@@ -19,5 +19,7 @@ namespace OnlineGrocery.Models
         public int Quantity { get; set; }
         public string Type { get; set; }
         public string ImgPath { get; set; }
+
+        public int SupplierId { get; set; }
     }
 }

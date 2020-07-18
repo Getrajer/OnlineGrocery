@@ -32,6 +32,7 @@ namespace OnlineGrocery
             services.AddScoped<IUserRepository, SQLUserRepository>(); 
             services.AddScoped<IProductRepository, SQLProductRepository>();
             services.AddScoped<ICMSIndexRepository, SQLCMSIndexRepository>();
+            services.AddScoped<ISupplierRepository, SQLSuppliersRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

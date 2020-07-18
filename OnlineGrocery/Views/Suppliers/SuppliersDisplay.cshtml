@@ -1,0 +1,52 @@
+﻿@model IEnumerable<SuppliersModel>
+
+<head>
+    <link rel="stylesheet" href="~/css/main_admin_style.css" />
+    <link rel="stylesheet" href="~/css/admin_display_products_style.css" />
+</head>
+
+@{
+    //Change style for link with this ID
+    AdminNavViewModel m = new AdminNavViewModel();
+    m.LinkId = 11;
+}
+
+<section class="admin_site">
+    <div class="admin_site_container">
+
+        <partial name="_AdminNavigationPartial" model="m" />
+
+        <div class="admin_content_page">
+            <div class="table_page">
+                <div class="table_page_container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Phone Number</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (var p in Model)
+                            {
+                                <tr>
+                                    <td>@p.Id</td>
+                                    <td>@p.Name</td>
+                                    <td>@p.Email</td>
+                                    <td>@p.PhoneNumber</td>
+                                    <td>
+                                        <a asp-controller="Product" asp-action="EditProduct" asp-route-id="@p.Id">Edit</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
