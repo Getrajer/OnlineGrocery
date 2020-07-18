@@ -17,7 +17,7 @@ button:focus {
 .products .title{
     display:grid;
     grid-template-columns: 15% 80%;
-    background-color:#205f57;
+    background-color:#07252a;
     padding:1em 0;
 
     border-top-right-radius:0.5em;

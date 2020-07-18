@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using OnlineGrocery.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace OnlineGrocery
 {
@@ -27,6 +28,9 @@ namespace OnlineGrocery
         {
             services.AddDbContext<AppDbContext>(
                 options => options.UseSqlServer(_config.GetConnectionString("GroceryDbConnection")));
+
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<AppDbContext>();
 
             services.AddControllersWithViews();
             services.AddScoped<IUserRepository, SQLUserRepository>(); 
@@ -50,11 +54,11 @@ namespace OnlineGrocery
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

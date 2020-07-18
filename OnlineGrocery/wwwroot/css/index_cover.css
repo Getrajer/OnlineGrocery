@@ -20,7 +20,7 @@ header .header_container{
     display:grid;
     background-color:white;
     grid-template-columns: 1fr 1fr;
-    box-shadow:  12px 12px 24px rgba(0, 0, 0, 0.40);
+    box-shadow:   12px 12px 24px rgba(0, 0, 0, 0.60);
 }
 
 header .left_side{
@@ -154,14 +154,14 @@ header .right_side button:hover{
     width:100%;
     display:grid;
     grid-template-columns: 60% 40%;
-    box-shadow:  12px 12px 24px rgba(0, 0, 0, 0.40);
+    box-shadow:  12px 12px 24px rgba(0, 0, 0, 0.60);
 }
 
 .about .about_card_container_right{
     width:100%;
     display:grid;
     grid-template-columns: 40% 60%;
-    box-shadow:  12px 12px 24px rgba(0, 0, 0, 0.40);
+    box-shadow:   12px 12px 24px rgba(0, 0, 0, 0.60);
 }
 
 .about .description{
@@ -284,7 +284,7 @@ header .right_side button:hover{
     letter-spacing:6px;
     border-radius:50%;
     background-color:white;
-    box-shadow:  12px 12px 24px rgba(0, 0, 0, 0.40);
+    box-shadow:  12px 12px 24px rgba(0, 0, 0, 0.60);
     cursor:pointer;
     transition: 0.5s;
 }
@@ -321,6 +321,7 @@ header .right_side button:hover{
     width:100%;
     max-width:1300px;
     background-color:#307e69;
+    box-shadow:  12px 12px 24px rgba(0, 0, 0, 0.60);
 }
 
 .contact_form .left_contact{

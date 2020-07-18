@@ -22,6 +22,8 @@
             <div class="table_page_container">
                 <form enctype="multipart/form-data" asp-controller="Order" asp-action="MakeOrder" method="post">
                     <input hidden asp-for="SupplierName" />
+                    <input hidden asp-for="SupplierId" />
+
 
                     <table class="table">
                         <thead>

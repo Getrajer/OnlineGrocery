@@ -25,6 +25,7 @@ button:focus{
     width: 100%;
     max-width: 600px;
     background-color: white;
+    box-shadow:   10px 10px 15px rgba(0, 0, 0, 0.40);
 }
 
 .create_product_page .form_box_radio{

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Net.Mail;
 using Microsoft.AspNetCore.Mvc;
 using OnlineGrocery.Models;
 using OnlineGrocery.ViewModels;
@@ -44,6 +45,7 @@ namespace OnlineGrocery.Controllers
             CreateOrderViewModel viewModel = new CreateOrderViewModel();
             viewModel.OrderItems = OrderItems;
             viewModel.SupplierName = s.Name;
+            viewModel.SupplierId = Id;
             return View(viewModel);
         }
 
@@ -53,7 +55,7 @@ namespace OnlineGrocery.Controllers
             if (ModelState.IsValid)
             {
                 OrderModel order = new OrderModel();
-
+                string items_string_list = "";
                 //When Created Id is +1 so in order of asigning it to the order item it needs to be decleared here
                 int orderId = _orderRepository.OrdersCount();
                 orderId++;
@@ -64,17 +66,44 @@ namespace OnlineGrocery.Controllers
                     viewModel.OrderItems[i].OrderId = orderId;
                     order.FullItemsAmmount += viewModel.OrderItems[i].Ammount;
                     _orderItemRepository.Add(viewModel.OrderItems[i]);
+                    items_string_list += $"Product: {viewModel.OrderItems[i].ProductName} | Quantity: {viewModel.OrderItems[i].Ammount} \n";
                 }
 
                 order.OrderDate = DateTime.Now;
                 order.SupplierName = viewModel.SupplierName;
                 _orderRepository.AddOrder(order);
 
+                SuppliersModel supplier = _supplierRepository.GetSupplier(viewModel.SupplierId);
+                //Send email with order
+                //PostMail(supplier, order, items_string_list);
+
                 return RedirectToAction("DisplayOrders");
             }
             return View();
         }
 
+        /// <summary>
+        /// This function will send email to supplier with list of items to order
+        /// </summary>
+        /// <param name="supplier"></param>
+        /// <param name="order"></param>
+        /// <param name="items"></param>
+        /// <returns></returns>
+        public async Task PostMail(SuppliersModel supplier, OrderModel order, string items)
+        {
+            MailMessage mm = new MailMessage();
+            mm.To.Add(supplier.Email);
+            mm.Subject = $"New order from Online Groceary";
+            mm.Body = "Here is the order: \n" + items;
+            mm.IsBodyHtml = false;
+            mm.From = new MailAddress("getrajer533@gmail.com");
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com");
+            smtp.Port = 587;
+            smtp.UseDefaultCredentials = true;
+            smtp.EnableSsl = true;
+            smtp.Credentials = new System.Net.NetworkCredential("email", "password");
+            await smtp.SendMailAsync(mm);
+        }
 
         public IActionResult DisplayOrders()
         {
