@@ -27,7 +27,9 @@
                         <h1>Add supplier</h1>
                     </div>
 
-                    <form enctype="multipart/form-data" asp-controller="Suppliers" asp-action="AddSupplier" method="post">
+                    <form enctype="multipart/form-data" asp-controller="Suppliers" asp-action="EditSupplier" method="post">
+
+                        <input hidden asp-for="Id" />
 
                         <div class="form_box">
                             <label asp-for="Name"></label>
@@ -49,7 +51,7 @@
 
 
                         <div class="form_box">
-                            <button class="btn btn-success" type="submit">Add Supplier</button>
+                            <button class="btn btn-success" type="submit">Edit</button>
                         </div>
 
                         <div asp-validation-summary="All" class="text-danger"></div>

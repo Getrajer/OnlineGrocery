@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace OnlineGrocery.ViewModels
 {
-    public class AddSupplierViewModel
+    public class SupplierViewModel
     {
+        public int Id { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]

@@ -30,13 +30,13 @@ namespace OnlineGrocery.Controllers
         [HttpGet]
         public IActionResult AddSupplier()
         {
-            AddSupplierViewModel viewModel = new AddSupplierViewModel();
+            SupplierViewModel viewModel = new SupplierViewModel();
 
             return View(viewModel);
         }
 
         [HttpPost]
-        public IActionResult AddSupplier(AddSupplierViewModel viewModel)
+        public IActionResult AddSupplier(SupplierViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
@@ -49,6 +49,45 @@ namespace OnlineGrocery.Controllers
 
                 return RedirectToAction("SuppliersDisplay");
             }
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult EditSupplier(int Id)
+        {
+            SuppliersModel supplier = _supplierRepository.GetSupplier(Id);
+
+            if(supplier != null)
+            {
+                SupplierViewModel model = new SupplierViewModel();
+
+                model.Email = supplier.Email;
+                model.Name = supplier.Name;
+                model.PhoneNumber = supplier.PhoneNumber;
+                model.Id = supplier.Id;
+                return View(model);
+            }
+
+            return RedirectToAction("Error");
+        }
+
+        [HttpPost]
+        public IActionResult EditSupplier(SupplierViewModel supplier)
+        {
+            if (ModelState.IsValid)
+            {
+                SuppliersModel new_model = new SuppliersModel();
+
+                new_model.Email = supplier.Email;
+                new_model.Id = supplier.Id;
+                new_model.Name = supplier.Name;
+                new_model.PhoneNumber = supplier.PhoneNumber;
+
+                _supplierRepository.EditSupplier(new_model);
+
+                return RedirectToAction("SuppliersDisplay");
+            }
+
             return View();
         }
     }

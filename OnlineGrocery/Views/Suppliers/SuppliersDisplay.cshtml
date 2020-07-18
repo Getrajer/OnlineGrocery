@@ -27,6 +27,7 @@
                                 <th scope="col">Email</th>
                                 <th scope="col">Phone Number</th>
                                 <th></th>
+                                <th></th>
                             </tr>
                         </thead>
 
@@ -38,8 +39,13 @@
                                     <td>@p.Name</td>
                                     <td>@p.Email</td>
                                     <td>@p.PhoneNumber</td>
+
                                     <td>
-                                        <a asp-controller="Product" asp-action="EditProduct" asp-route-id="@p.Id">Edit</a>
+                                        <a asp-controller="Product" asp-action="EditProduct" asp-route-id="@p.Id">Place Order</a>
+                                    </td>
+
+                                    <td>
+                                        <a asp-controller="Suppliers" asp-action="EditSupplier" asp-route-id="@p.Id">Edit</a>
                                     </td>
                                 </tr>
                             }
