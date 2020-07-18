@@ -90,5 +90,15 @@ namespace OnlineGrocery.Controllers
 
             return View();
         }
+
+
+        public IActionResult DeleteSupplier(SupplierViewModel model)
+        {
+            if(model != null)
+            {
+                _supplierRepository.DeleteSupplier(model.Id);
+            }
+            return RedirectToAction("SuppliersDisplay");
+        }
     }
 }
