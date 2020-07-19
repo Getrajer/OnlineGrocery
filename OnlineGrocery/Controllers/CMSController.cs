@@ -30,7 +30,7 @@ namespace OnlineGrocery.Controllers
         public IActionResult CMSIndexPage()
         {
             CMSIndexViewModel model = new CMSIndexViewModel();
-            model.Page = _cMSIndexRepository.Get(3);
+            model.Page = _cMSIndexRepository.Get(1);
             model.Photo1 = null;
             model.Photo2 = null;
             model.Photo3 = null;
@@ -141,10 +141,12 @@ namespace OnlineGrocery.Controllers
         /// <summary>
         /// This function loads mock data for testing to database / file is included in wwroot
         /// </summary>
-        public void LoadData()
+        public IActionResult LoadData()
         {
             CMSIndexLoader i = new CMSIndexLoader();
             _cMSIndexRepository.Add(i.PageLoad());
+            return RedirectToAction("Index", "Home");
+
         }
 
 

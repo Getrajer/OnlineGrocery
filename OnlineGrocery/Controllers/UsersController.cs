@@ -3,28 +3,48 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using OnlineGrocery.Models;
+using OnlineGrocery.ViewModels;
 
 namespace OnlineGrocery.Controllers
 {
     public class UsersController : Controller
     {
-        private readonly IUserRepository _userRepository;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<IdentityUser> _signInManager;
 
-        public UsersController(IUserRepository userRepository)
+        public UsersController(UserManager<IdentityUser> userManager, 
+                                SignInManager<IdentityUser> signInManager)
         {
-            _userRepository = userRepository;
+            _userManager = userManager;
+            _signInManager = signInManager;
         }
 
         public IActionResult UsersListAdmin()
         {
-            var users = _userRepository.GetAllUsers();
 
-            return View(users);
+            return View();
         }
 
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
+        }
 
+        [HttpPost]
+        public IActionResult Register(CreateUserViewModel viewModel)
+        {
+
+            if (ModelState.IsValid)
+            {
+                var user = new IdentityUser() { };
+            }
+
+            return View(model);
+        }
 
     }
 }

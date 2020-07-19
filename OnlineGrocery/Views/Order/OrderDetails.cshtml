@@ -19,9 +19,32 @@
         <div class="admin_content_page">
             <div class="admin_main_panel">
                 <div class="admin_main_panel_container">
+                    <div class="table_page">
+                        <div class="table_page_container">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Id</th>
+                                        <th scope="col">Product Name</th>
+                                        <th scope="col">Ammount</th>
+                                        <th scope="col">Product Id</th>
+                                    </tr>
+                                </thead>
 
-
-
+                                <tbody>
+                                    @foreach (var p in Model.Items)
+                                    {
+                                        <tr>
+                                            <td>@p.Id</td>
+                                            <td>@p.ProductName</td>
+                                            <td>@p.Ammount</td>
+                                            <td>@p.ProductId</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

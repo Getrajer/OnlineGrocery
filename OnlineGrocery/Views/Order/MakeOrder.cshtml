@@ -30,7 +30,7 @@
                             <tr>
                                 <th scope="col">Id</th>
                                 <th scope="col">Product Name</th>
-                                <th scope="col">Quantity @Model.OrderItems[0].Ammount</th>
+                                <th scope="col">Quantity</th>
                             </tr>
                         </thead>
 
@@ -40,7 +40,12 @@
                                 <tr>
                                     <td>@Model.OrderItems[i].ProductId</td>
                                     <td>@Model.OrderItems[i].ProductName</td>
-                                    <td><input min="0" asp-for="@Model.OrderItems[i].Ammount" /></td>
+                                    <td>
+                                        <input min="0" asp-for="@Model.OrderItems[i].Ammount" />
+                                        <!--Hidden values-->
+                                        <input hidden asp-for="@Model.OrderItems[i].ProductName" /> 
+                                        <input hidden asp-for="@Model.OrderItems[i].ProductId" />
+                                    </td>
                                 </tr>
                             }
                         </tbody>

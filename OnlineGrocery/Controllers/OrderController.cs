@@ -35,7 +35,7 @@ namespace OnlineGrocery.Controllers
             for (int i = 0; i < Products.Count; i++)
             {
                 OrderItemModel order = new OrderItemModel();
-                order.Ammount = 10;
+                order.Ammount = 0;
                 order.ProductName = Products[i].Name;
                 order.ProductId = Products[i].Id;
                 OrderItems.Add(order);

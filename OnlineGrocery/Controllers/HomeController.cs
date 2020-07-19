@@ -29,7 +29,7 @@ namespace OnlineGrocery.Controllers
         {
             IndexViewModel model = new IndexViewModel();
 
-            model.PageData = _cMSIndexRepository.Get(3);
+            model.PageData = _cMSIndexRepository.Get(1);
 
             return View(model);
         }

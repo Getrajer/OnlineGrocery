@@ -1,0 +1,45 @@
+﻿
+.form_page{
+    display:flex;
+    justify-content:center;
+    padding:0 0 7em 0;
+}
+
+.form_page .form_page_container{
+    width:100%;
+    max-width: 600px;
+}
+
+.form_page .title{
+    text-align:center;
+    padding:4em 0 2em 0;
+}
+
+.form_page .double_form{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap:10px;
+}
+
+.form_page .button_container{
+    text-align:right;
+    padding:1em 0 0 0;
+}
+
+.form_page .form-group{
+    height:80px;
+}
+
+.form_page button{
+    background-image:linear-gradient(90deg, rgba(0,86,97,1) 0%, rgba(0,120,144,1) 46%, rgba(0,127,175,1) 100%);
+    border:unset;
+    font-size:1.7rem;
+    padding:0.2em 0.3em;
+    color:white;
+    font-weight:700;
+    transition:0.5s;
+}
+
+.form_page button:hover{
+   transform: translateY(-3px);
+}

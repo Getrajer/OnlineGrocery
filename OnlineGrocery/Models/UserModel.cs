@@ -18,5 +18,6 @@ namespace OnlineGrocery.Models
         public string PostCode { get; set; }
         public int OrdersAmmount { get; set; }
         public double MoneySpent { get; set; }
+        public DateTime TimeRegistred { get; set; }
     }
 }
