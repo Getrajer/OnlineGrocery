@@ -14,14 +14,12 @@ namespace OnlineGrocery.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        private readonly IUserRepository _userRepository;
 
         private readonly ICMSIndexRepository _cMSIndexRepository;
 
-        public HomeController(ILogger<HomeController> logger, IUserRepository userRepository, ICMSIndexRepository cMSIndexRepository)
+        public HomeController(ILogger<HomeController> logger, ICMSIndexRepository cMSIndexRepository)
         {
             _logger = logger;
-            _userRepository = userRepository;
             _cMSIndexRepository = cMSIndexRepository;
         }
 
@@ -32,12 +30,6 @@ namespace OnlineGrocery.Controllers
             model.PageData = _cMSIndexRepository.Get(1);
 
             return View(model);
-        }
-
-        public JsonResult Details(int id)
-        {
-            UserModel model = _userRepository.GetUser(id);
-            return Json(model);
         }
 
         public IActionResult Privacy()

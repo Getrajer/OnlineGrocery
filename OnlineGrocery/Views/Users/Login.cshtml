@@ -1,0 +1,46 @@
+﻿@model LoginViewModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/register_login_page_style.css" />
+</head>
+
+<section class="form_page">
+    <div class="form_page_container">
+
+        <div class="title">
+            <h1>Login</h1>
+        </div>
+
+        <form method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Password"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox">
+                    <label asp-for="RememberMe">
+                        <input asp-for="RememberMe" />
+                        @Html.DisplayNameFor(m => m.RememberMe)
+                    </label>
+                </div>
+            </div>
+
+            <div class="button_container">
+                <button type="submit">Login</button>
+            </div>
+        </form>
+    </div>
+</section>

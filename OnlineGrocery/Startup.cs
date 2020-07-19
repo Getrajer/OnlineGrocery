@@ -29,11 +29,10 @@ namespace OnlineGrocery
             services.AddDbContext<AppDbContext>(
                 options => options.UseSqlServer(_config.GetConnectionString("GroceryDbConnection")));
 
-            services.AddIdentity<IdentityUser, IdentityRole>()
+            services.AddIdentity<UserModel, IdentityRole>()
                 .AddEntityFrameworkStores<AppDbContext>();
 
             services.AddControllersWithViews();
-            services.AddScoped<IUserRepository, SQLUserRepository>(); 
             services.AddScoped<IProductRepository, SQLProductRepository>();
             services.AddScoped<ICMSIndexRepository, SQLCMSIndexRepository>();
             services.AddScoped<ISupplierRepository, SQLSuppliersRepository>();

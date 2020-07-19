@@ -8,7 +8,7 @@ namespace OnlineGrocery.Models
 {
     public class MockUserDataLoader
     {
-        private IUserRepository _userRepository;
+       /* private IUserRepository _userRepository;
 
         public MockUserDataLoader(IUserRepository user)
         {
@@ -45,5 +45,6 @@ namespace OnlineGrocery.Models
                 _userRepository.Add(user);
             }
         }
+       */
     }
 }

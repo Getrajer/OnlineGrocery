@@ -7,15 +7,13 @@ using System.Threading.Tasks;
 
 namespace OnlineGrocery.Models
 {
-    public class AppDbContext : IdentityDbContext
+    public class AppDbContext : IdentityDbContext<UserModel>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) 
             : base(options)
         {
 
         }
-
-        public DbSet<UserModel> Users { get; set; }
 
         public DbSet<ProductModel> Products { get; set; }
 

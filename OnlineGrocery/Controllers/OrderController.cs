@@ -50,7 +50,7 @@ namespace OnlineGrocery.Controllers
         }
 
         [HttpPost]
-        public IActionResult MakeOrder(CreateOrderViewModel viewModel)
+        public async Task <IActionResult> MakeOrder(CreateOrderViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
@@ -75,7 +75,7 @@ namespace OnlineGrocery.Controllers
 
                 SuppliersModel supplier = _supplierRepository.GetSupplier(viewModel.SupplierId);
                 //Send email with order
-                //PostMail(supplier, order, items_string_list);
+                //await PostMail(supplier, order, items_string_list);
 
                 return RedirectToAction("DisplayOrders");
             }
