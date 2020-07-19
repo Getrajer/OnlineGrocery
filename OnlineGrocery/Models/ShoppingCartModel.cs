@@ -33,7 +33,7 @@ namespace OnlineGrocery.Models
             return new ShoppingCartModel(context) { ShoppingCartId = cartId };
         }
 
-        public void AddToCart(ProductModel product, int ammount)
+        public void AddToCart(ProductModel product, int ammount, string userId)
         {
             var shoppingCartItem =
                 _appDbContext.ShoppingCartItems.SingleOrDefault(
@@ -45,7 +45,8 @@ namespace OnlineGrocery.Models
                 {
                     ShoppingCartId = ShoppingCartId,
                     Product = product,
-                    Ammount = ammount
+                    Ammount = ammount,
+                    UserId = userId
                 };
 
                 _appDbContext.ShoppingCartItems.Add(shoppingCartItem);

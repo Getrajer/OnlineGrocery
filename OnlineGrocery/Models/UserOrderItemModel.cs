@@ -5,12 +5,11 @@ using System.Threading.Tasks;
 
 namespace OnlineGrocery.Models
 {
-    public class ShoppingCartItemModel
+    public class UserOrderItemModel
     {
         public int Id { get; set; }
-        public ProductModel Product { get; set; }
+        public int ItemOrderId { get; set; }
+        public string ItemName { get; set; }
         public int Ammount { get; set; }
-        public string ShoppingCartId { get; set; }
-        public string UserId { get; set; }
     }
 }

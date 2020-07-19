@@ -12,14 +12,11 @@ namespace OnlineGrocery.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
 
         private readonly ICMSIndexRepository _cMSIndexRepository;
 
-        public HomeController(ILogger<HomeController> logger, ICMSIndexRepository cMSIndexRepository)
+        public HomeController( ICMSIndexRepository cMSIndexRepository)
         {
-            _logger = logger;
             _cMSIndexRepository = cMSIndexRepository;
         }
 
