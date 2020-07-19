@@ -7,24 +7,35 @@ namespace OnlineGrocery.Models
 {
     public class SQLUserOrderItemRepository : IUserOrderItemRepository
     {
-        public UserOrderItemModel AddOrderItem(UserOrderModel model)
+        private readonly AppDbContext _context;
+
+        public SQLUserOrderItemRepository(AppDbContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
+        }
+
+        public UserOrderItemModel AddOrderItem(UserOrderItemModel model)
+        {
+            _context.UserOrdersItems.Add(model);
+            _context.SaveChanges();
+            return model;
         }
 
         public List<UserOrderItemModel> GetAlltems()
         {
-            throw new NotImplementedException();
+            return _context.UserOrdersItems.ToList();
         }
 
         public UserOrderItemModel GetOrder(int Id)
         {
-            throw new NotImplementedException();
+            return _context.UserOrdersItems.Find(Id);
         }
 
         public List<UserOrderItemModel> GettIemsOfOrderId(int Id)
         {
-            throw new NotImplementedException();
+            List<UserOrderItemModel> Items = _context.UserOrdersItems.ToList();
+            Items.RemoveAll(o => o.ItemOrderId != Id);
+            return Items;
         }
     }
 }

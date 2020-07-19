@@ -10,6 +10,6 @@ namespace OnlineGrocery.Models
         UserOrderItemModel GetOrder(int Id);
         List<UserOrderItemModel> GetAlltems();
         List<UserOrderItemModel> GettIemsOfOrderId(int Id);
-        UserOrderItemModel AddOrderItem(UserOrderModel model);
+        UserOrderItemModel AddOrderItem(UserOrderItemModel model);
     }
 }
