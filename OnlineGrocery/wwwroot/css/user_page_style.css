@@ -1,0 +1,96 @@
+﻿.user_page{
+    display:flex;
+    justify-content:center;
+    align-content:center;
+    align-items:center;
+    min-height:80vh;
+}
+
+.user_page .user_page_container{
+    width:100%;
+    max-width:900px;
+    height:450px;
+    background-color: #26584a;
+    color:white;
+    padding: 1em;
+
+    display:grid;
+    grid-template-columns: 65% 35%;
+    grid-template-areas: 
+        "i c"
+        "i e";
+    grid-gap: 10px;
+
+    box-shadow:   12px 12px 24px rgba(0, 0, 0, 0.60);
+}
+
+.user_page p{
+    font-size:1.1rem;
+}
+
+.user_page .info_box{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2em;
+}
+
+.user_page .title{
+    padding:0.5em 0;
+}
+
+.user_page .title h2{
+    font-size:2rem;
+    letter-spacing: 6px;
+    font-weight:700;
+}
+
+.user_page .label_info{
+    font-weight:600;
+    letter-spacing:3px;
+}
+
+.user_page .user_info{
+    grid-area: i;
+    display:flex;
+    justify-content:center;
+    align-content:center;
+    align-items:center;
+}
+
+.user_page .chart_btn{
+    grid-area: c;
+    display:flex;
+    justify-content:center;
+    align-content:center;
+    align-items:center;
+}
+
+.user_page .edit_user_btn{
+    grid-area: e;
+    display:flex;
+    justify-content:center;
+    align-content:center;
+    align-items:center;
+}
+
+.user_page .f_btn{
+    display:flex;
+    justify-content:center;
+    align-content:center;
+    align-items:center;
+}
+
+.user_page .f_btn a{
+    font-size:5rem;
+    background-color:white;
+    color:#26584a;
+    border:unset;
+    transition:0.5s;
+    padding:0.1em;
+    cursor:pointer;
+    box-shadow: 5px 5px 14px rgba(0, 0, 0, 0.60);
+}
+
+.user_page .f_btn a:hover{
+    background-color:black;
+}

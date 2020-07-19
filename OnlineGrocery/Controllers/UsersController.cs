@@ -98,5 +98,87 @@ namespace OnlineGrocery.Controllers
 
             return View(viewModel);
         }
+
+        /// <summary>
+        /// Will dsiplay user details for logged in user
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IActionResult> UserPage()
+        {
+            UserPageViewModel model = new UserPageViewModel();
+
+            var user = await _userManager.GetUserAsync(HttpContext.User);
+
+            model.FirstName = user.FirstName;
+            model.LastName = user.LastName;
+            model.Email = user.Email;
+            model.City = user.City;
+            model.StreetName = user.StreetName;
+            model.StreetNumber = user.StreetNumber;
+            model.PostCode = user.PostCode;
+            model.PhoneNumber = user.PhoneNumber;
+
+            return View(model);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> EditUserInfo()
+        {
+            EditUserInfoViewModel model = new EditUserInfoViewModel();
+            var user = await _userManager.GetUserAsync(HttpContext.User);
+
+            if(user != null)
+            {
+                model.FirstName = user.FirstName;
+                model.LastName = user.LastName;
+                model.Email = user.Email;
+                model.City = user.City;
+                model.StreetName = user.StreetName;
+                model.StreetNumber = user.StreetNumber;
+                model.PostCode = user.PostCode;
+                model.PhoneNumber = user.PhoneNumber;
+                model.Id = user.Id;
+                return View(model);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditUserInfo(EditUserInfoViewModel viewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByIdAsync(viewModel.Id);
+
+                if(user != null)
+                {
+                    user.City = viewModel.City;
+                    user.Email = viewModel.Email;
+                    user.FirstName = viewModel.FirstName;
+                    user.LastName = viewModel.LastName;
+                    user.PhoneNumber = viewModel.PhoneNumber;
+                    user.PostCode = viewModel.PostCode;
+                    user.StreetName = viewModel.StreetName;
+                    user.StreetNumber = viewModel.StreetNumber;
+
+                    var result = await _userManager.UpdateAsync(user);
+
+                    if (result.Succeeded)
+                    {
+                        return RedirectToAction("UserPage");
+                    }
+
+                    foreach(var error in result.Errors)
+                    {
+                        ModelState.AddModelError("", error.Description);
+                    }
+                }
+            }
+
+            return View(viewModel);
+        }
     }
 }

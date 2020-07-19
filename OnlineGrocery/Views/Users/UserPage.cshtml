@@ -1,0 +1,72 @@
+﻿@model UserPageViewModel
+
+@{
+    ViewBag.Title = $"{Model.FirstName} Page";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/user_page_style.css" />
+</head>
+
+
+<section class="user_page">
+    <div class="user_page_container">
+
+        <div class="user_info">
+            <div class="user_info_container">
+                <div class="title">
+                    <h2>User Info:</h2>
+                </div>
+
+                <div class="info_box">
+                    <p class="label_info">Name: </p>
+                    <p class="info"> @Model.FirstName @Model.LastName</p>
+                </div>
+
+                <div class="info_box">
+                    <p class="label_info">Email: </p>
+                    <p class="info"> @Model.Email</p>
+                </div>
+
+                <div class="info_box">
+                    <p class="label_info">Phone number: </p>
+                    <p class="info"> @Model.PhoneNumber</p>
+                </div>
+
+                <div class="info_box">
+                    <p class="label_info">Address: </p>
+                </div>
+
+                <div class="info_box">
+                    <p class="label_info">Street: </p>
+                    <p class="info"> @Model.StreetName @Model.StreetNumber</p>
+                </div>
+
+                <div class="info_box">
+                    <p class="label_info">Postcode / City: </p>
+                    <p class="info"> @Model.PostCode | @Model.City</p>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="chart_btn">
+            <div class="chart_btn_container f_btn">
+                <a asp-controller="Users" asp-action="EditUserInfo" >
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="edit_user_btn">
+            <div class="edit_user_btn_container f_btn">
+                <a asp-controller="Users" asp-action="EditUserInfo">
+                    <i class="fas fa-user-cog"></i>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
