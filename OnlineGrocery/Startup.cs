@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using OnlineGrocery.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Http;
 
 namespace OnlineGrocery
 {
@@ -32,12 +33,21 @@ namespace OnlineGrocery
             services.AddIdentity<UserModel, IdentityRole>()
                 .AddEntityFrameworkStores<AppDbContext>();
 
+
+
             services.AddControllersWithViews();
             services.AddScoped<IProductRepository, SQLProductRepository>();
             services.AddScoped<ICMSIndexRepository, SQLCMSIndexRepository>();
             services.AddScoped<ISupplierRepository, SQLSuppliersRepository>();
             services.AddScoped<IOrderRepository, SQLOrderRepository>();
             services.AddScoped<IOrderItemRepository, SQLOrderItemRepository>();
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped(sp => ShoppingCartModel.GetCart(sp));
+
+            services.AddSession();
+            services.AddMemoryCache();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,11 +64,11 @@ namespace OnlineGrocery
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
