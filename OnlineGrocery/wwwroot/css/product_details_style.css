@@ -1,0 +1,90 @@
+﻿.product_details{
+    display:flex;
+    justify-content:center;
+    align-content:center;
+    align-items:center;
+    min-height: 70vh;
+}
+
+.product_details .product_details_container{
+    width:100%;
+    max-width: 400px;
+    padding:0.5em;
+    box-shadow:   12px 12px 24px rgba(0, 0, 0, 0.60);
+
+}
+
+.product_details .img_box{
+    display:flex;
+    justify-content:center;
+    align-content:center;
+    align-items:center;
+    padding: 2em 0;
+}
+
+.product_details .info{
+    padding:0 0.5em;
+}
+
+.product_details .title{
+    text-align:center;
+    padding:1em 0;
+}
+
+.product_details .title h1{
+    font-size:3rem;
+    font-weight:700;
+    letter-spacing:3px;
+}
+
+.product_details p{
+    font-size:1.3rem;
+    text-align:center;
+}
+
+.product_details .add_to_chart{
+    padding: 1em 0;
+    margin-bottom:0.5em;
+    display:grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 5px;
+    z-index:100;
+}
+
+.product_details .add_to_chart label {
+    display: block;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.product_details .add_to_chart input {
+    width: 100%;
+    text-align: center;
+}
+
+.product_details .add_button {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.product_details .add_button button{
+    display:block;
+    height:100%;
+    background-color:#205f57;
+    color:white;
+    padding:0.3em 0.5em;
+    border-radius: 0.5em;
+    font-size:2rem;
+    border:unset;
+    text-transform:uppercase;
+    font-weight:600;
+
+    transition: 0.5s background-color;
+}
+
+.product_details .add_button button:hover{
+    background-color:#3ea086;
+}

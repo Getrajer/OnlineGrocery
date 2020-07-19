@@ -221,6 +221,7 @@ button:focus {
     height:100%;
     background-color:#205f57;
     color:white;
+    font-size:2rem;
     border-radius: 0.5em;
     border:unset;
     text-transform:uppercase;

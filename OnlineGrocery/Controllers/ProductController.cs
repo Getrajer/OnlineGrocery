@@ -153,7 +153,6 @@ namespace OnlineGrocery.Controllers
                 PageTitle = product.Name
             };
 
-           
 
             return View(productDetailsViewModel);
         }

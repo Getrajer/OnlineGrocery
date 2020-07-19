@@ -1,8 +1,49 @@
 ﻿@model ProductDetailsViewModel
 
+@{
+    ViewBag.Title = $"{Model.product.Name}";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/product_details_style.css" />
+</head>
 
 
+<section class="product_details">
+    <div class="product_details_container">
+        <div class="img_box">
+            <img src="~/images/@Model.product.ImgPath" alt="@Model.product.Name image" />
+        </div>
+
+        <div class="info">
+            <div class="title">
+                <h1>@Model.product.Name</h1>
+            </div>
+
+            <div class="description">
+                <p>@Model.product.Description</p>
+            </div>
+
+            <div class="supplier">
+                <p>Supplier: @Model.product.SupplierName</p>
+            </div>
+
+            <div class="price">
+                <p>Price: £@Model.product.Price</p>
+            </div>
+
+            <div class="add_to_chart">
+                <div class="input">
+                    <label>Quantity</label>
+                    <input placeholder="1" />
+                </div>
+
+                <div class="add_button">
+                    <button><i class="fas fa-cart-plus"></i></button>
+                </div>
+            </div>
+        </div>
 
 
-
-<h1>@Model.product.Name</h1>
+    </div>
+</section>
