@@ -1,0 +1,9 @@
+﻿.cart{
+    display:flex;
+    justify-content:center;
+}
+
+.cart_container{
+    width:100%;
+    max-width:700px;
+}

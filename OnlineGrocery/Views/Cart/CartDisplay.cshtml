@@ -1,45 +1,60 @@
 ﻿@model CartViewModel
 
-<div class="row checkoutForm">
-    <h2>Your shopping cart</h2>
-    <h4>Here are the drinks in your shopping cart.</h4>
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>Selected amount</th>
-                <th>Drink</th>
-                <th class="text-right">Price</th>
-                <th class="text-right">Subtotal</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var line in Model.ShoppingCart.ShoppingCartItems)
-            {
-                <tr>
-                    <td class="text-center">@line.Ammount</td>
-                    <td class="text-left">@line.Product.Name</td>
-                    <td class="text-right">@line.Product.Price.ToString("c")</td>
-                    <td class="text-right">
-                        @((line.Ammount * line.Product.Price).ToString("c"))
-                    </td>
-                    <td class="text-center"><a class="glyphicon glyphicon-remove text-danger remove" asp-controller="ShoppingCart" asp-action="RemoveFromShoppingCart" asp-route-drinkId="@line.Product.Id"></a></td>
-                </tr>
-            }
-        </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="3" class="text-right">Total:</td>
-                <td class="text-right">
-                    @Model.ShoppingCartTotal.ToString("c")
-                </td>
-            </tr>
-        </tfoot>
-    </table>
+<head>
+    <link rel="stylesheet" href="~/css/cart_display_style.css" />
+</head>
 
-    <div class="text-right">
-        <div class="btn-group ">
-            <a class="btn btn-success" asp-controller="Order" asp-action="Checkout">Check out</a>
+<section class="cart">
+    <div class="cart_container">
+        <div class="title">
+            <h1>Your Cart</h1>
         </div>
+
+        <div class="table_container">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Selected amount</th>
+                        <th>Price</th>
+                        <th>Subtotal</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var line in Model.ShoppingCart.ShoppingCartItems)
+                    {
+                    <tr>
+                        <td>@line.Product.Name @line.Product.Id</td>
+                        <td>@line.Ammount</td>
+                        <td>@line.Product.Price.ToString("c")</td>
+                        <td>
+                            @((line.Ammount * line.Product.Price).ToString("c"))
+                        </td>
+                        <td><a asp-controller="Cart" asp-action="RemoveFromShoppingCart" asp-route-Id="@line.Product.Id">Remove</a></td>
+                        <td><a asp-controller="Cart" asp-action="RemoveAllOfItem" asp-route-Id="@line.Product.Id">Remove All</a></td>
+                    </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3" class="text-right">Total:</td>
+                        <td class="text-right">
+                            @Model.ShoppingCartTotal.ToString("c")
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <div class="button_container">
+            <a asp-controller="Order" asp-action="Checkout">Check out</a>
+        </div>
+
+        <div class="button_container">
+            <a asp-controller="Cart" asp-action="ClearChart">Clear Chart</a>
+        </div>
+
     </div>
-</div>
+</section>

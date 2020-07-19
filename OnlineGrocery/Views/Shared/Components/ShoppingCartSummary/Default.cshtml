@@ -4,10 +4,9 @@
 @if (Model.ShoppingCart.ShoppingCartItems.Count > 0)
 {
     <li>
-        <a asp-controller="ShoppingCart">
-            <span class="glyphicon glyphicon-shopping-cart">Go To Cart</span>
+        <a asp-controller="Cart" asp-action="CartDisplay">
             <span id="cart-status">
-                @Model.ShoppingCart.ShoppingCartItems.Count
+                <i class="fas fa-cart-arrow-down"></i> @Model.ShoppingCart.ShoppingCartItems.Count
             </span>
         </a>
     </li>

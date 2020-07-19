@@ -45,16 +45,28 @@ namespace OnlineGrocery.Models
                 {
                     ShoppingCartId = ShoppingCartId,
                     Product = product,
-                    Ammount = 1
+                    Ammount = ammount
                 };
 
                 _appDbContext.ShoppingCartItems.Add(shoppingCartItem);
             }
             else
             {
-                shoppingCartItem.Ammount++;
+                shoppingCartItem.Ammount += ammount;
             }
             _appDbContext.SaveChanges();
+        }
+
+        public int RemoveAllOfItem(ProductModel product)
+        {
+            var shoppingCartItem =
+                _appDbContext.ShoppingCartItems.SingleOrDefault(
+                    s => s.Product.Id == product.Id && s.ShoppingCartId == ShoppingCartId);
+
+            _appDbContext.ShoppingCartItems.Remove(shoppingCartItem);
+            _appDbContext.SaveChanges();
+
+            return 0;
         }
 
         public int RemoveFromCart(ProductModel product)
@@ -71,13 +83,14 @@ namespace OnlineGrocery.Models
                 {
                     shoppingCartItem.Ammount--;
                     localAmmount = shoppingCartItem.Ammount;
+                    _appDbContext.ShoppingCartItems.Update(shoppingCartItem);
                 }
                 else
                 {
                     _appDbContext.ShoppingCartItems.Remove(shoppingCartItem);
                 }
-
             }
+
             _appDbContext.SaveChanges();
 
             return localAmmount;
