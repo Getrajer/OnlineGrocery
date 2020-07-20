@@ -34,6 +34,14 @@
 
         <div class="checkout_form">
             <form>
+                <input hidden asp-for="CartId" />
+
+                <div class="form_box card_nr">
+                    <label asp-for="AdditionalInformation"></label>
+                    <textarea maxlength="100" asp-for="AdditionalInformation"></textarea>
+                    <span class="text-danger" asp-validation-for="AdditionalInformation"></span>
+                </div>
+
                 <div class="form_box card_nr">
                     <label asp-for="CardNumber"></label>
                     <input asp-for="CardNumber" />

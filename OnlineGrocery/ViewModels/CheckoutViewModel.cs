@@ -12,13 +12,18 @@ namespace OnlineGrocery.ViewModels
         public double FullPrice { get; set; }
         public int FullAmmount { get; set; }
 
+        public string CartId { get; set; }
+
         public List<ShoppingCartItemModel> OrderItems { get; set; }
+
+        [Display(Name = "Extra Information")]
+        public string AdditionalInformation { get; set; }
 
         [Required]
         [Display(Name = "Card Number")]
         [RegularExpression(@"^5[1-5]\d{14}$", ErrorMessage = "This is not valid credit card!")]
         public string CardNumber { get; set; }
-        
+
         [Required]
         [Display(Name = "MM")]
         [RegularExpression(@"[1-9]|1[0-2]$", ErrorMessage = "Not valid month!")]

@@ -8,8 +8,9 @@ namespace OnlineGrocery.Models
     public class UserOrderItemModel
     {
         public int Id { get; set; }
-        public int ItemOrderId { get; set; }
-        public string ItemName { get; set; }
+        public int ProductOrderId { get; set; }
+        public string ProductName { get; set; }
+        public string OrderId { get; set; }
         public int Ammount { get; set; }
     }
 }

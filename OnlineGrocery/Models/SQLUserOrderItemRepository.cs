@@ -31,10 +31,10 @@ namespace OnlineGrocery.Models
             return _context.UserOrdersItems.Find(Id);
         }
 
-        public List<UserOrderItemModel> GettIemsOfOrderId(int Id)
+        public List<UserOrderItemModel> GettIemsOfOrderId(string Id)
         {
             List<UserOrderItemModel> Items = _context.UserOrdersItems.ToList();
-            Items.RemoveAll(o => o.ItemOrderId != Id);
+            Items.RemoveAll(o => o.OrderId != Id);
             return Items;
         }
     }
