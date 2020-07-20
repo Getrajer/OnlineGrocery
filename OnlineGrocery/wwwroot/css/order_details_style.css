@@ -1,0 +1,22 @@
+﻿body {
+}
+
+.order_information{
+    display:flex; 
+    justify-content:center;
+}
+
+.order_information .title{
+    text-align:center;
+}
+
+.order_information_container p{
+    padding: 0.3em 0;
+}
+
+.order_information_container {
+    width: 400px;
+    box-shadow: 10px 10px 14px rgba(0, 0, 0, 0.60);
+    margin: 2em 0;
+    padding: 1em;
+}

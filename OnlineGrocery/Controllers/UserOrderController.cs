@@ -109,5 +109,22 @@ namespace OnlineGrocery.Controllers
             }
             return View(viewModel);
         }
+
+
+        public IActionResult UserOrders()
+        {
+            List<UserOrderModel> Orders = _userOrderRepository.GetAllOrders();
+            return View(Orders);
+        }
+
+        public IActionResult UserOrderDetails(int Id)
+        {
+            UserOrderDetailsViewModel model = new UserOrderDetailsViewModel();
+
+            model.UserOrder = _userOrderRepository.GetOrder(Id);
+            model.OrderedItems = _userOrderItemRepository.GettIemsOfOrderId(model.UserOrder.OrderId);
+
+            return View(model);
+        }
     }
 }

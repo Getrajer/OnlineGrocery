@@ -1,0 +1,72 @@
+﻿@model UserOrderDetailsViewModel
+
+<head>
+    <link rel="stylesheet" href="~/css/main_admin_style.css" />
+    <link rel="stylesheet" href="~/css/admin_display_products_style.css" />
+    <link rel="stylesheet" href="~/css/order_details_style.css" />
+</head>
+
+@{
+    //Change style for link with this ID
+    AdminNavViewModel m = new AdminNavViewModel();
+    m.LinkId = 6;
+}
+
+<section class="admin_site">
+    <div class="admin_site_container">
+
+        <partial name="_AdminNavigationPartial" model="m" />
+
+        <div class="admin_content_page">
+            <div class="table_page">
+                <div class="table_page_container">
+
+                    <div class="order_information">
+                        <div class="order_information_container">
+                            <div class="title">
+                                <h1>Order Details</h1>
+
+                                <p>Name: @Model.UserOrder.UserName</p>
+                                <p>Phone Number: @Model.UserOrder.UserPhoneNumber</p>
+                                <p>Email: @Model.UserOrder.UserEmail</p>
+                                <p>Address: @Model.UserOrder.UserStreetAdress</p>
+                                <p>Postcode: @Model.UserOrder.UserPostCode</p>
+                                <p>City: @Model.UserOrder.UserCity</p>
+                                <p>Paid: £@Model.UserOrder.FullPrice</p>
+                                <p>Items Ordered: @Model.OrderedItems.Count</p>
+
+                                @if (Model.UserOrder.AdditionalInformation != "")
+                                {
+                                    <p>More Information: </p>
+                                    <p>@Model.UserOrder.AdditionalInformation</p>
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Product Name</th>
+                                <th scope="col">Ammount</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (var p in Model.OrderedItems)
+                            {
+                                <tr>
+                                    <td>@p.Id</td>
+                                    <td>@p.ProductName</td>
+                                    <td>@p.Ammount</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

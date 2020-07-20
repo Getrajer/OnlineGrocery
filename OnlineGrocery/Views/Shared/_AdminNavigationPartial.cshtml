@@ -110,9 +110,20 @@
                 </div>
 
                 <ul>
-                    <li>
-                        <a class="link"><i class="fas fa-user-circle"></i> User Orders</a>
-                    </li>
+                    @if (Model.LinkId == 6)
+                    {
+                        <li class="on_site">
+                            <a asp-controller="UserOrder" asp-action="UserOrders"  class="link"><i class="fas fa-user-circle"></i> User Orders</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a asp-controller="UserOrder" asp-action="UserOrders"  class="link"><i class="fas fa-user-circle"></i> User Orders</a>
+                        </li>
+                    }
+
+
 
                     <li>
                         <a class="link"><i class="fas fa-money-bill-wave"></i> Statistics</a>
