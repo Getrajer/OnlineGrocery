@@ -21,12 +21,11 @@ namespace OnlineGrocery.ViewModels
 
         [Required]
         [Display(Name = "Card Number")]
-        [RegularExpression(@"^5[1-5]\d{14}$", ErrorMessage = "This is not valid credit card!")]
+        [RegularExpression(@"^4[0-9]{12}(?:[0-9]{3})?$", ErrorMessage = "This is not valid credit card!")]
         public string CardNumber { get; set; }
 
         [Required]
         [Display(Name = "MM")]
-        [RegularExpression(@"[1-9]|1[0-2]$", ErrorMessage = "Not valid month!")]
         public string MonthExpired { get; set; }
 
         [Required]

@@ -33,8 +33,11 @@
         </div>
 
         <div class="checkout_form">
-            <form>
+            <form enctype="multipart/form-data" asp-controller="UserOrder" asp-action="Checkout" method="post">
                 <input hidden asp-for="CartId" />
+                <input hidden asp-for="FullAmmount" />
+                <input hidden asp-for="FullPrice" />
+
 
                 <div class="form_box card_nr">
                     <label asp-for="AdditionalInformation"></label>

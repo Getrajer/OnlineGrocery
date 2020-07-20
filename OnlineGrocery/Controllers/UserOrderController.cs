@@ -47,6 +47,7 @@ namespace OnlineGrocery.Controllers
                 model.FullAmmount += Items[i].Ammount;
             }
             model.OrderItems = Items;
+            model.CartId = Id;
 
             return View(model);
         }
@@ -89,8 +90,10 @@ namespace OnlineGrocery.Controllers
                 user_order.DateOfOrder = DateTime.Now;
                 user_order.OrderId = viewModel.CartId;
                 user_order.AdditionalInformation = viewModel.AdditionalInformation;
+                user_order.FullPrice = viewModel.FullPrice;
 
                 //Add user information
+                user_order.UserId = user.Id;
                 user_order.UserCity = user.City;
                 user_order.UserEmail = user.Email;
                 user_order.UserName = $"{user.FirstName} {user.LastName}";
@@ -100,10 +103,14 @@ namespace OnlineGrocery.Controllers
                 user_order.UserCity = user.City;
 
                 _userOrderRepository.AddOrder(user_order);
+
+                //Clear cart
+                return RedirectToAction("ClearCartPayment", "Cart");
+
             }
 
 
-            return View();
+            return View(viewModel);
         }
     }
 }

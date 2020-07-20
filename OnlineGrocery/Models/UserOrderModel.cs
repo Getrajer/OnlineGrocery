@@ -8,7 +8,7 @@ namespace OnlineGrocery.Models
     public class UserOrderModel
     {
         public int Id { get; set; }
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public string OrderId { get; set; }
         public double FullPrice { get; set; }
         public DateTime DateOfOrder { get; set; }

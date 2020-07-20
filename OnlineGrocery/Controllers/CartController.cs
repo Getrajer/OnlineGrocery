@@ -73,10 +73,20 @@ namespace OnlineGrocery.Controllers
             return RedirectToAction("CartDisplay", "Cart");
         }
 
-        public IActionResult ClearChart()
+        public IActionResult ClearCart()
         {
             _shoppingCart.ClearCart();
             return RedirectToAction("CartDisplay", "Cart");
+        }
+
+        /// <summary>
+        /// This method clears the cart when user pays for the products
+        /// </summary>
+        /// <returns></returns>
+        public IActionResult ClearCartPayment()
+        {
+            _shoppingCart.ClearCart();
+            return RedirectToAction("Index", "Home");
         }
     }
 }
