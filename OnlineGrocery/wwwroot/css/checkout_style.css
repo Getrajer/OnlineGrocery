@@ -1,0 +1,82 @@
+﻿.checkout{
+    display:flex;
+    justify-content:center;
+    align-content:center;
+    align-items:center;
+    min-height: 80vh;
+}
+
+.checkout .checkout_container{
+    width:500px;
+    padding:1em 2em;
+    box-shadow:   12px 12px 24px rgba(0, 0, 0, 0.60);
+}
+
+.checkout .title{
+    text-align:center;
+    padding:1em 0;
+}
+
+.checkout .title h1{
+    font-size:2.3rem;
+    letter-spacing: 3px;
+    font-weight:700;
+}
+
+.checkout .info{
+    padding:1em 0;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap:10px;
+}
+
+.checkout .box{
+    text-align:center;
+}
+
+.checkout .mock{
+    font-size:0.8rem;
+    padding:1em 0;
+}
+
+.checkout .form_box{
+    padding:1em 0;
+}
+
+.checkout input {
+    text-align: center;
+    padding: 0.2em;
+    width:100%;
+}
+
+.checkout .double_form{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap:10px;
+}
+
+.checkout label{
+    display:block;
+    text-align:center;
+    font-weight:600;
+    letter-spacing:3px;
+}
+
+.checkout .button_box{
+    padding:1em 0;
+    text-align:right;
+}
+
+.checkout .button_box button{
+    background-color:white;
+    border:1px solid black;
+    padding:0.3em;
+    font-size:1.1rem;
+    font-weight:600;
+    transition: 0.5s;
+}
+
+
+.checkout .button_box button:hover{
+    transform: translateY(-3px);
+}

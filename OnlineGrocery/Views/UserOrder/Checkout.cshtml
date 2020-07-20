@@ -1,5 +1,8 @@
 ﻿@model CheckoutViewModel
 
+<head>
+    <link rel="stylesheet" href="~/css/checkout_style.css" />
+</head>
 
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -7,10 +10,63 @@
 @{
 }
 
+<section class="checkout">
+    <div class="checkout_container">
+        <div class="title">
+            <h1>Pay for your products</h1>
+        </div>
 
+        <div class="info">
+            <div class="box">
+                <p>To pay:</p>
+                <p>@Model.FullPrice</p>
+            </div>
 
-<h1>@Model.FullPrice</h1>
-@foreach(var o in Model.OrderItems)
-{
-    <h1>@o.ShoppingCartId</h1>
-}
+            <div class="box">
+                <p>Ammount of products</p>
+                <p>@Model.FullAmmount</p>
+            </div>
+        </div>
+
+        <div class="mock">
+            <p>This is just mock demonstration. In actual application payment method would be implemented with 3rd party, for example Stripe/Visa ect.</p>
+        </div>
+
+        <div class="checkout_form">
+            <form>
+                <div class="form_box card_nr">
+                    <label asp-for="CardNumber"></label>
+                    <input asp-for="CardNumber" />
+                    <span class="text-danger" asp-validation-for="CardNumber"></span>
+                </div>
+
+                <div class="double_form">
+                    <div class="double_form">
+                        <div class="form_box">
+                            <label asp-for="MonthExpired"></label>
+                            <input max="2" asp-for="MonthExpired" />
+                            <span class="text-danger" asp-validation-for="MonthExpired"></span>
+                        </div>
+                        <div class="form_box">
+                            <label asp-for="YearExpired"></label>
+                            <input max="2" asp-for="YearExpired" />
+                            <span class="text-danger" asp-validation-for="YearExpired"></span>
+                        </div>
+                    </div>
+
+                    <div class="form_box">
+                        <label asp-for="SecurityCode"></label>
+                        <input asp-for="SecurityCode" />
+                        <span class="text-danger" asp-validation-for="SecurityCode"></span>
+                    </div>
+                </div>
+
+                <div class="button_box">
+                    <button type="submit">Pay</button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</section>

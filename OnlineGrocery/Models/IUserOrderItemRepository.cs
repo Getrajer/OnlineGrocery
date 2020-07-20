@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace OnlineGrocery.Models
 {
-    interface IUserOrderItemRepository
+    public interface IUserOrderItemRepository
     {
         UserOrderItemModel GetOrder(int Id);
         List<UserOrderItemModel> GetAlltems();
