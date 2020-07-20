@@ -25,16 +25,16 @@
                 <tbody>
                     @foreach (var line in Model.ShoppingCart.ShoppingCartItems)
                     {
-                    <tr>
-                        <td>@line.Product.Name @line.Product.Id</td>
-                        <td>@line.Ammount</td>
-                        <td>@line.Product.Price.ToString("c")</td>
-                        <td>
-                            @((line.Ammount * line.Product.Price).ToString("c"))
-                        </td>
-                        <td><a asp-controller="Cart" asp-action="RemoveFromShoppingCart" asp-route-Id="@line.Product.Id">Remove</a></td>
-                        <td><a asp-controller="Cart" asp-action="RemoveAllOfItem" asp-route-Id="@line.Product.Id">Remove All</a></td>
-                    </tr>
+                        <tr>
+                            <td>@line.Product.Name @line.Product.Id</td>
+                            <td>@line.Ammount</td>
+                            <td>@line.Product.Price.ToString("c")</td>
+                            <td>
+                                @((line.Ammount * line.Product.Price).ToString("c"))
+                            </td>
+                            <td><a asp-controller="Cart" asp-action="RemoveFromShoppingCart" asp-route-Id="@line.Product.Id">Remove</a></td>
+                            <td><a asp-controller="Cart" asp-action="RemoveAllOfItem" asp-route-Id="@line.Product.Id">Remove All</a></td>
+                        </tr>
                     }
                 </tbody>
                 <tfoot>
@@ -47,9 +47,9 @@
                 </tfoot>
             </table>
         </div>
-
+        @Model.ShoppingCart.ShoppingCartId
         <div class="button_container">
-            <a asp-controller="Order" asp-action="Checkout">Check out</a>
+            <a asp-controller="UserOrder" asp-action="Checkout" asp-route-Id="@Model.ShoppingCart.ShoppingCartId">Check out</a>
         </div>
 
         <div class="button_container">

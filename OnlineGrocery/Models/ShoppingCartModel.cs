@@ -46,7 +46,9 @@ namespace OnlineGrocery.Models
                     ShoppingCartId = ShoppingCartId,
                     Product = product,
                     Ammount = ammount,
-                    UserId = userId
+                    UserId = userId,
+                    ItemId = product.Id
+
                 };
 
                 _appDbContext.ShoppingCartItems.Add(shoppingCartItem);

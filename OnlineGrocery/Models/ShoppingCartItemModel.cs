@@ -11,6 +11,8 @@ namespace OnlineGrocery.Models
         public ProductModel Product { get; set; }
         public int Ammount { get; set; }
         public string ShoppingCartId { get; set; }
+
+        public int ItemId { get; set; }
         public string UserId { get; set; }
     }
 }
