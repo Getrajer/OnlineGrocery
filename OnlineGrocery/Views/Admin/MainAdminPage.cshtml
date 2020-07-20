@@ -1,4 +1,6 @@
-﻿
+﻿@model AdminMainPanelViewModel
+
+
 <head>
     <link rel="stylesheet" href="~/css/main_admin_style.css" />
     <link rel="stylesheet" href="~/css/admin_display_products_style.css"/>
@@ -17,11 +19,10 @@
         <partial name="_AdminNavigationPartial" model="m"/>
 
         <div class="admin_content_page">
-
             <div class="admin_main_panel">
                 <div class="admin_main_panel_container">
 
-                    <div class="clock_box">
+                    <div class="box clock_box">
                         <div class="clock_box_container">
                             <div class="clock">
                                 <div class="clock-face">
@@ -33,12 +34,60 @@
                         </div>
                     </div>
 
+                    <div class="box latest_order">
+                        <div class="latest_order_container">
+                            <p>Latest order made by</p>
+                            <p>@Model.NewOrder.UserName</p>
+                            <p>For price of:</p>
+                            <p class="bold">£@Model.NewOrder.FullPrice</p>
+                        </div>
+                    </div>
+
+                    <div class="box new_users">
+                        <div class="new_users">
+                            <p>Number of new users</p>
+                            <p>@Model.NumberDayUsers</p>
+                            <p>@Model.NewUser.FirstName just joined us!</p>
+                        </div>
+                    </div>
+
+                    <div class="box messages">
+                        <div class="messages">
+                            <p>0</p>
+                            <p><i class="fas fa-inbox"></i></p>
+                            <p>New messages</p>
+                        </div>
+                    </div>
+
+                    <div class="box today_income">
+                        <div class="today_income_container">
+                            <p>Today's Income:</p>
+                            <p class="bold">£@Model.DayIncome</p>
+                        </div>
+                    </div>
+
+                    @if (Model.StockIsFine)
+                    {
+                        <div class="box stock">
+                            <div class="stock">
+                                <p>Evrything is in stock!</p>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="box stock">
+                            <div class="stock">
+                                <p>There is @Model.NumberProductsLowOnStock low on stock or out of stock</p>
+                            </div>
+                        </div>
+                    }
+
+
 
                 </div>
             </div>
-
         </div>
-
     </div>
 </section>
 

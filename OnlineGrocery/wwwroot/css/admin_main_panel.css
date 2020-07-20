@@ -1,8 +1,8 @@
 ﻿
 /*Style for clock*/
 .clock {
-    width: 30rem;
-    height: 30rem;
+    width: 200px;
+    height: 200px;
     border: 20px solid white;
     border-radius: 50%;
     margin: 50px auto;
@@ -35,3 +35,49 @@
 
 /*End of Style for clock*/
 
+
+.admin_main_panel {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    height: 900px;
+}
+
+.admin_main_panel .admin_main_panel_container{
+    width:100%;
+    max-width: 1000px;
+    height:800px;
+    display:grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-gap: 30px;
+}
+
+.admin_main_panel .admin_main_panel_container .box{
+    display:flex;
+    justify-content:center;
+    align-content:center;
+    align-items:center;
+    box-shadow:   10px 10px 14px rgba(0, 0, 0, 0.60);
+    height:370px;
+    text-align:center;
+    font-size:1.3rem;
+    font-weight:600;
+    padding:0.5em 1em;
+    letter-spacing:3px;
+    transition:0.5s;
+}
+
+.admin_main_panel .admin_main_panel_container .box:hover{
+    transform:translateY(-5px);
+}
+
+.admin_main_panel .bold{
+    font-weight:700;
+    letter-spacing:5px;
+    font-size:1.5rem;
+}
+
+.admin_main_panel .messages i{
+    font-size:6rem;
+}

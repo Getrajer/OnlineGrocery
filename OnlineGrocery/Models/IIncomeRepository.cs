@@ -10,5 +10,6 @@ namespace OnlineGrocery.Models
         List<ShopIncome> GetAllIncomes();
         List<ShopIncome> GetIncomesByTime(DateTime from, DateTime to);
         ShopIncome AddIncome(ShopIncome income);
+        double GetDailyIncome();
     }
 }

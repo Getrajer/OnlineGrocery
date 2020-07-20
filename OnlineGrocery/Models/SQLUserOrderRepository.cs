@@ -26,6 +26,11 @@ namespace OnlineGrocery.Models
             return _context.UserOrders.ToList();
         }
 
+        public UserOrderModel GetNewest()
+        {
+            return _context.UserOrders.Find(_context.UserOrders.Count());
+        }
+
         public UserOrderModel GetOrder(int Id)
         {
             return _context.UserOrders.Find(Id);

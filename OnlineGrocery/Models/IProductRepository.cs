@@ -17,6 +17,8 @@ namespace OnlineGrocery.Models
 
         ProductModel Update(ProductModel edit_product);
 
+        int LowStockProductsNumber();
+
         List<ProductModel> GetProductsOfSupplier(string type);
     }
 }

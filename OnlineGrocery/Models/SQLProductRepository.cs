@@ -61,6 +61,17 @@ namespace OnlineGrocery.Models
             return sorted_products;
         }
 
+        /// <summary>
+        /// If stock of items is lower than 10 it showcases low stock in admin window
+        /// </summary>
+        /// <returns></returns>
+        public int LowStockProductsNumber()
+        {
+            List<ProductModel> Products = context.Products.ToList();
+            Products.RemoveAll(o => o.Quantity > 10);
+            return Products.Count();
+        }
+
         public ProductModel Update(ProductModel edit_product)
         {
             var product = context.Products.Attach(edit_product);

@@ -106,10 +106,7 @@ namespace OnlineGrocery.Controllers
 
                 //Clear cart
                 return RedirectToAction("ClearCartPayment", "Cart");
-
             }
-
-
             return View(viewModel);
         }
     }
