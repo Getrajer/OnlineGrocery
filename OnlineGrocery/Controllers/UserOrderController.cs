@@ -104,6 +104,11 @@ namespace OnlineGrocery.Controllers
 
                 _userOrderRepository.AddOrder(user_order);
 
+                //Update ordering user iformations
+                user.OrdersAmmount++;
+                user.MoneySpent += viewModel.FullAmmount;
+                await _userManager.UpdateAsync(user);
+
                 //Clear cart
                 return RedirectToAction("ClearCartPayment", "Cart");
             }

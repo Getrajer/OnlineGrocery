@@ -180,5 +180,46 @@ namespace OnlineGrocery.Controllers
 
             return View(viewModel);
         }
+
+        public async Task<IActionResult> LoadMockData()
+        {
+            MockUserDataLoader loader = new MockUserDataLoader();
+            List<string> lines = loader.LoadMockData();
+
+            var successful = new List<string>();
+            var failed = new List<string>();
+
+            for (int i = 0; i < lines.Count; i++)
+            {
+                string[] line = lines[i].Split(",");
+
+                UserModel user = new UserModel();
+                user.FirstName = line[1];
+                user.LastName = line[2];
+                user.Email = line[3];
+                user.City = line[5];
+                user.StreetName = line[6];
+                user.StreetNumber = line[7];
+                user.PostCode = line[8];
+                user.OrdersAmmount = Convert.ToInt32(line[9]);
+                user.MoneySpent = Convert.ToDouble(line[10]);
+                user.TimeRegistred = Convert.ToDateTime(line[11]);
+                user.UserName = user.Email;
+
+                var result = await _userManager.CreateAsync(user, line[4]);
+
+                if (result.Succeeded)
+                {
+                    successful.Add(user.FirstName);
+                }
+                else
+                {
+                    failed.Add(user.FirstName);
+                }
+            }
+
+            return RedirectToAction("Index", "Home");
+
+        }
     }
 }

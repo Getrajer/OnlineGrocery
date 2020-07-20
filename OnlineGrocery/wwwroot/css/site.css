@@ -64,9 +64,9 @@ html {
 body {
   /* Margin bottom by footer height */
   min-height:100vh;
+  height:100%;
 }
 .footer {
-  position: absolute;
   background-color:white;
   bottom: 0;
   width: 100%;

@@ -35,6 +35,8 @@
                             <a class="nav-link text-dark" asp-controller="Admin" asp-action="MainAdminPage">Admin</a>
                         </li>
 
+
+
                         @if (signInManager.IsSignedIn(User))
                         {
                             <li class="nav-item">
@@ -58,7 +60,7 @@
                             </li>
                         }
 
-                         @await Component.InvokeAsync("ShoppingCartSummary") 
+                        @await Component.InvokeAsync("ShoppingCartSummary")
 
                     </ul>
                 </div>

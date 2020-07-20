@@ -22,6 +22,11 @@
     padding: 2em 0;
 }
 
+.product_details img{
+    width:300px;
+    max-height:450px;
+}
+
 .product_details .info{
     padding:0 0.5em;
 }

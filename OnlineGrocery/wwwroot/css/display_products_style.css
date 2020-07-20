@@ -8,6 +8,7 @@ button:focus {
 .products{
     display:flex;
     justify-content:center;
+    height:100%;
 }
 
 .products .products_container{
@@ -35,7 +36,7 @@ button:focus {
 .products .products_display{
     display:grid;
     grid-template-columns: 270px auto;
-    height: 1000px;
+    height: 1200px;
 }
 
 .products .products_menu{
