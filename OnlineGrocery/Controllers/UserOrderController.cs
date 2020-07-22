@@ -77,7 +77,7 @@ namespace OnlineGrocery.Controllers
                     _userOrderItemRepository.AddOrderItem(user_item);
 
                     //Update stock
-                    ProductModel product = _productRepository.GetProduct(user_item.Id);
+                    ProductModel product = _productRepository.GetProduct(Items[i].ItemId);
                     product.Quantity -= user_item.Ammount;
                     _productRepository.Update(product);
                 }

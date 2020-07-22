@@ -26,7 +26,7 @@
                                 <th scope="col">Name</th>
                                 <th scope="col">Supplier</th>
                                 <th scope="col">Type</th>
-                                <th scope="col">Price (£)</th>
+                                <th scope="col">Price</th>
                                 <th scope="col">Quantity</th>
                                 <th></th>
                             </tr>
@@ -35,17 +35,48 @@
                         <tbody>
                             @foreach (var p in Model)
                             {
-                                <tr>
-                                    <td>@p.Id</td>
-                                    <td>@p.Name</td>
-                                    <td>@p.SupplierName</td>
-                                    <td>@p.Type</td>
-                                    <td>@p.Price</td>
-                                    <td>@p.Quantity</td>
-                                    <td>
-                                        <a asp-controller="Product" asp-action="EditProduct" asp-route-id="@p.Id">Edit</a>
-                                    </td>
-                                </tr>
+                                @if (p.Quantity <= 10 && p.Quantity > 0)
+                                {
+                                    <tr class="low_stock">
+                                        <td>@p.Id</td>
+                                        <td>@p.Name</td>
+                                        <td>@p.SupplierName</td>
+                                        <td>@p.Type</td>
+                                        <td>£@p.Price</td>
+                                        <td>@p.Quantity</td>
+                                        <td class="white_btn">
+                                            <a asp-controller="Product" asp-action="EditProduct" asp-route-id="@p.Id">Edit</a>
+                                        </td>
+                                    </tr>
+                                }
+                                else if (p.Quantity <= 0)
+                                {
+                                    <tr class="out_of_stock">
+                                        <td>@p.Id</td>
+                                        <td>@p.Name</td>
+                                        <td>@p.SupplierName</td>
+                                        <td>@p.Type</td>
+                                        <td>£@p.Price</td>
+                                        <td>@p.Quantity</td>
+                                        <td class="white_btn">
+                                            <a asp-controller="Product" asp-action="EditProduct" asp-route-id="@p.Id">Edit</a>
+                                        </td>
+                                    </tr>
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td>@p.Id</td>
+                                        <td>@p.Name</td>
+                                        <td>@p.SupplierName</td>
+                                        <td>@p.Type</td>
+                                        <td>£@p.Price</td>
+                                        <td>@p.Quantity</td>
+                                        <td>
+                                            <a asp-controller="Product" asp-action="EditProduct" asp-route-id="@p.Id">Edit</a>
+                                        </td>
+                                    </tr>
+                                }
                             }
                         </tbody>
                     </table>

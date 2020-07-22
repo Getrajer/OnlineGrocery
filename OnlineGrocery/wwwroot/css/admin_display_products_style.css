@@ -47,3 +47,16 @@
 .table_page td a:hover{
     background-color:rgba(0,120,144,1);
 }
+
+
+.low_stock {
+    background-color: rgba(255, 141, 0, 0.50);
+}
+
+.out_of_stock {
+    background-color: rgba(255, 0, 0, 0.50);
+}
+
+.white_btn{
+    background:white;
+}
