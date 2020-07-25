@@ -127,6 +127,7 @@ namespace OnlineGrocery.Controllers
         public IActionResult UserOrders()
         {
             List<UserOrderModel> Orders = _userOrderRepository.GetAllOrders();
+            Orders.Reverse();
             return View(Orders);
         }
 

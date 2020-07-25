@@ -12,6 +12,8 @@ using Microsoft.Extensions.Hosting;
 using OnlineGrocery.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 
 namespace OnlineGrocery
 {
@@ -35,7 +37,6 @@ namespace OnlineGrocery
 
 
 
-            services.AddControllersWithViews();
             services.AddScoped<IProductRepository, SQLProductRepository>();
             services.AddScoped<ICMSIndexRepository, SQLCMSIndexRepository>();
             services.AddScoped<ISupplierRepository, SQLSuppliersRepository>();
@@ -52,6 +53,15 @@ namespace OnlineGrocery
 
             services.AddSession();
             services.AddMemoryCache();
+
+            services.AddControllersWithViews(options => {
+                var policy = new AuthorizationPolicyBuilder()
+                            .RequireAuthenticatedUser()
+                            .Build();
+
+                options.Filters.Add(new AuthorizeFilter(policy));
+            });
+
 
         }
 

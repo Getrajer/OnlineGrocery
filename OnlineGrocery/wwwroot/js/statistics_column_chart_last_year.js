@@ -5,65 +5,50 @@
     // Themes end
 
     // Create chart instance
-    var chart = am4core.create("chartdivWeek", am4charts.XYChart3D);
+    var chart = am4core.create("chartdivYear", am4charts.XYChart3D);
 
     // Add data
     chart.data = [{
-        "country": "USA",
-        "visits": 4025
+        "Month": "January",
+        "MoneyIn": 40250
     }, {
-        "country": "China",
-        "visits": 1882
+        "Month": "Febuary",
+        "MoneyIn": 56205
     }, {
-        "country": "Japan",
-        "visits": 1809
+        "Month": "March",
+        "MoneyIn": 14025
     }, {
-        "country": "Germany",
-        "visits": 1322
+        "Month": "April",
+        "MoneyIn": 100025
     }, {
-        "country": "UK",
-        "visits": 1122
+        "Month": "May",
+        "MoneyIn": 113025
     }, {
-        "country": "France",
-        "visits": 1114
+        "Month": "June",
+        "MoneyIn": 123450
     }, {
-        "country": "India",
-        "visits": 984
+        "Month": "July",
+        "MoneyIn": 154210
     }, {
-        "country": "Spain",
-        "visits": 711
+        "Month": "August",
+        "MoneyIn": 158210
     }, {
-        "country": "Netherlands",
-        "visits": 665
+        "Month": "September",
+        "MoneyIn": 164210
     }, {
-        "country": "Russia",
-        "visits": 580
+        "Month": "October",
+        "MoneyIn": 174210
     }, {
-        "country": "South Korea",
-        "visits": 443
+        "Month": "November",
+        "MoneyIn": 144210
     }, {
-        "country": "Canada",
-        "visits": 441
-    }, {
-        "country": "Brazil",
-        "visits": 395
-    }, {
-        "country": "Italy",
-        "visits": 386
-    }, {
-        "country": "Australia",
-        "visits": 384
-    }, {
-        "country": "Taiwan",
-        "visits": 338
-    }, {
-        "country": "Poland",
-        "visits": 328
+        "Month": "December",
+        "MoneyIn": 184210
     }];
 
     // Create axes
     let categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-    categoryAxis.dataFields.category = "country";
+    categoryAxis.dataFields.category = "Month";
     categoryAxis.renderer.labels.template.rotation = 270;
     categoryAxis.renderer.labels.template.hideOversized = false;
     categoryAxis.renderer.minGridDistance = 20;
@@ -74,14 +59,14 @@
     categoryAxis.tooltip.label.verticalCenter = "middle";
 
     let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-    valueAxis.title.text = "Countries";
+    valueAxis.title.text = "Month";
     valueAxis.title.fontWeight = "bold";
 
     // Create series
     var series = chart.series.push(new am4charts.ColumnSeries3D());
-    series.dataFields.valueY = "visits";
-    series.dataFields.categoryX = "country";
-    series.name = "Visits";
+    series.dataFields.valueY = "MoneyIn";
+    series.dataFields.categoryX = "Month";
+    series.name = "MoneyIn";
     series.tooltipText = "{categoryX}: [bold]{valueY}[/]";
     series.columns.template.fillOpacity = .8;
 

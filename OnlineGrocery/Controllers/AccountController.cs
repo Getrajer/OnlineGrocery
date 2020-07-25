@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -11,13 +10,13 @@ using OnlineGrocery.ViewModels;
 
 namespace OnlineGrocery.Controllers
 {
-    public class UsersController : Controller
+    public class AccountController : Controller
     {
         private readonly UserManager<UserModel> _userManager;
         private readonly SignInManager<UserModel> _signInManager;
         private readonly IStatisticsRepository _statisticsRepository;
 
-        public UsersController(UserManager<UserModel> userManager, 
+        public AccountController(UserManager<UserModel> userManager,
                                 SignInManager<UserModel> signInManager,
                                 IStatisticsRepository statisticsRepository)
         {
@@ -71,7 +70,7 @@ namespace OnlineGrocery.Controllers
 
                 }
 
-                foreach(var error in result.Errors)
+                foreach (var error in result.Errors)
                 {
                     ModelState.AddModelError("", error.Description);
                 }
@@ -140,7 +139,7 @@ namespace OnlineGrocery.Controllers
             EditUserInfoViewModel model = new EditUserInfoViewModel();
             var user = await _userManager.GetUserAsync(HttpContext.User);
 
-            if(user != null)
+            if (user != null)
             {
                 model.FirstName = user.FirstName;
                 model.LastName = user.LastName;
@@ -166,7 +165,7 @@ namespace OnlineGrocery.Controllers
             {
                 var user = await _userManager.FindByIdAsync(viewModel.Id);
 
-                if(user != null)
+                if (user != null)
                 {
                     user.City = viewModel.City;
                     user.Email = viewModel.Email;
@@ -184,7 +183,7 @@ namespace OnlineGrocery.Controllers
                         return RedirectToAction("UserPage");
                     }
 
-                    foreach(var error in result.Errors)
+                    foreach (var error in result.Errors)
                     {
                         ModelState.AddModelError("", error.Description);
                     }

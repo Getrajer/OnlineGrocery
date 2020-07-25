@@ -5,65 +5,35 @@
     // Themes end
 
     // Create chart instance
-    var chart = am4core.create("chartdivMonth", am4charts.XYChart3D);
+    var chart = am4core.create("chartdivWeek", am4charts.XYChart3D);
 
     // Add data
     chart.data = [{
-        "country": "USA",
-        "visits": 4025
+        "Day": "Monday",
+        "MoneyIn": 3000
     }, {
-        "country": "China",
-        "visits": 1882
+        "Day": "Tuseday",
+        "MoneyIn": 5000
     }, {
-        "country": "Japan",
-        "visits": 1809
+        "Day": "Wendesday",
+        "MoneyIn": 2000
     }, {
-        "country": "Germany",
-        "visits": 1322
+        "Day": "Thuesday",
+        "MoneyIn": 4000
     }, {
-        "country": "UK",
-        "visits": 1122
+        "Day": "Friday",
+        "MoneyIn": 8000
     }, {
-        "country": "France",
-        "visits": 1114
+        "Day": "Saturday",
+        "MoneyIn": 9000
     }, {
-        "country": "India",
-        "visits": 984
-    }, {
-        "country": "Spain",
-        "visits": 711
-    }, {
-        "country": "Netherlands",
-        "visits": 665
-    }, {
-        "country": "Russia",
-        "visits": 580
-    }, {
-        "country": "South Korea",
-        "visits": 443
-    }, {
-        "country": "Canada",
-        "visits": 441
-    }, {
-        "country": "Brazil",
-        "visits": 395
-    }, {
-        "country": "Italy",
-        "visits": 386
-    }, {
-        "country": "Australia",
-        "visits": 384
-    }, {
-        "country": "Taiwan",
-        "visits": 338
-    }, {
-        "country": "Poland",
-        "visits": 328
+        "Day": "Sunday",
+        "MoneyIn": 2000
     }];
 
     // Create axes
     let categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-    categoryAxis.dataFields.category = "country";
+    categoryAxis.dataFields.category = "Day";
     categoryAxis.renderer.labels.template.rotation = 270;
     categoryAxis.renderer.labels.template.hideOversized = false;
     categoryAxis.renderer.minGridDistance = 20;
@@ -74,14 +44,14 @@
     categoryAxis.tooltip.label.verticalCenter = "middle";
 
     let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-    valueAxis.title.text = "Countries";
+    valueAxis.title.text = "Day";
     valueAxis.title.fontWeight = "bold";
 
     // Create series
     var series = chart.series.push(new am4charts.ColumnSeries3D());
-    series.dataFields.valueY = "visits";
-    series.dataFields.categoryX = "country";
-    series.name = "Visits";
+    series.dataFields.valueY = "MoneyIn";
+    series.dataFields.categoryX = "Day";
+    series.name = "MoneyIn";
     series.tooltipText = "{categoryX}: [bold]{valueY}[/]";
     series.columns.template.fillOpacity = .8;
 

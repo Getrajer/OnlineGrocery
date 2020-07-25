@@ -38,23 +38,23 @@
                         @if (signInManager.IsSignedIn(User))
                         {
                             <li class="nav-item">
-                                <form method="post" asp-action="Logout" asp-controller="Users">
+                                <form method="post" asp-action="Logout" asp-controller="Account">
                                     <button type="submit">Logout</button>
                                 </form>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-action="UserPage" asp-controller="Users">@User.Identity.Name</a>
+                                <a class="nav-link text-dark" asp-action="UserPage" asp-controller="Account">@User.Identity.Name</a>
                             </li>
                         }
                         else
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Users" asp-action="Register">Register</a>
+                                <a class="nav-link text-dark" asp-controller="Account" asp-action="Register">Register</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Users" asp-action="Login">Login</a>
+                                <a class="nav-link text-dark" asp-controller="Account" asp-action="Login">Login</a>
                             </li>
                         }
 

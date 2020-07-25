@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using OnlineGrocery.Models;
@@ -20,6 +21,7 @@ namespace OnlineGrocery.Controllers
             _cMSIndexRepository = cMSIndexRepository;
         }
 
+        [AllowAnonymous]
         public IActionResult Index()
         {
             IndexViewModel model = new IndexViewModel();
@@ -29,6 +31,7 @@ namespace OnlineGrocery.Controllers
             return View(model);
         }
 
+        [AllowAnonymous]
         public IActionResult Privacy()
         {
             return View();

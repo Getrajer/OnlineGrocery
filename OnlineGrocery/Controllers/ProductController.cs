@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using OnlineGrocery.Models;
@@ -28,6 +29,7 @@ namespace OnlineGrocery.Controllers
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
+        [AllowAnonymous]
         public IActionResult DisplayProducts(int Id)
         {
             DisplayProductsViewModel model = new DisplayProductsViewModel();

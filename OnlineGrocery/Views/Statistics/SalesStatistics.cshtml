@@ -2,13 +2,8 @@
 
 <head>
     <link rel="stylesheet" href="~/css/main_admin_style.css" />
+    <link rel="stylesheet" href="~/css/sales_statistics_style.css" />
 
-    <style>
-        #chartdivYearly, #chartdivMonth, #chartdivWeek {
-            width: 100%;
-            height: 500px;
-        }
-    </style>
 </head>
 
 
@@ -31,7 +26,7 @@
                 <div class="chart">
                     <div class="chart_container">
                         <div class="title">
-                            <h1>Last week statistics</h1>
+                            <h1>Last week statistics (£)</h1>
                         </div>
 
                         <div class="chart">
@@ -43,11 +38,11 @@
                 <div class="chart">
                     <div class="chart_container">
                         <div class="title">
-                            <h1>Last month statistics</h1>
+                            <h1>Last year statistics (£)</h1>
                         </div>
 
                         <div class="chart">
-                            <div id="chartdivMonth"></div>
+                            <div id="chartdivYear"></div>
                         </div>
                     </div>
                 </div>
@@ -55,7 +50,7 @@
                 <div class="chart">
                     <div class="chart_container">
                         <div class="title">
-                            <h1>Last year statistics</h1>
+                            <h1>Years statistics (£)</h1>
                         </div>
 
                         <div class="chart">
@@ -76,5 +71,4 @@
 
 <script src="~/js/statistics_column_chart_yearly.js"></script>
 <script src="~/js/statistics_column_chart_last_week.js"></script>
-<script src="~/js/statistics_column_chart_last_month.js"></script>
-
+<script src="~/js/statistics_column_chart_last_year.js"></script>
