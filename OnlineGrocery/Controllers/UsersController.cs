@@ -14,12 +14,15 @@ namespace OnlineGrocery.Controllers
     {
         private readonly UserManager<UserModel> _userManager;
         private readonly SignInManager<UserModel> _signInManager;
+        private readonly IStatisticsRepository _statisticsRepository;
 
         public UsersController(UserManager<UserModel> userManager, 
-                                SignInManager<UserModel> signInManager)
+                                SignInManager<UserModel> signInManager,
+                                IStatisticsRepository statisticsRepository)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _statisticsRepository = statisticsRepository;
         }
 
         public IActionResult UsersListAdmin()
@@ -57,7 +60,12 @@ namespace OnlineGrocery.Controllers
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, isPersistent: false);
+
+                    //Change latest user 
+                    _statisticsRepository.ChangeLatestRegisterUser($"{user.FirstName} {user.LastName}", user.TimeRegistred);
+                    _statisticsRepository.UpdateUserAmmount(true);
                     return RedirectToAction("Index", "Home");
+
                 }
 
                 foreach(var error in result.Errors)

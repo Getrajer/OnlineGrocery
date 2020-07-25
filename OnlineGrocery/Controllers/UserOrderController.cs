@@ -18,13 +18,15 @@ namespace OnlineGrocery.Controllers
         private readonly IIncomeRepository _incomeRepository;
         private readonly IUserOrderItemRepository _userOrderItemRepository;
         private readonly IUserOrderRepository _userOrderRepository;
+        private readonly IStatisticsRepository _statisticsRepository;
 
         public UserOrderController(IShoppingCartItemRepository shoppingCartItemRepository, 
                                     IProductRepository productRepository,
                                     IIncomeRepository incomeRepository,
                                     IUserOrderItemRepository userOrderItemRepository,
                                     IUserOrderRepository userOrderRepository,
-                                    UserManager<UserModel> userManager)
+                                    UserManager<UserModel> userManager,
+                                    IStatisticsRepository statisticsRepository)
         {
             _shoppingCartItemRepository = shoppingCartItemRepository;
             _productRepository = productRepository;
@@ -32,6 +34,7 @@ namespace OnlineGrocery.Controllers
             _userOrderItemRepository = userOrderItemRepository;
             _userOrderRepository = userOrderRepository;
             _userManager = userManager;
+            _statisticsRepository = statisticsRepository;
         }
 
         [HttpGet]
@@ -103,6 +106,11 @@ namespace OnlineGrocery.Controllers
                 user_order.UserCity = user.City;
 
                 _userOrderRepository.AddOrder(user_order);
+
+                //Update statistics
+                _statisticsRepository.UpdateUserOrderMean(viewModel.FullPrice);
+                _statisticsRepository.UpdateTotalSalesMoney(viewModel.FullPrice);
+                _statisticsRepository.UpdateTotalNumberOfOrders();
 
                 //Update ordering user iformations
                 user.OrdersAmmount++;
