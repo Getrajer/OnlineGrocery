@@ -8,7 +8,6 @@ button:focus {
 .products{
     display:flex;
     justify-content:center;
-    height:100%;
 }
 
 .products .products_container{
@@ -36,7 +35,6 @@ button:focus {
 .products .products_display{
     display:grid;
     grid-template-columns: 270px auto;
-    height: 1200px;
 }
 
 .products .products_menu{
@@ -255,5 +253,93 @@ button:focus {
 }
 
 
+.toggle_product_nav{
+    display:none;
+}
 /*End of products section*/
+@media screen and (max-width: 1700px) {
+    .products .products_list_container {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .products .products_list_container {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .products .products_list_container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 920px) {
+    .products .products_display {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .products .products_menu {
+        width: 100%;
+        text-align: center;
+        max-width: unset;
+        border-bottom-left-radius: unset;
+    }
+
+    .products .title {
+        grid-template-columns: 1fr;
+        text-align:center;
+    }
+
+    .products .display_none{
+        display:none;
+    }
+
+    .toggle_product_nav{
+        display:block;
+        padding:1em 0;
+    }
+
+    .toggle_product_nav button{
+        background-color:#205f57;
+        color:white;
+        font-size:2rem;
+        border:unset;
+        text-transform:uppercase;
+        font-weight:600;
+
+        transition: 0.5s background-color;
+    }
+
+    .toggle_product_nav button:hover{
+        background-color:#3ea086;
+    }
+
+    .products .products_list {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding:2em 0.5em;
+    }
+
+    .products .products_list .right_button{
+        display:none;
+    }
+
+    .products .products_list .left_button{
+        display:none;
+    }
+}
+
+
+@media screen and (max-width: 450px) {
+    .products .products_list_container {
+        grid-template-columns: 1fr;
+    }
+
+    .products .title h1 {
+        font-size: 3rem;
+    }
+}
 
