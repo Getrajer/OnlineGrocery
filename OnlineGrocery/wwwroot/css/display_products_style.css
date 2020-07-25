@@ -146,6 +146,7 @@ button:focus {
     display:grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 20px;
+    padding-bottom:3em;
 }
 
 .products .products_list_container .product{
