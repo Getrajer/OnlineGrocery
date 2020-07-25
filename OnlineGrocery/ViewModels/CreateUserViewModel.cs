@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace OnlineGrocery.ViewModels
         public string LastName { get; set; }
         [Required]
         [EmailAddress]
+        [Remote(action: "IsEmailInUse", "Account")]
         public string Email { get; set; }
         [Required]
         [DataType(DataType.Password)]
