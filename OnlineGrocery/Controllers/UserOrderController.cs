@@ -139,5 +139,45 @@ namespace OnlineGrocery.Controllers
 
             return View(model);
         }
+
+        public IActionResult LoadFirstStat()
+        {
+            Statistics stat = new Statistics();
+            stat.AmmountOfUsers = 0;
+            stat.LatestRegisterDate = DateTime.Now;
+            stat.LatestRegisterName = "";
+            stat.OrderMoneyMean = 0;
+            stat.TotalNumberOfOrders = 0;
+            stat.TotalSalesMoney = 0;
+            stat.UsersMeanMoneySpent = 0;
+
+            _statisticsRepository.CheckIfStatExists(stat);
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        public IActionResult LoadMockData()
+        {
+            MockSalesDataLoader loader = new MockSalesDataLoader();
+            List<string> lines = loader.LoadMockData();
+
+            for (int i = 0; i < lines.Count; i++)
+            {
+                string[] line = lines[i].Split(",");
+                UserOrderModel model = new UserOrderModel();
+
+                model.FullPrice = Convert.ToInt32(line[0]);
+                model.DateOfOrder = Convert.ToDateTime(line[1]);
+
+                //Update statistics
+                _statisticsRepository.UpdateUserOrderMean(Convert.ToDouble(line[0]));
+                _statisticsRepository.UpdateTotalSalesMoney(Convert.ToDouble(line[0]));
+                _statisticsRepository.UpdateTotalNumberOfOrders();
+
+                _userOrderRepository.AddOrder(model);
+            }
+            return RedirectToAction("Index", "Home");
+        }
+
     }
 }

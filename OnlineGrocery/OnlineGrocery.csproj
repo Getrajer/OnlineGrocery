@@ -21,7 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\PartialAdminViews\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 

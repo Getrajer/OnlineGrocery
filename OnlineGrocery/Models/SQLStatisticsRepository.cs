@@ -19,24 +19,19 @@ namespace OnlineGrocery.Models
         /// </summary>
         public string ChangeLatestRegisterUser(string name, DateTime timeRegistred)
         {
-            if (CheckIfStatExists())
-            {
+            //Get statistic
+            Statistics up_stat = new Statistics();
+            var old_stat = _context.Statistics.Find(1);
+            up_stat = old_stat;
 
-                //Get statistic
-                Statistics up_stat = new Statistics();
-                var old_stat = _context.Statistics.Find(1);
-                up_stat = old_stat;
+            //Update Info
+            up_stat.LatestRegisterName = name;
+            up_stat.LatestRegisterDate = timeRegistred;
 
-                //Update Info
-                up_stat.LatestRegisterName = name;
-                up_stat.LatestRegisterDate = timeRegistred;
-
-                _context.Statistics.Update(up_stat);
-                _context.SaveChanges();
-                return name;
-            }
-
+            _context.Statistics.Update(up_stat);
+            _context.SaveChanges();
             return name;
+
         }
 
         /// <summary>
@@ -114,6 +109,8 @@ namespace OnlineGrocery.Models
             _context.Statistics.Update(up_stat);
             _context.SaveChanges();
             return moneyIn;
+            
+
         }
 
         public int GetTotalNumberOfOrders()
@@ -156,27 +153,25 @@ namespace OnlineGrocery.Models
             return moneyIn;
         }
 
-
-
-
         /// <summary>
         /// If there is no registration about statistics create one
         /// </summary>
         /// <returns></returns>
-        public bool CheckIfStatExists()
+        public Statistics CheckIfStatExists(Statistics s)
         {
-            int n = _context.Statistics.Count();
+            Statistics stat = new Statistics();
+            stat.AmmountOfUsers = s.AmmountOfUsers;
+            stat.LatestRegisterDate = s.LatestRegisterDate;
+            stat.LatestRegisterName = s.LatestRegisterName;
+            stat.OrderMoneyMean = s.OrderMoneyMean;
+            stat.TotalNumberOfOrders = s.TotalNumberOfOrders;
+            stat.TotalSalesMoney = s.TotalSalesMoney;
+            stat.UsersMeanMoneySpent = s.UsersMeanMoneySpent;
 
-            if(n == 0)
-            {
-                Statistics stat = new Statistics();
-                _context.Statistics.Add(stat);
-                return true;
-            }
-            else
-            {
-                return true;
-            }
+            _context.Statistics.Add(stat);
+            _context.SaveChanges();
+
+            return s;
         }
     }
 }

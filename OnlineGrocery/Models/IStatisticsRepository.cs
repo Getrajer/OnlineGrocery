@@ -25,6 +25,6 @@ namespace OnlineGrocery.Models
         int UpdateTotalNumberOfOrders();
 
 
-        bool CheckIfStatExists();
+        Statistics CheckIfStatExists(Statistics s);
     }
 }
