@@ -22,9 +22,9 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">Id</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Email</th>
+                                <th scope="col">Joined</th>
                                 <th scope="col">City</th>
                                 <th scope="col">Orders</th>
                                 <th scope="col">Spent Money</th>
@@ -36,9 +36,9 @@
                             @foreach (var u in Model)
                             {
                                 <tr>
-                                    <td>@u.Id</td>
                                     <td>@u.FirstName @u.LastName</td>
                                     <td>@u.Email</td>
+                                    <td>@u.TimeRegistred.Day/@u.TimeRegistred.Month/@u.TimeRegistred.Year</td>
                                     <td>@u.City</td>
                                     <td>@u.OrdersAmmount</td>
                                     <td>@u.MoneySpent£</td>

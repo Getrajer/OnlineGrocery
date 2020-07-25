@@ -15,6 +15,8 @@ namespace OnlineGrocery.Models
 
         }
 
+        public DbSet<Statistics> Statistics { get; set; }
+
         public DbSet<ShopIncome> Income { get; set; }
 
         public DbSet<ShoppingCartItemModel> ShoppingCartItems { get; set; }
