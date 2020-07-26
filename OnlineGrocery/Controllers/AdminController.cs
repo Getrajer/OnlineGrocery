@@ -18,13 +18,15 @@ namespace OnlineGrocery.Controllers
         private readonly IIncomeRepository _incomeRepository;
         private readonly IUserOrderItemRepository _userOrderItemRepository;
         private readonly IUserOrderRepository _userOrderRepository;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
         public AdminController(IShoppingCartItemRepository shoppingCartItemRepository,
                                     IProductRepository productRepository,
                                     IIncomeRepository incomeRepository,
                                     IUserOrderItemRepository userOrderItemRepository,
                                     IUserOrderRepository userOrderRepository,
-                                    UserManager<UserModel> userManager)
+                                    UserManager<UserModel> userManager,
+                                    RoleManager<IdentityRole> roleManager)
         {
             _shoppingCartItemRepository = shoppingCartItemRepository;
             _productRepository = productRepository;
@@ -32,6 +34,7 @@ namespace OnlineGrocery.Controllers
             _userOrderItemRepository = userOrderItemRepository;
             _userOrderRepository = userOrderRepository;
             _userManager = userManager;
+            _roleManager = roleManager;
         }
 
 
@@ -55,6 +58,43 @@ namespace OnlineGrocery.Controllers
             model.StockIsFine = model.NumberProductsLowOnStock == 0 ? true : false;
 
             return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult CreateRole()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateRole(CreateRoleViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                IdentityRole identityRole = new IdentityRole();
+                identityRole.Name = model.RoleName;
+
+                IdentityResult result = await _roleManager.CreateAsync(identityRole);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+
+                foreach(IdentityError error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+            }
+
+            return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult ManageRoles()
+        {
+            var roles = _roleManager.Roles;
+            return View(roles);
         }
     }
 }

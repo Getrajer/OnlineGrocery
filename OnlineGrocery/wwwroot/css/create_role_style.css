@@ -1,0 +1,26 @@
+﻿.admin_content_page
+{
+    display:flex;
+    justify-content:center;
+    padding-top:5em;
+}
+
+.admin_content_page .admin_content_page_container{
+    width:100%;
+    max-width:600px;
+}
+
+
+.admin_content_page label{
+    display:block;
+    font-weight:600;
+    padding:0.5em 0;
+}
+
+.admin_content_page input{
+    margin:0.5em 0;
+}
+
+.admin_content_page button{
+    margin:0.5em 0;
+}

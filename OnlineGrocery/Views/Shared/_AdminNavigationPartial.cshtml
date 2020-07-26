@@ -223,7 +223,7 @@
                 <div class="controll_name">
                     <p>Organiser</p>
                 </div>
-                
+
                 <ul>
                     <li>
                         <a class="link"><i class="fas fa-comments"></i> Team Chat</a>
@@ -240,6 +240,42 @@
                     <li>
                         <a class="link"><i class="fas fa-inbox"></i> Message Board</a>
                     </li>
+                </ul>
+            </div>
+
+            <div class="controll_list">
+                <div class="controll_name">
+                    <p>Administration</p>
+                </div>
+
+                <ul>
+
+                    @if (Model.LinkId == 18)
+                    {
+                        <li class="on_site">
+                            <a asp-controller="Admin" asp-action="CreateRole" class="link"><i class="fas fa-user-tag"></i> Create user role</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a asp-controller="Admin" asp-action="CreateRole" class="link"><i class="fas fa-user-tag"></i> Create user role</a>
+                        </li>
+                    }
+
+                    @if (Model.LinkId == 19)
+                    {
+                        <li class="on_site">
+                            <a asp-controller="Admin" asp-action="ManageRoles" class="link"><i class="fas fa-cog"></i> Manage user roles</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a asp-controller="Admin" asp-action="ManageRoles" class="link"><i class="fas fa-cog"></i> Manage user roles</a>
+                        </li>
+                    }
+
                 </ul>
             </div>
 
