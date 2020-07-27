@@ -37,6 +37,8 @@ namespace OnlineGrocery.Models
 
         public DbSet<NoteModel> TeamNotes { get; set; }
 
+        public DbSet<ChatMessageModel> ChatMessages { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
