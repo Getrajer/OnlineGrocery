@@ -12,6 +12,7 @@ namespace OnlineGrocery.Models
         public string UserId { get; set; }
         public string NoteTitle { get; set; }
         public string NoteText { get; set; }
-        public DataType DatePosted { get; set; }
+        public string CreatorsName { get; set; }
+        public DateTime DatePosted { get; set; }
     }
 }
