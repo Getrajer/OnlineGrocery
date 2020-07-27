@@ -48,6 +48,7 @@ namespace OnlineGrocery
             services.AddScoped<IIncomeRepository, SQLIncomeRepository>();
             services.AddScoped<IStatisticsRepository, SQLStatisticsRepository>();
             services.AddScoped<INotesRepository, SQLNoteRepository>();
+            services.AddScoped<IChatRepository, SQLChatRepository>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped(sp => ShoppingCartModel.GetCart(sp));

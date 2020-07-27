@@ -5,29 +5,29 @@ using System.Threading.Tasks;
 
 namespace OnlineGrocery.Models
 {
-    public class SQLNoteRepository : INotesRepository
+    public class SQLChatRepository : IChatRepository
     {
-        public NoteModel CreateNote()
+        public ChatMessageModel CreateMessage()
         {
             throw new NotImplementedException();
         }
 
-        public NoteModel DeleteNote(int Id)
+        public ChatMessageModel DeleteMessage(int Id)
         {
             throw new NotImplementedException();
         }
 
-        public NoteModel EditNote(int Id)
+        public ChatMessageModel EditMessage(int Id)
         {
             throw new NotImplementedException();
         }
 
-        public NoteModel GetNote(int Id)
+        public ChatMessageModel GetMessage(int Id)
         {
             throw new NotImplementedException();
         }
 
-        public List<NoteModel> GetNotes()
+        public ChatMessageModel GetMessages()
         {
             throw new NotImplementedException();
         }

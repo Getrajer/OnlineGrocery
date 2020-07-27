@@ -10,5 +10,7 @@ namespace OnlineGrocery.Models
         NoteModel CreateNote();
         NoteModel EditNote(int Id);
         NoteModel DeleteNote(int Id);
+        List<NoteModel> GetNotes();
+        NoteModel GetNote(int Id);
     }
 }
