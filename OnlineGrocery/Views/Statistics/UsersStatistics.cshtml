@@ -4,10 +4,12 @@
     <link rel="stylesheet" href="~/css/sales_statistics_style.css" />
 </head>
 
+
+
 @{
     //Change style for link with this ID
     AdminNavViewModel m = new AdminNavViewModel();
-    m.LinkId = 7;
+    m.LinkId = 8;
 }
 
 <section class="admin_site">
@@ -19,14 +21,15 @@
 
             <div class="admin_content_page_container">
 
+
                 <div class="chart">
                     <div class="chart_container">
                         <div class="title">
-                            <h1>Last week statistics (£)</h1>
+                            <h1>Users Registered per month</h1>
                         </div>
 
                         <div class="chart">
-                            <div id="chartdivWeek"></div>
+                            <div id="chartdiv_registered"></div>
                         </div>
                     </div>
                 </div>
@@ -34,23 +37,11 @@
                 <div class="chart">
                     <div class="chart_container">
                         <div class="title">
-                            <h1>Last year statistics (£)</h1>
+                            <h1>Types Of Users Account</h1>
                         </div>
 
                         <div class="chart">
-                            <div id="chartdivYear"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="chart">
-                    <div class="chart_container">
-                        <div class="title">
-                            <h1>Years statistics (£)</h1>
-                        </div>
-
-                        <div class="chart">
-                            <div id="chartdivYearly"></div>
+                            <div id="chartdiv_users_types"></div>
                         </div>
                     </div>
                 </div>
@@ -60,11 +51,10 @@
     </div>
 </section>
 
+
 <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
 <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
 <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
 
-
-<script src="~/js/statistics_column_chart_yearly.js"></script>
-<script src="~/js/statistics_column_chart_last_week.js"></script>
-<script src="~/js/statistics_column_chart_last_year.js"></script>
+<script src="~/js/users_registered_line_chart.js"></script>
+<script src="~/js/users_types_pie_chart.js"></script>

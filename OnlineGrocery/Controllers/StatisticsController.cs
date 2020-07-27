@@ -20,8 +20,12 @@ namespace OnlineGrocery.Controllers
 
         public IActionResult SalesStatistics()
         {
+            return View();
+        }
 
 
+        public IActionResult UsersStatistics()
+        {
             return View();
         }
     }

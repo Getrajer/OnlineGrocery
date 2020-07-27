@@ -137,10 +137,18 @@
                         </li>
                     }
 
-
-                    <li>
-                        <a class="link"><i class="fas fa-database"></i> Product Statistics</a>
-                    </li>
+                    @if (Model.LinkId == 8)
+                    {
+                        <li class="on_site">
+                            <a asp-controller="Statistics" asp-action="UsersStatistics" class="link"><i class="fas fa-users"></i> Users Statistics</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a asp-controller="Statistics" asp-action="UsersStatistics" class="link"><i class="fas fa-users"></i> Users Statistics</a>
+                        </li>
+                    }
                 </ul>
             </div>
 

@@ -262,7 +262,10 @@ namespace OnlineGrocery.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Administrator can create account for the new employee of the shop
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult CreateEmployeeAccount()
         {
@@ -275,12 +278,41 @@ namespace OnlineGrocery.Controllers
 
 
         [HttpPost]
-        public IActionResult CreateEmployeeAccount(CreateEmployeeAccountViewModel viewModel)
+        public async Task<IActionResult> CreateEmployeeAccount(CreateEmployeeAccountViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
                 UserModel user = new UserModel();
+
+                user.FirstName = viewModel.FirstName;
+                user.LastName = viewModel.LastName;
+                user.Email = viewModel.Email;
+                user.UserName = viewModel.Email;
+                user.City = viewModel.City;
+                user.StreetName = viewModel.StreetName;
+                user.StreetNumber = viewModel.StreetNumber;
+                user.PostCode = viewModel.PostCode;
+                user.PhoneNumber = viewModel.PhoneNumber;
+                user.MoneySpent = 0;
+                user.OrdersAmmount = 0;
+                user.TimeRegistred = DateTime.Now;
+
+                var result = await _userManager.CreateAsync(user, viewModel.Password);
+
+                if (result.Succeeded)
+                {
+                    result = await _userManager.AddToRoleAsync(user, viewModel.ChosenRole.Name);
+
+                    return RedirectToAction("MainAdminPage");
+                }
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
             }
+
+            return View(viewModel);
         }
 
     }
