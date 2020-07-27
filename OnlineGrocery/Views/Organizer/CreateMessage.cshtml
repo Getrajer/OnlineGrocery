@@ -1,0 +1,24 @@
+﻿<head>
+    <link rel="stylesheet" href="~/css/main_admin_style.css" />
+</head>
+
+@{
+    ViewBag.Title = "Team Chat";
+    //Change style for link with this ID
+    AdminNavViewModel m = new AdminNavViewModel();
+    m.LinkId = 17;
+}
+
+
+<section class="admin_site">
+    <div class="admin_site_container">
+
+        <partial name="_AdminNavigationPartial" model="m" />
+
+        <div class="admin_content_page">
+            <div class="admin_main_panel">
+
+            </div>
+        </div>
+    </div>
+</section>

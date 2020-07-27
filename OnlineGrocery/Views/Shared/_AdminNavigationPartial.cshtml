@@ -233,9 +233,21 @@
                 </div>
 
                 <ul>
-                    <li>
-                        <a class="link"><i class="fas fa-comments"></i> Team Chat</a>
-                    </li>
+
+                    @if (Model.LinkId == 14)
+                    {
+                        <li class="on_site">
+                            <a asp-controller="Organizer" asp-action="Chat" class="link"><i class="fas fa-comments"></i> Team Chat</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a asp-controller="Organizer" asp-action="Chat" class="link"><i class="fas fa-comments"></i> Team Chat</a>
+                        </li>
+                    }
+
+
 
                     @if (Model.LinkId == 15)
                     {
@@ -250,13 +262,33 @@
                         </li>
                     }
 
-                    <li>
-                        <a class="link"><i class="fas fa-clipboard"></i> Notes</a>
-                    </li>
+                    @if (Model.LinkId == 16)
+                    {
+                        <li class="on_site">
+                            <a asp-controller="Organizer" asp-action="Notes" class="link"><i class="fas fa-clipboard"></i> Notes</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a asp-controller="Organizer" asp-action="Notes" class="link"><i class="fas fa-clipboard"></i> Notes</a>
+                        </li>
+                    }
 
-                    <li>
-                        <a class="link"><i class="fas fa-inbox"></i> Message Board</a>
-                    </li>
+                    @if (Model.LinkId == 17)
+                    {
+                        <li class="on_site">
+                            <a asp-controller="Organizer" asp-action="MessagesInbox" class="link"><i class="fas fa-inbox"></i> Message Board</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a asp-controller="Organizer" asp-action="MessagesInbox" class="link"><i class="fas fa-inbox"></i> Message Board</a>
+                        </li>
+                    }
+
+
                 </ul>
             </div>
 

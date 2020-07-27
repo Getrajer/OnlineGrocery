@@ -21,7 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Organizer\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
