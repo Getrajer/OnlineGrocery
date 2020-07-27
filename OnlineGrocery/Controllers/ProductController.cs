@@ -98,6 +98,7 @@ namespace OnlineGrocery.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public IActionResult CreateProduct()
         {
             ProductCreateViewModel model = new ProductCreateViewModel();
@@ -111,6 +112,7 @@ namespace OnlineGrocery.Controllers
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public IActionResult CreateProduct(ProductCreateViewModel model)
         {
             if (ModelState.IsValid)
@@ -165,6 +167,7 @@ namespace OnlineGrocery.Controllers
         /// <param name="Id"></param>
         /// <returns></returns>
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public IActionResult EditProduct(int Id)
         {
             EditProductViewModel model = new EditProductViewModel();
@@ -193,6 +196,7 @@ namespace OnlineGrocery.Controllers
         /// <param name="viewModel"></param>
         /// <returns></returns>
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public IActionResult EditProduct(EditProductViewModel viewModel)
         {
             string ImgPath = "";
@@ -241,6 +245,7 @@ namespace OnlineGrocery.Controllers
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
+        [Authorize(Roles = "Admin")]
         public IActionResult DeleteProduct(EditProductViewModel viewModel)
         {
             //Delete image
@@ -259,6 +264,7 @@ namespace OnlineGrocery.Controllers
         /// This function will show list of products for admin managment system
         /// </summary>
         /// <returns></returns>
+        [Authorize(Roles = "Admin")]
         public IActionResult ProductsListAdmin()
         {
             var model = _productRepository.GetAllProducts();

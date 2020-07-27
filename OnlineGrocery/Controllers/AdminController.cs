@@ -11,6 +11,7 @@ using OnlineGrocery.ViewModels;
 
 namespace OnlineGrocery.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         private readonly UserManager<UserModel> _userManager;
@@ -219,6 +220,14 @@ namespace OnlineGrocery.Controllers
                 else
                 {
                     continue;
+                }
+
+                if (result.Succeeded)
+                {
+                    if (i < (users_roles.Count - 1))
+                        continue;
+                    else
+                        return RedirectToAction("EditRole", new { Id = roleId });
                 }
             }
 

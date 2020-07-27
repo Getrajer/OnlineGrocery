@@ -217,6 +217,7 @@ namespace OnlineGrocery.Controllers
             return View(viewModel);
         }
 
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> LoadMockData()
         {
             MockUserDataLoader loader = new MockUserDataLoader();

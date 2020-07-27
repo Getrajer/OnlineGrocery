@@ -6,9 +6,11 @@ using System.Net.Mail;
 using Microsoft.AspNetCore.Mvc;
 using OnlineGrocery.Models;
 using OnlineGrocery.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace OnlineGrocery.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class OrderController : Controller
     {
         private readonly ISupplierRepository _supplierRepository;

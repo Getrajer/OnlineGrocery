@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
@@ -123,7 +124,7 @@ namespace OnlineGrocery.Controllers
             return View(viewModel);
         }
 
-
+        [Authorize(Roles = "Admin")]
         public IActionResult UserOrders()
         {
             List<UserOrderModel> Orders = _userOrderRepository.GetAllOrders();
@@ -156,7 +157,7 @@ namespace OnlineGrocery.Controllers
 
             return RedirectToAction("Index", "Home");
         }
-
+        [Authorize(Roles = "Admin")]
         public IActionResult LoadMockData()
         {
             MockSalesDataLoader loader = new MockSalesDataLoader();
