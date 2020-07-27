@@ -1,0 +1,54 @@
+﻿@model List<UserRoleViewModel>
+
+<head>
+    <link rel="stylesheet" href="~/css/main_admin_style.css" />
+</head>
+
+@{
+    ViewBag.Title = "Edit role";
+    //Change style for link with this ID
+    AdminNavViewModel m = new AdminNavViewModel();
+    m.LinkId = 19;
+    var roleId = ViewBag.roleId;
+}
+
+
+<section class="admin_site">
+    <div class="admin_site_container">
+
+        <partial name="_AdminNavigationPartial" model="m" />
+
+        <div class="admin_content_page">
+            <div class="admin_main_panel">
+
+                <form method="post">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Add or remove users from this role</h2>
+                        </div>
+                        <div class="card-body">
+                            @for (int i = 0; i < Model.Count; i++)
+                            {
+                                <div class="form-check m-1">
+                                    <input type="hidden" asp-for="@Model[i].UserId" />
+                                    <input type="hidden" asp-for="@Model[i].UserName" />
+                                    <input asp-for="@Model[i].IsSelected" class="form-check-input" />
+                                    <label class="form-check-label" asp-for="@Model[i].IsSelected">
+                                        @Model[i].UserName
+                                    </label>
+                                </div>
+                            }
+                        </div>
+                        <div class="card-footer">
+                            <input type="submit" value="Update" class="btn btn-primary"
+                                   style="width:auto" />
+                            <a asp-action="EditRole" asp-route-id="@roleId"
+                               class="btn btn-primary" style="width:auto">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>

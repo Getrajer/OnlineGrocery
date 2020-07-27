@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using OnlineGrocery.Models;
 using OnlineGrocery.ViewModels;
 
@@ -78,7 +79,7 @@ namespace OnlineGrocery.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("ManageRoles", "Admin");
                 }
 
                 foreach(IdentityError error in result.Errors)
@@ -95,6 +96,133 @@ namespace OnlineGrocery.Controllers
         {
             var roles = _roleManager.Roles;
             return View(roles);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> EditRole(string Id)
+        {
+            var role = await _roleManager.FindByIdAsync(Id);
+
+            if(role == null)
+            {
+                ViewBag.ErrorMessage = $"Role with {Id} cannot be fount";
+                return View("NotFound");
+            }
+
+            EditRoleViewModel model = new EditRoleViewModel();
+            model.RoleName = role.Name;
+            model.Id = role.Id;
+
+            foreach(var user in await _userManager.Users.ToListAsync())
+            {
+                if(await _userManager.IsInRoleAsync(user, role.Name)) 
+                {
+                    model.Users.Add(user.UserName);
+                }
+            }
+
+            return View(model);
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditRole(EditRoleViewModel viewModel) 
+        {
+            var role = await _roleManager.FindByIdAsync(viewModel.Id);
+
+            if (role == null)
+            {
+                ViewBag.ErrorMessage = $"Role with {viewModel.Id} cannot be fount";
+                return View("NotFound");
+            }
+            else
+            {
+                role.Name = viewModel.RoleName;
+                var result = await _roleManager.UpdateAsync(role);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("ManageRoles");
+                }
+
+                foreach(var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+
+                return View(viewModel);
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> EditUsersInRole(string RoleId)
+        {
+            ViewBag.roleId = RoleId;
+
+            var role = await _roleManager.FindByIdAsync(RoleId);
+
+            if (role == null)
+            {
+                ViewBag.ErrorMessage = $"Role with {RoleId} cannot be fount";
+                return View("NotFound");
+            }
+
+            var model = new List<UserRoleViewModel>();
+
+            foreach(var user in await _userManager.Users.ToListAsync())
+            {
+                UserRoleViewModel roleModel = new UserRoleViewModel();
+                roleModel.UserId = user.Id;
+                roleModel.UserName = user.UserName;
+
+
+                if (await _userManager.IsInRoleAsync(user, role.Name))
+                {
+                    roleModel.IsSelected = true;
+                }
+                else
+                {
+                    roleModel.IsSelected = false;
+                }
+
+                model.Add(roleModel);
+            }
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditUsersInRole(List<UserRoleViewModel> users_roles, string roleId)
+        {
+            var role = await _roleManager.FindByIdAsync(roleId);
+
+            if (role == null)
+            {
+                ViewBag.ErrorMessage = $"Role with {roleId} cannot be fount";
+                return View("NotFound");
+            }
+
+            for(int i = 0; i < users_roles.Count; i++)
+            {
+                var user = await _userManager.FindByIdAsync(users_roles[i].UserId);
+
+                IdentityResult result = null;
+
+                if (users_roles[i].IsSelected && !(await _userManager.IsInRoleAsync(user, role.Name)))
+                {
+                    result = await _userManager.AddToRoleAsync(user, role.Name);
+                }
+                else if(!users_roles[i].IsSelected && (await _userManager.IsInRoleAsync(user, role.Name)))
+                {
+                    result = await _userManager.RemoveFromRoleAsync(user, role.Name);
+                }
+                else
+                {
+                    continue;
+                }
+            }
+
+            return View();
         }
     }
 }
