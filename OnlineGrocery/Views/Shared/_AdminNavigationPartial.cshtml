@@ -276,6 +276,20 @@
                         </li>
                     }
 
+
+                    @if (Model.LinkId == 20)
+                    {
+                        <li class="on_site">
+                            <a asp-controller="Admin" asp-action="CreateEmployeeAccount" class="link"><i class="fas fa-user-plus"></i> Create team account</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a asp-controller="Admin" asp-action="CreateEmployeeAccount" class="link"><i class="fas fa-user-plus"></i> Create team account</a>
+                        </li>
+                    }
+
                 </ul>
             </div>
 

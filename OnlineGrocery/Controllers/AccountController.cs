@@ -73,7 +73,9 @@ namespace OnlineGrocery.Controllers
                 user.MoneySpent = 0;
                 user.OrdersAmmount = 0;
                 user.TimeRegistred = DateTime.Now;
+                
                 var result = await _userManager.CreateAsync(user, viewModel.Password);
+
 
                 if (result.Succeeded)
                 {
@@ -82,6 +84,9 @@ namespace OnlineGrocery.Controllers
                     //Change latest user 
                     _statisticsRepository.ChangeLatestRegisterUser($"{user.FirstName} {user.LastName}", user.TimeRegistred);
                     _statisticsRepository.UpdateUserAmmount(true);
+
+                    result = await _userManager.AddToRoleAsync(user, "User");
+
                     return RedirectToAction("Index", "Home");
 
                 }

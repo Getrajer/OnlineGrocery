@@ -261,5 +261,27 @@ namespace OnlineGrocery.Controllers
                 return View("ManageRoles");
             }
         }
+
+
+        [HttpGet]
+        public IActionResult CreateEmployeeAccount()
+        {
+            CreateEmployeeAccountViewModel model = new CreateEmployeeAccountViewModel();
+
+            model.Roles = _roleManager.Roles.ToList();
+
+            return View(model);
+        }
+
+
+        [HttpPost]
+        public IActionResult CreateEmployeeAccount(CreateEmployeeAccountViewModel viewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                UserModel user = new UserModel();
+            }
+        }
+
     }
 }

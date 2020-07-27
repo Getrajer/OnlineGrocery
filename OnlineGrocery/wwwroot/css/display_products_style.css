@@ -20,8 +20,6 @@ button:focus {
     background-color:#07252a;
     padding:1em 0;
 
-    border-top-right-radius:0.5em;
-    border-top-left-radius:0.5em;
 
 }
 
@@ -40,7 +38,6 @@ button:focus {
 .products .products_menu{
     position:relative;
     background-color:#07252a;
-    border-bottom-left-radius:0.5em;
     height:100%;
     width:100%;
     max-width:270px;
