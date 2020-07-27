@@ -35,6 +35,8 @@ namespace OnlineGrocery.Models
 
         public DbSet<OrderItemModel> OrderItems { get; set; }
 
+        public DbSet<NoteModel> TeamNotes { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

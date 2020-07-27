@@ -81,10 +81,7 @@ button:focus {
 .products .products_list{
     width:100%;
     max-width:1500px;
-    padding:2em 3em 0 3em;
-    display:grid;
-    grid-template-columns: 4% 92% 4%;
-    grid-gap: 20px;
+    padding:2em 6em 0 6em;
 }
 
 .products .products_list .left_button{

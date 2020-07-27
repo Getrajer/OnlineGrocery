@@ -1,4 +1,9 @@
-﻿#chartdivYearly, #chartdivYear, #chartdivWeek, #chartdiv_registered, #chartdiv_users_types {
+﻿
+.admin_content_page_container{
+    padding:5em 1em 0 1em;
+}
+
+#chartdivYearly, #chartdivYear, #chartdivWeek, #chartdiv_registered, #chartdiv_users_types {
     width: 100%;
     height: 500px;
 }

@@ -237,9 +237,18 @@
                         <a class="link"><i class="fas fa-comments"></i> Team Chat</a>
                     </li>
 
-                    <li>
-                        <a class="link"><i class="fas fa-user-plus"></i> Add team member</a>
-                    </li>
+                    @if (Model.LinkId == 15)
+                    {
+                        <li class="on_site">
+                            <a asp-controller="Admin" asp-action="CreateEmployeeAccount" class="link"><i class="fas fa-user-plus"></i> Create team account</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a asp-controller="Admin" asp-action="CreateEmployeeAccount" class="link"><i class="fas fa-user-plus"></i> Create team account</a>
+                        </li>
+                    }
 
                     <li>
                         <a class="link"><i class="fas fa-clipboard"></i> Notes</a>
@@ -281,20 +290,6 @@
                     {
                         <li>
                             <a asp-controller="Admin" asp-action="ManageRoles" class="link"><i class="fas fa-cog"></i> Manage user roles</a>
-                        </li>
-                    }
-
-
-                    @if (Model.LinkId == 20)
-                    {
-                        <li class="on_site">
-                            <a asp-controller="Admin" asp-action="CreateEmployeeAccount" class="link"><i class="fas fa-user-plus"></i> Create team account</a>
-                        </li>
-                    }
-                    else
-                    {
-                        <li>
-                            <a asp-controller="Admin" asp-action="CreateEmployeeAccount" class="link"><i class="fas fa-user-plus"></i> Create team account</a>
                         </li>
                     }
 

@@ -60,17 +60,6 @@
             
             <div class="products_list">
 
-                <div class="left_button">
-
-                    @if (Model.ShowPrevious == true)
-                    {
-                        <div class="left_button_container">
-                            <p>&lt;</p>
-                        </div>
-                    }
-
-
-                </div>
                 <div class="l_container">
                     <div class="products_list_container">
                         @foreach (var p in Model.Products)
@@ -113,14 +102,6 @@
                     </div>
                 </div>
 
-                <div class="right_button">
-                    @if (Model.ShowNext == true)
-                    {
-                        <div class="left_button_container">
-                            <p>&gt;</p>
-                        </div>
-                    }
-                </div>
 
             </div>
         </div>
