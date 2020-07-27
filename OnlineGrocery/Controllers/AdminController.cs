@@ -233,5 +233,33 @@ namespace OnlineGrocery.Controllers
 
             return View();
         }
+
+
+        public async Task<IActionResult> DeleteRole(string Id)
+        {
+            var role = await _roleManager.FindByIdAsync(Id);
+
+            if(role == null)
+            {
+                ViewBag.ErrorMessage = $"Role with {Id} cannot be fount";
+                return View("NotFound");
+            }
+            else
+            {
+                var result = await _roleManager.DeleteAsync(role);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("ManageRoles");
+                }
+                
+                foreach(var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+
+                return View("ManageRoles");
+            }
+        }
     }
 }

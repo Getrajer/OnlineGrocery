@@ -69,5 +69,12 @@
                 <button type="submit">Edit Info</button>
             </div>
         </form>
+
+
+        <div class="button_container">
+            <form method="post" asp-action="DeleteUserAccount" asp-controller="AccountController" asp-route-Id="@Model.Id">
+                <button onclick="return confirm('Are you sure you want to delete user: @Model.FirstName')" type="submit">Delete Account</button>
+            </form>
+        </div>
     </div>
 </section>

@@ -68,6 +68,13 @@
                         </div>
                     </div>
                 </form>
+
+                <div class="button_container">
+                    <form method="post" asp-action="DeleteRole" asp-controller="AdminController" asp-route-Id="@Model.Id">
+                        <button onclick="return confirm('Are you sure you want to delete role: @Model.RoleName')" type="submit">Delete Account</button>
+                    </form>
+                </div>
+
             </div>
         </div>
     </div>

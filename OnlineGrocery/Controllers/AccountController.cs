@@ -258,5 +258,41 @@ namespace OnlineGrocery.Controllers
             return RedirectToAction("Index", "Home");
 
         }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteUserAccount(string Id)
+        {
+            var user = await _userManager.FindByIdAsync(Id);
+
+            if(user == null)
+            {
+                ViewBag.ErrorMessage = $"User with Id {Id} cannot be fond";
+                return View("NotFound");
+            }
+            else
+            {
+                var result = await _userManager.DeleteAsync(user);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+
+                foreach(var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+
+                return View("EditUserInfo");
+            }
+
+        }
     }
 }

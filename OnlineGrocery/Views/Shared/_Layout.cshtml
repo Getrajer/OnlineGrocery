@@ -31,9 +31,14 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-route-id="1" asp-controller="Product" asp-action="DisplayProducts">Products</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Admin" asp-action="MainAdminPage">Admin</a>
-                        </li>
+
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-controller="Admin" asp-action="MainAdminPage">Admin</a>
+                            </li>
+                        }
+
 
                         @if (signInManager.IsSignedIn(User))
                         {
