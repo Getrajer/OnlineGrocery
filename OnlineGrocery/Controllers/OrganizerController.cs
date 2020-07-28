@@ -98,9 +98,41 @@ namespace OnlineGrocery.Controllers
         [HttpGet]
         public IActionResult MessagesInbox()
         {
-            return View();
+            List<ShopMessageModel> Messages = _inboxRepository.GetMessages();
+            return View(Messages);
         }
 
+        [HttpGet]
+        public IActionResult OpenMessage(int Id)
+        {
+            OpenMessageViewModel model = new OpenMessageViewModel();
+            model.Message = _inboxRepository.GetMessage(Id);
+            model.Id = model.Message.Id;
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult OpenMessage(OpenMessageViewModel viewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                ShopMessageModel message = _inboxRepository.GetMessage(viewModel.Id);
+
+                if (viewModel.IsResolved == message.Resolved)
+                {
+                    return RedirectToAction("MessagesInbox");
+                }
+                else
+                {
+                    message.Resolved = viewModel.IsResolved;
+                    _inboxRepository.UpdateMessage(message);
+                    return RedirectToAction("MessagesInbox");
+                }
+            }
+
+            return View(viewModel);
+        }
 
         /// <summary>
         /// This is for user to send message
@@ -124,6 +156,7 @@ namespace OnlineGrocery.Controllers
                 message.Resolved = false;
                 message.Sent = DateTime.Now;
                 message.Topic = viewModel.Topic;
+
                 message.Email = user.Email;
                 message.Name = $"{user.FirstName} {user.LastName}";
                 message.UserId = user.Id;

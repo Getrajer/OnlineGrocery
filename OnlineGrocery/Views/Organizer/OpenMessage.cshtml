@@ -1,4 +1,6 @@
-﻿<head>
+﻿@model OpenMessageViewModel
+
+<head>
     <link rel="stylesheet" href="~/css/main_admin_style.css" />
 </head>
 
@@ -17,6 +19,43 @@
 
         <div class="admin_content_page">
             <div class="admin_main_panel">
+
+                <section class="message">
+                    <div class="message_container">
+
+                        <div class="author">
+                            <p>Message from: @Model.Message.Email</p>
+                            <p>Name: @Model.Message.Name</p>
+                        </div>
+
+                        <div class="message_title">
+                            <h2>@Model.Message.Topic</h2>
+                        </div>
+
+                        <div class="message_body">
+                            <p>@Model.Message.Message</p>
+                        </div>
+
+                    </div>
+                </section>
+
+
+                <section class="manage_message">
+                    <div>
+                        <div class="title">
+                            <h3>If you resolved issue mark it</h3>
+                        </div>
+
+                        <form method="post">
+                            <label class="form-check-label" asp-for="@Model.IsResolved">
+                                Is Resolved
+                            </label>
+                            <input asp-for="Id"/>
+                            <button type="submit">Submit Changes</button>
+                        </form>
+
+                    </div>
+                </section>
 
             </div>
         </div>

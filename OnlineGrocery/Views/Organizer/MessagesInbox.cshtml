@@ -1,5 +1,8 @@
-﻿<head>
+﻿@model IEnumerable<ShopMessageModel>
+
+<head>
     <link rel="stylesheet" href="~/css/main_admin_style.css" />
+    <link rel="stylesheet" href="~/css/admin_display_products_style.css" />
 </head>
 
 @{
@@ -17,7 +20,75 @@
 
         <div class="admin_content_page">
             <div class="admin_main_panel">
+                <div class="table_page">
+                    <div class="table_page_container">
 
+                        @if (Model.Any())
+                        {
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Id</th>
+                                        <th scope="col">Topic</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Resolved</th>
+                                        <th scope="col">Opend</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    @foreach (var e in Model)
+                                    {
+                                        <tr class="low_stock">
+                                            <td>@e.Id</td>
+                                            <td>@e.Topic</td>
+                                            <td>@e.Email</td>
+                                            <td>@e.Name</td>
+                                            <td>
+                                                @if (e.Resolved)
+                                                {
+                                                    <span>Yes</span>
+                                                }
+                                                else
+                                                {
+                                                    <span>No</span>
+                                                }
+                                            </td>
+
+                                            <td>
+                                                @if (e.Checked)
+                                                {
+                                                    <span>Yes</span>
+                                                }
+                                                else
+                                                {
+                                                    <span>No</span>
+                                                }
+                                            </td>
+
+                                            <td class="white_btn">
+                                                <a asp-controller="Product" asp-action="EditProduct" asp-route-id="@e.Id">Open</a>
+                                            </td>
+
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        }
+                        else
+                        {
+                            <div class="title">
+                                <h1>There is no messages in the inbox</h1>
+                            </div>
+                        }
+
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
