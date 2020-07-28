@@ -7,8 +7,8 @@ namespace OnlineGrocery.Models
 {
     public interface INotesRepository
     {
-        NoteModel CreateNote();
-        NoteModel EditNote(int Id);
+        NoteModel CreateNote(NoteModel note);
+        NoteModel EditNote(NoteModel note);
         NoteModel DeleteNote(int Id);
         List<NoteModel> GetNotes();
         NoteModel GetNote(int Id);

@@ -7,29 +7,43 @@ namespace OnlineGrocery.Models
 {
     public class SQLNoteRepository : INotesRepository
     {
-        public NoteModel CreateNote()
+        private readonly AppDbContext _context;
+
+        public SQLNoteRepository(AppDbContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
+        }
+
+        public NoteModel CreateNote(NoteModel note)
+        {
+            _context.TeamNotes.Add(note);
+            _context.SaveChanges();
+            return note;
         }
 
         public NoteModel DeleteNote(int Id)
         {
-            throw new NotImplementedException();
+            NoteModel note = _context.TeamNotes.Find(Id);
+            _context.TeamNotes.Remove(note);
+            _context.SaveChanges();
+            return note;
         }
 
-        public NoteModel EditNote(int Id)
+        public NoteModel EditNote(NoteModel note)
         {
-            throw new NotImplementedException();
+            _context.TeamNotes.Update(note);
+            _context.SaveChanges();
+            return note;
         }
 
         public NoteModel GetNote(int Id)
         {
-            throw new NotImplementedException();
+            return _context.TeamNotes.Find(Id);
         }
 
         public List<NoteModel> GetNotes()
         {
-            throw new NotImplementedException();
+            return _context.TeamNotes.ToList();
         }
     }
 }

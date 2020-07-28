@@ -36,10 +36,29 @@ namespace OnlineGrocery.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Notes(NoteModel noteModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.GetUserAsync(HttpContext.User);
+
+                NoteModel note = new NoteModel();
+                note.UserId = user.Id;
+                note.CreatorsName = $"{user.FirstName} {user.LastName}";
+                note.DatePosted = DateTime.Now;
+                note.NoteText = note.NoteText;
+                note.NoteTitle = note.NoteTitle;
+
+                NoteModel n = _notesRepository.CreateNote(note);
+            }
+        }
+
         [HttpGet]
         public IActionResult Chat()
         {
-            return View();
+            ChatViewModel model = new ChatViewModel();
+            return View(model);
         }
 
 
