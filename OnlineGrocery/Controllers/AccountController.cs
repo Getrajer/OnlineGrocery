@@ -297,7 +297,18 @@ namespace OnlineGrocery.Controllers
 
                 return View("EditUserInfo");
             }
+        }
 
+        [HttpGet]
+        public async Task<IActionResult> ManageUserAccount(string Id)
+        {
+
+            ManageUserAccountViewModel model = new ManageUserAccountViewModel();
+            model.User = await _userManager.FindByIdAsync(Id);
+            model.AccountType = _userManager.GetRolesAsync(model.User).ToString();
+            model.UserId = model.User.Id;
+            
+            return View(model);
         }
     }
 }
