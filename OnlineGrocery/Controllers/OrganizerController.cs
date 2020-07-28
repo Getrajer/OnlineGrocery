@@ -106,9 +106,14 @@ namespace OnlineGrocery.Controllers
         public IActionResult OpenMessage(int Id)
         {
             OpenMessageViewModel model = new OpenMessageViewModel();
-            model.Message = _inboxRepository.GetMessage(Id);
+            ShopMessageModel message = _inboxRepository.GetMessage(Id);
+            model.Message = message;
             model.Id = model.Message.Id;
+            model.IsResolved = message.Resolved;
 
+            //Check message was open
+            message.Checked = true;
+            _inboxRepository.UpdateMessage(message);
             return View(model);
         }
 

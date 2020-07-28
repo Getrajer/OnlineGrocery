@@ -9,7 +9,7 @@
 .user_page .user_page_container{
     width:100%;
     max-width:900px;
-    height:450px;
+    height:480px;
     background-color: #26584a;
     color:white;
     padding: 1em;
@@ -18,7 +18,8 @@
     grid-template-columns: 65% 35%;
     grid-template-areas: 
         "i c"
-        "i e";
+        "i e"
+        "i m";
     grid-gap: 10px;
 
     box-shadow:   12px 12px 24px rgba(0, 0, 0, 0.60);
@@ -73,15 +74,25 @@
     align-items:center;
 }
 
-.user_page .f_btn{
-    display:flex;
-    justify-content:center;
-    align-content:center;
-    align-items:center;
+.user_page .send_message_btn {
+    grid-area: m;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.user_page .f_btn {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width:100%;
 }
 
 .user_page .f_btn a{
     font-size:5rem;
+    display:block;
     background-color:white;
     color:#26584a;
     border:unset;
@@ -89,7 +100,14 @@
     padding:0.1em;
     cursor:pointer;
     box-shadow: 5px 5px 14px rgba(0, 0, 0, 0.60);
+    width:140px;
+    height:130px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
 }
+
 
 .user_page .f_btn a:hover{
     background-color:black;

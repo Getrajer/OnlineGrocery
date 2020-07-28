@@ -42,7 +42,7 @@
 
                                     @foreach (var e in Model)
                                     {
-                                        <tr class="low_stock">
+                                        <tr>
                                             <td>@e.Id</td>
                                             <td>@e.Topic</td>
                                             <td>@e.Email</td>
@@ -70,7 +70,7 @@
                                             </td>
 
                                             <td class="white_btn">
-                                                <a asp-controller="Product" asp-action="EditProduct" asp-route-id="@e.Id">Open</a>
+                                                <a asp-controller="Organizer" asp-action="OpenMessage" asp-route-Id="@e.Id">Open</a>
                                             </td>
 
                                         </tr>

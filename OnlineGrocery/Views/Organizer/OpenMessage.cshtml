@@ -47,10 +47,14 @@
                         </div>
 
                         <form method="post">
+
+                            <input asp-for="@Model.IsResolved" class="form-check-input" />
                             <label class="form-check-label" asp-for="@Model.IsResolved">
                                 Is Resolved
                             </label>
-                            <input asp-for="Id"/>
+
+
+                            <input hidden asp-for="Id" />
                             <button type="submit">Submit Changes</button>
                         </form>
 
