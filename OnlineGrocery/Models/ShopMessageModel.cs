@@ -17,6 +17,9 @@ namespace OnlineGrocery.Models
         public string Message { get; set; }
         public DateTime Sent { get; set; }
 
+        public string Email { get; set; }
+        public string Name { get; set; }
+
         public bool Checked { get; set; }
         //If this message is complaint or anything of that type it is either solved or not
         public bool Resolved { get; set; }

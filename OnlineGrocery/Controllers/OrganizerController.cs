@@ -14,14 +14,20 @@ namespace OnlineGrocery.Controllers
         private readonly UserManager<UserModel> _userManager;
         private readonly IChatRepository _chatRepository;
         private readonly INotesRepository _notesRepository;
+        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IInboxRepository _inboxRepository;
 
         public OrganizerController(UserManager<UserModel> userManager,
                                     IChatRepository chatRepository,
-                                    INotesRepository notesRepository)
+                                    INotesRepository notesRepository,
+                                    RoleManager<IdentityRole> roleManager,
+                                    IInboxRepository inboxRepository)
         {
             _userManager = userManager;
             _chatRepository = chatRepository;
             _notesRepository = notesRepository;
+            _roleManager = roleManager;
+            _inboxRepository = inboxRepository;
         }
 
         /// <summary>
@@ -93,6 +99,41 @@ namespace OnlineGrocery.Controllers
         public IActionResult MessagesInbox()
         {
             return View();
+        }
+
+
+        /// <summary>
+        /// This is for user to send message
+        /// </summary>
+        [HttpGet]
+        public IActionResult CreateMessageUser()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateMessageUser(CreateMessageViewModel viewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.GetUserAsync(HttpContext.User);
+
+                ShopMessageModel message = new ShopMessageModel();
+                message.Checked = false;
+                message.Message = viewModel.Message;
+                message.Resolved = false;
+                message.Sent = DateTime.Now;
+                message.Topic = viewModel.Topic;
+                message.Email = user.Email;
+                message.Name = $"{user.FirstName} {user.LastName}";
+                message.UserId = user.Id;
+
+                _inboxRepository.AddMessage(message);
+
+                return RedirectToAction("UserPage", "Account");
+            }
+
+            return View(viewModel);
         }
     }
 }
