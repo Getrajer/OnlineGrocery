@@ -7,10 +7,10 @@ namespace OnlineGrocery.Models
 {
     public interface IChatRepository
     {
-        ChatMessageModel CreateMessage();
+        ChatMessageModel CreateMessage(ChatMessageModel message);
         ChatMessageModel DeleteMessage(int Id);
-        ChatMessageModel EditMessage(int Id);
-        ChatMessageModel GetMessages();
+        ChatMessageModel EditMessage(ChatMessageModel message);
+        List<ChatMessageModel> GetMessages();
         ChatMessageModel GetMessage(int Id);
     }
 }

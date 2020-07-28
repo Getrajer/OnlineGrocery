@@ -33,11 +33,13 @@ namespace OnlineGrocery.Controllers
         {
             NotesViewModel model = new NotesViewModel();
 
+            model.Notes = _notesRepository.GetNotes();
+
             return View(model);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Notes(NoteModel noteModel)
+        public async Task<IActionResult> Notes(NoteModel viewModel)
         {
             if (ModelState.IsValid)
             {
@@ -47,20 +49,45 @@ namespace OnlineGrocery.Controllers
                 note.UserId = user.Id;
                 note.CreatorsName = $"{user.FirstName} {user.LastName}";
                 note.DatePosted = DateTime.Now;
-                note.NoteText = note.NoteText;
-                note.NoteTitle = note.NoteTitle;
+                note.NoteText = viewModel.NoteText;
+                note.NoteTitle = viewModel.NoteTitle;
 
                 NoteModel n = _notesRepository.CreateNote(note);
+
+                return RedirectToAction("Notes");
             }
+
+            return View(viewModel);
         }
 
         [HttpGet]
         public IActionResult Chat()
         {
             ChatViewModel model = new ChatViewModel();
+            model.ChatMessages = _chatRepository.GetMessages();
             return View(model);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Chat(ChatViewModel viewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.GetUserAsync(HttpContext.User);
+
+                ChatMessageModel message = new ChatMessageModel();
+                message.UserId = user.Id;
+                message.UserName = $"{user.FirstName} {user.LastName}";
+                message.MessageText = viewModel.MessageText;
+                message.Posted = DateTime.Now;
+
+                _chatRepository.CreateMessage(message);
+
+                return RedirectToAction("Chat");
+            }
+
+            return View(viewModel);
+        }
 
         [HttpGet]
         public IActionResult MessagesInbox()

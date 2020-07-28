@@ -7,29 +7,43 @@ namespace OnlineGrocery.Models
 {
     public class SQLChatRepository : IChatRepository
     {
-        public ChatMessageModel CreateMessage()
+
+        private readonly AppDbContext _context;
+
+        public SQLChatRepository(AppDbContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
+        }
+
+        public ChatMessageModel CreateMessage(ChatMessageModel message)
+        {
+            _context.ChatMessages.Add(message);
+            _context.SaveChanges();
+            return message;
         }
 
         public ChatMessageModel DeleteMessage(int Id)
         {
-            throw new NotImplementedException();
+            var message = _context.ChatMessages.Find(Id);
+            _context.ChatMessages.Remove(message);
+            return message;
         }
 
-        public ChatMessageModel EditMessage(int Id)
+        public ChatMessageModel EditMessage(ChatMessageModel message)
         {
-            throw new NotImplementedException();
+            _context.ChatMessages.Update(message);
+            _context.SaveChanges();
+            return message;
         }
 
         public ChatMessageModel GetMessage(int Id)
         {
-            throw new NotImplementedException();
+            return _context.ChatMessages.Find(Id);
         }
 
-        public ChatMessageModel GetMessages()
+        public List<ChatMessageModel> GetMessages()
         {
-            throw new NotImplementedException();
+            return _context.ChatMessages.ToList();
         }
     }
 }
