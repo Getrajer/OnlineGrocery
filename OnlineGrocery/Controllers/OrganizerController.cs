@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using OnlineGrocery.Models;
+using OnlineGrocery.ViewModels;
 
 namespace OnlineGrocery.Controllers
 {
@@ -30,7 +31,9 @@ namespace OnlineGrocery.Controllers
         [HttpGet]
         public IActionResult Notes()
         {
-            return View();
+            NotesViewModel model = new NotesViewModel();
+
+            return View(model);
         }
 
         [HttpGet]

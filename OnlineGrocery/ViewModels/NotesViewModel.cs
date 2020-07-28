@@ -9,6 +9,11 @@ namespace OnlineGrocery.ViewModels
 {
     public class NotesViewModel
     {
+        public NotesViewModel()
+        {
+            Notes = new List<NoteModel>();
+        }
+
         /// <summary>
         /// Notes to display
         /// </summary>

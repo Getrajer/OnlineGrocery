@@ -1,4 +1,6 @@
-﻿<head>
+﻿@model ChatViewModel
+
+<head>
     <link rel="stylesheet" href="~/css/main_admin_style.css" />
 </head>
 
@@ -18,6 +20,71 @@
         <div class="admin_content_page">
             <div class="admin_main_panel">
                 
+                <section class="chat">
+                    <div class="chat_container">
+
+                        <div class="title">
+                            <h1>Create comment</h1>
+                        </div>
+
+                        <form method="post">
+                            <div class="form_box_textarea">
+                                <label asp-for="MessageText"></label>
+                                <textarea asp-for="MessageText"></textarea>
+                                <span class="text-danger" asp-validation-for="MessageText"></span>
+                            </div>
+
+                            <div class="form_box">
+                                <button class="btn btn-success" type="submit">Add comment</button>
+                            </div>
+
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                        </form>
+
+                        <div class="title">
+                            <h1>Team Chat</h1>
+                        </div>
+
+                        <div class="chat_messages">
+
+                            @if (Model.ChatMessages.Any())
+                            {
+                                @foreach(var c in Model.ChatMessages)
+                                {
+                                    @if(c.UserId == Model.UserId)
+                                    {
+                                        <div class="current_user_coment">
+                                            <p class="comment_txt">
+                                                @c.MessageText
+                                            </p>
+
+                                            <p>Posted @c.Posted.Day/@c.Posted.Month/@c.Posted.Year by @c.UserName</p>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="comment">
+                                            <p class="comment_txt">
+                                                @c.MessageText
+                                            </p>
+
+                                            <p>Posted @c.Posted.Day/@c.Posted.Month/@c.Posted.Year by @c.UserName</p>
+                                        </div>
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                <div class="title">
+                                    <h1>There is no messages</h1>
+                                </div>
+                            }
+
+                        </div>
+
+                    </div>
+                </section>
+
             </div>
         </div>
     </div>
