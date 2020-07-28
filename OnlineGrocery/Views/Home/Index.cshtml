@@ -186,7 +186,7 @@
 
         <div class="right_contact">
             <div class="right_contact_container">
-                <form enctype="multipart/form-data" method="post">
+                <form enctype="multipart/form-data" asp-controller="Home" asp-action="Index" method="post">
 
                     <div class="form_box">
                         <label asp-for="Name"><i class="fas fa-user"></i> Your Name</label>
@@ -198,6 +198,12 @@
                         <label asp-for="Email"><i class="fas fa-envelope-open-text"></i> Your Email</label>
                         <input asp-for="Email" />
                         <span class="text-danger" asp-validation-for="Email"></span>
+                    </div>
+
+                    <div class="form_box">
+                        <label asp-for="Topic"><i class="fas fa-bookmark"></i> Topic</label>
+                        <input asp-for="Topic" />
+                        <span class="text-danger" asp-validation-for="Topic"></span>
                     </div>
 
                     <div class="form_box">

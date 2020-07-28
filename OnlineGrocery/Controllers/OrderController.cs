@@ -109,7 +109,7 @@ namespace OnlineGrocery.Controllers
 
         public IActionResult DisplayOrders()
         {
-            List<OrderModel> Orders = _orderRepository.ReturnOrders().ToList();
+            List<OrderModel> Orders = (_orderRepository.ReturnOrders()).ToList();
             return View(Orders);
         }
 

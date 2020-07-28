@@ -24,6 +24,7 @@ namespace OnlineGrocery.ViewModels
         //Daily icome
         public double DayIncome { get; set; }
 
+        public int NewMessagesCount { get; set; }
 
         //Stock
         public int NumberProductsLowOnStock { get; set; }

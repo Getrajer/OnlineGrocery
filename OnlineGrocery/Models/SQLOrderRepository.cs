@@ -33,7 +33,7 @@ namespace OnlineGrocery.Models
 
         public IEnumerable<OrderModel> ReturnOrders()
         {
-            return _context.Orders.Reverse();
+            return _context.Orders;
         }
     }
 }

@@ -59,53 +59,47 @@
             </div>
             
             <div class="products_list">
-
-                <div class="l_container">
-                    <div class="products_list_container">
-                        @foreach (var p in Model.Products)
+                <div class="products_list_container">
+                    @foreach (var p in Model.Products)
+                    {
+                        <!--If product is out of stock do not display it-->
+                        @if (p.Quantity != 0)
                         {
-                            <!--If product is out of stock do not display it-->
-                            @if (p.Quantity != 0)
-                            {
-                                <div class="product">
-                                    <div class="product_container">
+                            <div class="product">
+                                <div class="product_container">
 
-                                        <form enctype="multipart/form-data" asp-controller="Cart" asp-action="AddToShoppingCartDisplayProducts" method="post">
+                                    <form enctype="multipart/form-data" asp-controller="Cart" asp-action="AddToShoppingCartDisplayProducts" method="post">
 
-                                            <div class="img_container">
-                                                <img src="~/images/@p.ImgPath" alt="@p.Name" />
-                                            </div>
-
-                                            <div class="name">
-                                                <h3>@p.Name (@p.Price£)</h3>
-                                            </div>
-
-                                            <div class="add_to_chart">
-                                                <div class="input">
-                                                    <label>Quantity</label>
-                                                    <input asp-for="Quantity" min="1" /><input hidden asp-for="Id" value="@p.Id" />
-                                                </div>
-
-                                                <div class="add_button">
-                                                    <button type="submit"><i class="fas fa-cart-plus"></i></button>
-                                                </div>
-                                            </div>
-
-                                        </form>
-                                        <div class="details">
-                                            <a asp-controller="Product" asp-action="ProductDetails" asp-route-id="@p.Id">Details</a>
+                                        <div class="img_container">
+                                            <img src="~/images/@p.ImgPath" alt="@p.Name" />
                                         </div>
+
+                                        <div class="name">
+                                            <h3>@p.Name (@p.Price£)</h3>
+                                        </div>
+
+                                        <div class="add_to_chart">
+                                            <div class="input">
+                                                <label>Quantity</label>
+                                                <input asp-for="Quantity" min="1" /><input hidden asp-for="Id" value="@p.Id" />
+                                            </div>
+
+                                            <div class="add_button">
+                                                <button type="submit"><i class="fas fa-cart-plus"></i></button>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                    <div class="details">
+                                        <a asp-controller="Product" asp-action="ProductDetails" asp-route-id="@p.Id">Details</a>
                                     </div>
                                 </div>
-                            }
+                            </div>
                         }
-                    </div>
+                    }
                 </div>
-
-
             </div>
         </div>
-
     </div>
 </section>
 

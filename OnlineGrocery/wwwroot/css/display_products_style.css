@@ -19,8 +19,6 @@ button:focus {
     grid-template-columns: 15% 80%;
     background-color:#07252a;
     padding:1em 0;
-
-
 }
 
 .products .title h1{
@@ -79,68 +77,23 @@ button:focus {
 }
 
 .products .products_list{
+    display:flex;
+    justify-content:center;
+
     width:100%;
     max-width:1500px;
     padding:2em 6em 0 6em;
 }
 
-.products .products_list .left_button{
-    display:flex;
-    justify-content:center;
-    align-content:center;
-    align-items:center;
-}
-
-.products .products_list .left_button_container{
-    height:50%;
-    width:100%;
-    display:flex;
-    justify-content:center;
-    align-content:center;
-    align-items:center;
-    cursor:pointer;
-    transition: 0.5s background-color;
-}
-
-.products .products_list .left_button_container:hover{
-    background-color:rgba(0, 55, 23, 0.40);
-}
-
-.products .products_list .left_button p{
-    font-size:4rem;
-}
-
-.products .products_list .right_button{
-    display:flex;
-    justify-content:center;
-    align-content:center;
-    align-items:center;
-}
-
-.products .products_list .right_button_container{
-    height:50%;
-    width:100%;
-    display:flex;
-    justify-content:center;
-    align-content:center;
-    align-items:center;
-    cursor:pointer;
-    transition: 0.5s background-color;
-}
-
-.products .products_list .right_button_container:hover{
-    background-color:rgba(0, 55, 23, 0.40);
-}
-
-.products .products_list .right_button p{
-    font-size:4rem;
-}
-
 .products .products_list_container{
     display:grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
     grid-gap: 20px;
     padding-bottom:3em;
+
+    width:100%;
+    max-width: 1300px;
 }
 
 .products .products_list_container .product{

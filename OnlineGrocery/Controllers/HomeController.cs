@@ -15,13 +15,17 @@ namespace OnlineGrocery.Controllers
     {
 
         private readonly ICMSIndexRepository _cMSIndexRepository;
+        private readonly IInboxRepository _inboxRepository;
 
-        public HomeController( ICMSIndexRepository cMSIndexRepository)
+        public HomeController(ICMSIndexRepository cMSIndexRepository,
+                               IInboxRepository inboxRepository)
         {
             _cMSIndexRepository = cMSIndexRepository;
+            _inboxRepository = inboxRepository;
         }
 
         [AllowAnonymous]
+        [HttpGet]
         public IActionResult Index()
         {
             IndexViewModel model = new IndexViewModel();
@@ -29,6 +33,31 @@ namespace OnlineGrocery.Controllers
             model.PageData = _cMSIndexRepository.Get(1);
 
             return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Index(IndexViewModel viewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                ShopMessageModel message = new ShopMessageModel();
+                message.Email = viewModel.Email;
+                message.Message = viewModel.Message;
+                message.Name = viewModel.Name;
+                message.Topic = viewModel.Topic;
+                message.Sent = DateTime.Now;
+                message.UserId = "Annonymous";
+                message.TypeName = "Annonymous";
+                message.Checked = false;
+                message.Resolved = false;
+
+
+                _inboxRepository.AddMessage(message);
+
+                return RedirectToAction("Index");
+            }
+
+            return View(viewModel);
         }
 
         [AllowAnonymous]

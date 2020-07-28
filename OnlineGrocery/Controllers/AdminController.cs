@@ -21,6 +21,7 @@ namespace OnlineGrocery.Controllers
         private readonly IUserOrderItemRepository _userOrderItemRepository;
         private readonly IUserOrderRepository _userOrderRepository;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IInboxRepository _inboxRepository;
 
         public AdminController(IShoppingCartItemRepository shoppingCartItemRepository,
                                     IProductRepository productRepository,
@@ -28,7 +29,8 @@ namespace OnlineGrocery.Controllers
                                     IUserOrderItemRepository userOrderItemRepository,
                                     IUserOrderRepository userOrderRepository,
                                     UserManager<UserModel> userManager,
-                                    RoleManager<IdentityRole> roleManager)
+                                    RoleManager<IdentityRole> roleManager,
+                                    IInboxRepository inboxRepository)
         {
             _shoppingCartItemRepository = shoppingCartItemRepository;
             _productRepository = productRepository;
@@ -37,6 +39,7 @@ namespace OnlineGrocery.Controllers
             _userOrderRepository = userOrderRepository;
             _userManager = userManager;
             _roleManager = roleManager;
+            _inboxRepository = inboxRepository;
         }
 
 
@@ -58,6 +61,12 @@ namespace OnlineGrocery.Controllers
             //Check stock
             model.NumberProductsLowOnStock = _productRepository.LowStockProductsNumber();
             model.StockIsFine = model.NumberProductsLowOnStock == 0 ? true : false;
+
+            //Number of new messages
+            List<ShopMessageModel> Messages = _inboxRepository.GetMessages();
+            Messages.RemoveAll(o => o.Checked == true);
+
+            model.NewMessagesCount = Messages.Count;
 
             return View(model);
         }
