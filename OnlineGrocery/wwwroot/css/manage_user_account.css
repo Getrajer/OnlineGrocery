@@ -1,0 +1,78 @@
+﻿.user_info{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    padding:3em 0;
+}
+
+.user_info .user_info_container{
+    width:100%;
+    max-width: 700px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.40);
+}
+
+.admin_content_page .title {
+    text-align: center;
+    color: white;
+    padding: 0.5em 0;
+    background-color: #1e5a52;
+}
+
+.lab{
+    font-weight:600;
+    letter-spacing:2px;
+}
+
+.info_box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    padding: 0.3em 3em;
+}
+
+.manage_account {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 3em 0;
+}
+
+.manage_account .manage_account_container{
+    width:100%;
+    max-width: 700px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.40);
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.manage_account .manage_account_container .title{
+    grid-column: span 2;
+}
+
+.manage_account .option{
+    padding:1em 0;
+    text-align:center;
+}
+
+.manage_account .option p{
+    font-weight: 600;
+    font-size:1.1rem;
+}
+
+.manage_account .option button{
+    margin-top:1em;
+    background-color:#307e69;
+    color:white;
+    padding:0.5em;
+    font-size:1.2rem;
+    letter-spacing:3px;
+    border-radius: unset;
+    text-transform:uppercase;
+    border:unset;
+    font-weight:700;
+    transition: 0.5s;
+}
+
+.manage_account .option button:hover{
+    background-color:#3ea086;
+}

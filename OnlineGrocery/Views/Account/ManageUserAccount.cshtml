@@ -2,6 +2,7 @@
 
 <head>
     <link rel="stylesheet" href="~/css/main_admin_style.css" />
+    <link href="~/css/manage_user_account.css" rel="stylesheet" />
 </head>
 
 @{
@@ -16,102 +17,99 @@
         <partial name="_AdminNavigationPartial" model="m" />
 
         <div class="admin_content_page">
-            <div class="table_page">
-                <section class="user_info">
-                    <div class="user_info_container">
-                        <div class="title">
-                            <h1>@Model.User.FirstName @Model.User.LastName</h1>
-                        </div>
-
-                        <div class="info_box">
-                            <p>Email: </p>
-                            <p>@Model.User.Email</p>
-                        </div>
-
-                        <div class="info_box">
-                            <p>Phone number: </p>
-                            <p>@Model.User.PhoneNumber</p>
-                        </div>
-
-                        <div class="info_box">
-                            <p>Address: </p>
-                            <p>@Model.User.StreetName @Model.User.StreetNumber, @Model.User.City</p>
-                        </div>
-
-                        <div class="info_box">
-                            <p>Postcode: </p>
-                            <p>@Model.User.PostCode</p>
-                        </div>
-
-                        <div class="info_box">
-                            <p>Account Type: </p>
-                            <p>@Model.AccountType</p>
-                        </div>
-
-                        <div class="info_box">
-                            <p>Money Spent: </p>
-                            <p>@Model.User.MoneySpent</p>
-                        </div>
-
-                        <div class="info_box">
-                            <p>Ammount of orders: </p>
-                            <p>@Model.User.OrdersAmmount</p>
-                        </div>
-
-                        <div class="info_box">
-                            <p>Is blocked: </p>
-                            @if (Model.User.IsBlocked == true)
-                            {
-                                <p>Yes</p>
-                            }
-                            else
-                            {
-                                <p>No</p>
-                            }
-
-                        </div>
+            <section class="user_info">
+                <div class="user_info_container">
+                    <div class="title">
+                        <h1>@Model.User.FirstName @Model.User.LastName</h1>
                     </div>
-                </section>
 
-                <section class="manage_account">
-                    <div class="manage_account_container">
-                        <div class="title">
-                            <h1>Manage Account</h1>
-                        </div>
+                    <div class="info_box">
+                        <p class="lab">Email: </p>
+                        <p>@Model.User.Email</p>
+                    </div>
 
-                        <div class="option">
-                            <p>Manage access to the account</p>
-                            <p>
-                                <form asp-action="BlockUnblock" asp-controller="Account">
-                                    <input hidden asp-for="UserId" />
-                                    @if (Model.User.IsBlocked == true)
-                                    {
-                                        <button type="submit">Unblock Account</button>
-                                    }
-                                    else
-                                    {
-                                        <button type="submit">Block Account</button>
-                                    }
-                                </form>
-                            </p>
-                        </div>
+                    <div class="info_box">
+                        <p class="lab">Phone number: </p>
+                        <p>@Model.User.PhoneNumber</p>
+                    </div>
 
-                        <div class="option">
-                            <p>Reset password to user</p>
-                            <p>
-                                <form asp-action="BlockUnblock" asp-controller="Account">
-                                    <input hidden asp-for="UserId" />
-                                    <button type="submit">Reset Password</button>
-                                </form>
-                            </p>
-                        </div>
+                    <div class="info_box">
+                        <p class="lab">Address: </p>
+                        <p>@Model.User.StreetName @Model.User.StreetNumber, @Model.User.City</p>
+                    </div>
+
+                    <div class="info_box">
+                        <p class="lab">Postcode: </p>
+                        <p>@Model.User.PostCode</p>
+                    </div>
+
+                    <div class="info_box">
+                        <p class="lab">Account Type: </p>
+                        <p>User</p>
+                    </div>
+
+                    <div class="info_box">
+                        <p class="lab">Money Spent: </p>
+                        <p>@Model.User.MoneySpent</p>
+                    </div>
+
+                    <div class="info_box">
+                        <p class="lab">Ammount of orders: </p>
+                        <p>@Model.User.OrdersAmmount</p>
+                    </div>
+
+                    <div class="info_box">
+                        <p class="lab">Is blocked: </p>
+                        @if (Model.User.IsBlocked == true)
+                        {
+                            <p>Yes</p>
+                        }
+                        else
+                        {
+                            <p>No</p>
+                        }
 
                     </div>
-                </section>
+                </div>
+            </section>
 
-            </div>
+            <section class="manage_account">
+                <div class="manage_account_container">
+                    <div class="title">
+                        <h1>Manage Account</h1>
+                    </div>
+
+                    <div class="option">
+                        <p>Manage access to the account</p>
+                        <p>
+                            <form asp-action="BlockUnblock" asp-controller="Account">
+                                <input hidden asp-for="UserId" />
+                                @if (Model.User.IsBlocked == true)
+                                {
+                                    <button type="submit">Unblock Account</button>
+                                }
+                                else
+                                {
+                                    <button type="submit">Block Account</button>
+                                }
+                            </form>
+                        </p>
+                    </div>
+
+                    <div class="option">
+                        <p>Reset password to user</p>
+                        <p>
+                            <form asp-action="BlockUnblock" asp-controller="Account">
+                                <input hidden asp-for="UserId" />
+                                <button type="submit">Reset Password</button>
+                            </form>
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+
         </div>
-
     </div>
 </section>
 
