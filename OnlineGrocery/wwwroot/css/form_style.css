@@ -1,8 +1,9 @@
 ﻿
 
-.create_product_page{
+.form_page{
     display:flex;
     justify-content:center;
+    min-height:90vh;
 }
 
 input:focus{
@@ -17,54 +18,56 @@ button:focus{
     outline:unset;
 }
 
-.create_product_page{
+.form_page{
     padding:5em 0 10em 0;
 }
 
-.create_product_page .create_product_page_container {
+.form_page .form_page_container {
     width: 100%;
     max-width: 600px;
     background-color: white;
     box-shadow:   10px 10px 15px rgba(0, 0, 0, 0.40);
+    padding-bottom:1em;
 }
 
-.create_product_page .form_box_radio{
+.form_page .form_box_radio{
     padding:1em 0;
 }
 
-.create_product_page .form_box_radio input{
+.form_page .form_box_radio input{
     display:inline;
     width:30px;
 }
 
-.create_product_page .title{
+.form_page .title{
     text-align:center;
     padding:2em 0;
-    background-color:#205f57;
+    background-color:#1e5a52;
     color:white;
 }
 
-.create_product_page .title h1{
+.form_page .title h1{
     font-weight: 700;
     letter-spacing:3px;
 }
 
-.create_product_page .two_boxes{
+.form_page .two_boxes{
     display:grid;
     grid-template-columns:1fr 1fr;
     grid-gap: 1em;
 }
 
-.create_product_page form{
+.form_page form{
     padding:1em 3em;
 }
 
-.create_product_page .form_box{
+.form_page .form_box{
     margin:1em 0;
     height:100px;
 }
 
-.create_product_page label{
+
+.form_page label{
     display:block;
     text-align:center;
     letter-spacing:3px;
@@ -72,7 +75,7 @@ button:focus{
     font-weight:800;
 }
 
-.create_product_page input{
+.form_page input{
     width:100%;
     border:unset;
     border-radius:unset;
@@ -80,15 +83,15 @@ button:focus{
     transition:0.5s border;
 }
 
-.create_product_page input:focus{
+.form_page input:focus{
     border-bottom: 3px solid #307e69;
 }
 
-.create_product_page .form_box_textarea{
+.form_page .form_box_textarea{
     height:150px;
 }
 
-.create_product_page textarea {
+.form_page textarea {
     width: 100%;
     border:3px solid #c4c4c4;
     border-radius: unset;
@@ -99,30 +102,30 @@ button:focus{
 }
 
 
-.create_product_page textarea::-webkit-scrollbar {
+.form_page textarea::-webkit-scrollbar {
   width: 10px;
 }
 
 /* Track */
-.create_product_page textarea::-webkit-scrollbar-track {
+.form_page textarea::-webkit-scrollbar-track {
     width:0px;
 }
 
 /* Handle */
-.create_product_page textarea::-webkit-scrollbar-thumb {
+.form_page textarea::-webkit-scrollbar-thumb {
   background: #888;
 }
 
 /* Handle on hover */
-.create_product_page textarea::-webkit-scrollbar-thumb:hover {
+.form_page textarea::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
 
-.create_product_page textarea:focus {
+.form_page textarea:focus {
     border: 3px solid #307e69;
 }
 
-.create_product_page button{
+.form_page button{
     margin-top:1em;
     float:right;
     background-color:#307e69;
@@ -136,7 +139,7 @@ button:focus{
     transition: 0.5s;
 }
 
-.create_product_page button:hover{
+.form_page button:hover{
     background-color:#3ea086;
 }
 
@@ -151,4 +154,5 @@ button:focus{
     float:unset;
     font-weight:700;
     width: 300px;
+    border:none;
 }

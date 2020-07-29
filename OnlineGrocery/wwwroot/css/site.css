@@ -54,11 +54,74 @@ button.accept-policy {
   line-height: inherit;
 }
 
+nav {
+    display: flex;
+    justify-content: center !important;
+    height: 60px;
+    position:fixed!important;
+    width:100%;
+    z-index:1;
+    background-color:white;
+    border-bottom:1px solid rgba(183, 183, 183, 0.40);
+}
+
+nav .nav_container {
+    width: 100%;
+    max-width: 1500px;
+    display: grid;
+    grid-template-columns: 30% auto;
+}
+
+nav .logo span{
+    padding-left: 1.5em;
+    font-weight:600;
+    letter-spacing:2px;
+}
+
+nav a{
+    color:#1a2117;
+    padding: 0 1em;
+    letter-spacing:2px;
+    transition: 0.5s;
+}
+
+nav a:hover{
+    color:rgba(81, 151, 89, 1);
+}
+
+
+nav .logo img{
+    height: 25px;
+    width:auto;
+    position:absolute;
+}
+
+nav .navbar-collapse{
+    justify-content:right;
+}
+
+.logout_btn button{
+    background-color:unset;
+    color:#1a2117;
+    padding: 0 1em;
+    letter-spacing:2px;
+    border:none;
+    transition: 0.5s;
+}
+
+.logout_btn button:hover{
+    color:rgba(81, 151, 89, 1);
+}
+
+main{
+    padding-top:60px;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
@@ -67,9 +130,57 @@ body {
   height:100%;
 }
 .footer {
-  background-color:white;
+  background-color:#1e5a52;
+  color:white;
   bottom: 0;
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
+  text-align:center;
+}
+
+.footer a{
+    color:white;
+    font-weight:700;
+    letter-spacing:3px;
+    transition:0.5s;
+}
+
+.footer a:hover{
+    color:rgba(81, 151, 89, 1);
+}
+
+@media screen and (max-width: 575px){
+    nav{
+        height:70px;
+    }
+
+    .navbar-toggler{
+        margin-right: 1em;
+    }
+
+    nav .nav_container {
+        width: 100%;
+        max-width: 1500px;
+        display: grid;
+        grid-template-columns: 80% auto;
+        padding: 0;
+        padding: 1em 0;
+    }
+
+    nav .logo{
+        padding:0em 1em;
+    }
+
+    .navbar {
+        padding: 0em;
+    }
+
+    nav .navbar-collapse {
+        z-index: 1;
+        background-color: white;
+        width: 100%;
+        text-align: center;
+        grid-column: span 2;
+    }
 }

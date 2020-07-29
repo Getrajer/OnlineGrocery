@@ -17,7 +17,7 @@ button:focus {
 .products .title{
     display:grid;
     grid-template-columns: 15% 80%;
-    background-color:#07252a;
+    background-color:#1e5a52;
     padding:1em 0;
 }
 
@@ -35,7 +35,7 @@ button:focus {
 
 .products .products_menu{
     position:relative;
-    background-color:#07252a;
+    background-color:#1e5a52;
     height:100%;
     width:100%;
     max-width:270px;
@@ -129,7 +129,7 @@ button:focus {
 }
 
 .products .product .name{
-    background-color:#205f57;
+    background-color:#1e5a52;
     color:white;
     text-align:center;
     margin: 0.5em 0;
@@ -164,7 +164,7 @@ button:focus {
 .products .add_button button{
     width:100%;
     height:100%;
-    background-color:#205f57;
+    background-color:#1e5a52;
     color:white;
     font-size:2rem;
     border-radius: 0.5em;
@@ -182,7 +182,7 @@ button:focus {
 .products .details{
     width:100%;
     text-align:center;
-    background-color:#205f57;
+    background-color:#1e5a52;
     padding:0.3em 0;
     border-bottom-left-radius:0.5em;
     border-bottom-right-radius:0.5em;
@@ -251,7 +251,7 @@ button:focus {
     }
 
     .toggle_product_nav button{
-        background-color:#205f57;
+        background-color:#1e5a52;
         color:white;
         font-size:2rem;
         border:unset;

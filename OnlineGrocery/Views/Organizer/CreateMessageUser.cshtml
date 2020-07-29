@@ -1,7 +1,7 @@
 ﻿@model CreateMessageViewModel
 
 <head>
-    <link rel="stylesheet" href="~/css/create_message_user_style.css" />
+    <link href="~/css/form_style.css" rel="stylesheet" />
 </head>
 
 @{
@@ -10,8 +10,8 @@
 
 
 
-<section class="user_message">
-    <div class="user_message_container">
+<section class="form_page">
+    <div class="form_page_container">
         <div class="title">
             <h1>Create Message</h1>
 
@@ -32,7 +32,7 @@
                 <span class="text-danger" asp-validation-for="Message"></span>
             </div>
 
-            <div class="form_box">
+            <div class="button_box">
                 <button class="btn btn-success" type="submit">Send</button>
             </div>
 

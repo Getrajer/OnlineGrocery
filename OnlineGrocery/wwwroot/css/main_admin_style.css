@@ -95,4 +95,9 @@
 
 .admin_site .controll_list .link:hover {
     color: rgba(35, 134, 151, 1);
-} 
+}
+
+
+.footer {
+    background-color: #07252a;
+}

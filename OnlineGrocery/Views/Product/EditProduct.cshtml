@@ -1,10 +1,10 @@
 ﻿@model EditProductViewModel
 
-<head>
-    <link rel="stylesheet" href="~/css/main_admin_style.css" />
-    <link rel="stylesheet" href="~/css/create_product_style.css" />
-    <title>@Model.Title</title>
-</head>
+    <head>
+        <link rel="stylesheet" href="~/css/main_admin_style.css" />
+        <link href="~/css/form_style.css" rel="stylesheet" />
+        <title>@Model.Title</title>
+    </head>
 
 @{
     Types typeList = new Types();
@@ -20,8 +20,8 @@
         <partial name="_AdminNavigationPartial" model="m" />
 
         <div class="admin_content_page">
-            <section class="create_product_page">
-                <div class="create_product_page_container">
+            <section class="form_page">
+                <div class="form_page_container">
 
                     <div class="title">
                         <h1>@Model.Title</h1>
