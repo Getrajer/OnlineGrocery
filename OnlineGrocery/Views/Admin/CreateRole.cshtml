@@ -2,7 +2,7 @@
 
 <head>
     <link rel="stylesheet" href="~/css/main_admin_style.css" />
-    <link rel="stylesheet" href="~/css/create_role_style.css"/>
+    <link rel="stylesheet" href="~/css/form_style.css" />
 </head>
 
 @{
@@ -20,25 +20,30 @@
 
         <div class="admin_content_page">
             <div class="admin_main_panel">
-                <form asp-action="CreateRole" method="post">
-                    <div asp-validation-summary="All" class="text-danger">
-                    </div>
-                    <div class="form_box">
-                        <label asp-for="RoleName"></label>
-                        <div>
-                            <input asp-for="RoleName" class="form-control" placeholder="Name">
-                            <span asp-validation-for="RoleName" class="text-danger"></span>
-                        </div>
-                    </div>
+                
+                <section class="form_page">
+                    <div class="form_page_container" style="height:300px;">
+                        <form asp-action="CreateRole" method="post">
+                            <div asp-validation-summary="All" class="text-danger">
+                            </div>
+                            <div class="form_box">
+                                <label asp-for="RoleName"></label>
+                                <div>
+                                    <input asp-for="RoleName" class="form-control" placeholder="Name">
+                                    <span asp-validation-for="RoleName" class="text-danger"></span>
+                                </div>
+                            </div>
 
-                    <div class="form_box">
-                        <div>
-                            <button type="submit" class="btn btn-primary" style="width:auto">
-                                Create Role
-                            </button>
-                        </div>
+                            <div class="button_box">
+                                <div>
+                                    <button type="submit" class="btn btn-primary" style="width:auto">
+                                        Create Role
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                </form>
+                </section>
             </div>
         </div>
     </div>

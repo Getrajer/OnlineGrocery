@@ -2,7 +2,7 @@
 
 <head>
     <link rel="stylesheet" href="~/css/main_admin_style.css" />
-    <link rel="stylesheet" href="~/css/register_login_page_style.css" />
+    <link rel="stylesheet" href="~/css/form_style.css" />
 </head>
 
 @{
@@ -29,57 +29,57 @@
 
                         <form method="post">
                             <div asp-validation-summary="All" class="text-danger"></div>
-                            <div class="form-group">
+                            <div class="form_box">
                                 <label asp-for="FirstName"></label>
                                 <input asp-for="FirstName" class="form-control" />
                                 <span asp-validation-for="FirstName" class="text-danger"></span>
                             </div>
-                            <div class="form-group">
+                            <div class="form_box">
                                 <label asp-for="LastName"></label>
                                 <input asp-for="LastName" class="form-control" />
                                 <span asp-validation-for="LastName" class="text-danger"></span>
                             </div>
-                            <div class="form-group">
+                            <div class="form_box">
                                 <label asp-for="PhoneNumber"></label>
                                 <input asp-for="PhoneNumber" class="form-control" />
                                 <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                             </div>
-                            <div class="form-group">
+                            <div class="form_box">
                                 <label asp-for="Email"></label>
                                 <input asp-for="Email" class="form-control" />
                                 <span asp-validation-for="Email" class="text-danger"></span>
                             </div>
-                            <div class="double_form">
-                                <div class="form-group">
+                            <div class="two_boxes">
+                                <div class="form_box">
                                     <label asp-for="StreetName"></label>
                                     <input asp-for="StreetName" class="form-control" />
                                     <span asp-validation-for="StreetName" class="text-danger"></span>
                                 </div>
-                                <div class="form-group">
+                                <div class="form_box">
                                     <label asp-for="StreetNumber"></label>
                                     <input asp-for="StreetNumber" class="form-control" />
                                     <span asp-validation-for="StreetNumber" class="text-danger"></span>
                                 </div>
                             </div>
 
-                            <div class="double_form">
-                                <div class="form-group">
+                            <div class="two_boxes">
+                                <div class="form_box">
                                     <label asp-for="City"></label>
                                     <input asp-for="City" class="form-control" />
                                     <span asp-validation-for="City" class="text-danger"></span>
                                 </div>
-                                <div class="form-group">
+                                <div class="form_box">
                                     <label asp-for="PostCode"></label>
                                     <input asp-for="PostCode" class="form-control" />
                                     <span asp-validation-for="PostCode" class="text-danger"></span>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form_box">
                                 <label asp-for="Password"></label>
                                 <input asp-for="Password" class="form-control" />
                                 <span asp-validation-for="Password" class="text-danger"></span>
                             </div>
-                            <div class="form-group">
+                            <div class="form_box">
                                 <label asp-for="ConfirmPassword"></label>
                                 <input asp-for="ConfirmPassword" class="form-control" />
                                 <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
@@ -94,7 +94,7 @@
                                 }
                             </div>
 
-                            <div class="button_container">
+                            <div class="button_box">
                                 <button type="submit">Create account</button>
                             </div>
 
