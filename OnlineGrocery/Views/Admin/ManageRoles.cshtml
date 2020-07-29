@@ -2,7 +2,7 @@
 
 <head>
     <link rel="stylesheet" href="~/css/main_admin_style.css" />
-    <link rel="stylesheet" href="~/css/create_role_style.css" />
+    <link rel="stylesheet" href="~/css/manage_roles_style.css" />
 </head>
 
 @{
@@ -19,50 +19,55 @@
         <partial name="_AdminNavigationPartial" model="m" />
 
         <div class="admin_content_page">
-            <div class="admin_main_panel">
 
-                <h1>All Roles</h1>
+            <section class="manage_roles">
+                <div class="manage_roles_container">
+                    <div class="title">
+                        <h1>All Roles</h1>
+                    </div>
 
-                @if (Model.Any())
-                {
-                    <a class="btn btn-primary mb-3" style="width:auto" asp-action="CreateRole"
-                       asp-controller="Admin">Add new role</a>
 
-                    foreach (var role in Model)
+                    @if (Model.Any())
                     {
-                        <div class="card mb-3">
-                            <div class="card-header">
-                                Role Id : @role.Id
+
+                        <div class="add_button">
+                            <a asp-action="CreateRole" asp-controller="Admin">Add new role</a>
+                        </div>
+
+                        foreach (var role in Model)
+                        {
+                            <div class="role">
+                                <div>
+                                    <p>Role Id : @role.Id</p> 
+                                </div>
+                                <div>
+                                    <h5>Role name: @role.Name</h5>
+                                </div>
+                                <div class="button_box">
+                                    <a asp-controller="Admin" asp-action="EditRole" asp-route-Id="@role.Id">Edit</a>
+                                    <a href="#">Delete</a>
+                                </div>
                             </div>
-                            <div class="card-body">
-                                <h5 class="card-title">@role.Name</h5>
+                        }
+                    }
+                    else
+                    {
+                        <div>
+                            <div>
+                                <h1>No roles have been created</h1>
                             </div>
-                            <div class="card-footer">
-                                <a asp-controller="Admin" asp-action="EditRole" asp-route-Id="@role.Id" class="btn btn-primary">Edit</a>
-                                <a href="#" class="btn btn-danger">Delete</a>
+
+                            <div>
+                                <a asp-controller="administration" asp-action="CreateRole">
+                                    Create Role
+                                </a>
                             </div>
                         </div>
                     }
-                }
-                else
-                {
-                    <div class="card">
-                        <div class="card-header">
-                            No roles created yet
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                Use the button below to create a role
-                            </h5>
-                            <a class="btn btn-primary" style="width:auto"
-                               asp-controller="administration" asp-action="CreateRole">
-                                Create Role
-                            </a>
-                        </div>
-                    </div>
-                }
 
-            </div>
+                </div>
+            </section>
+
         </div>
     </div>
 </section>
