@@ -3,6 +3,8 @@
 
 <head>
     <link rel="stylesheet" href="~/css/main_admin_style.css" />
+    <link href="~/css/form_style.css" rel="stylesheet" />
+    <link href="~/css/team_notes_style.css" rel="stylesheet" />
 </head>
 
 @{
@@ -23,8 +25,8 @@
                 <section class="notes">
                     <div class="notes_container">
 
-                        <div class="create_note">
-                            <div class="create_note_container">
+                        <div class="form_page">
+                            <div class="form_page_container">
 
                                 <div class="title">
                                     <h1>Create Note</h1>
@@ -63,13 +65,14 @@
                                             <div class="note_container">
                                                 <h2>@n.NoteTitle</h2>
                                                 <p class="note_text">@n.NoteText</p>
-                                                <p class="note_crator">@n.CreatorsName</p>
-                                                <p class="date_note">@n.DatePosted.Day/@n.DatePosted.Month/@n.DatePosted.Year</p>
+                                                <p class="note_crator">Posted @n.DatePosted.Day/@n.DatePosted.Month/@n.DatePosted.Year by @n.CreatorsName </p>
 
                                                 @if (n.UserId == Model.UserId)
                                                 {
-                                                    <button>Edit Comment</button>
-                                                    <button>Delete Comment</button>
+                                                    <div class="note_buttons">
+                                                        <button>Edit note</button>
+                                                        <button>Delete note</button>
+                                                    </div>
                                                 }
                                             </div>
                                         </div>

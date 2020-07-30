@@ -35,11 +35,14 @@ namespace OnlineGrocery.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public IActionResult Notes()
+        public async Task<IActionResult> Notes()
         {
+            var user = await _userManager.GetUserAsync(HttpContext.User);
+
             NotesViewModel model = new NotesViewModel();
 
             model.Notes = _notesRepository.GetNotes();
+            model.UserId = user.Id;
 
             return View(model);
         }

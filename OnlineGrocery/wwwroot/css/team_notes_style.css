@@ -1,0 +1,63 @@
+﻿.display_notes {
+    display: flex;
+    justify-content: center;
+    padding: 3em 0;
+}
+
+.display_notes .display_notes_container{
+    width: 100%;
+    max-width: 1000px;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.display_notes .title {
+    text-align: center;
+    padding: 2em 0;
+    background-color: #1e5a52;
+    color: white;
+}
+
+.display_notes .note_container {
+    text-align:center;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.40);
+}
+
+.display_notes .note h2{
+    text-align: center;
+    background-color: #1e5a52;
+    color:white;
+    padding:1em 0;
+}
+
+.note .note_crator {
+    text-align: center;
+    background-color: #1e5a52;
+    color: white;
+    padding:0.3em 0;
+}
+
+.display_notes .note_text {
+    height: 250px;
+}
+
+.note .note_buttons{
+    padding: 0.5em 0;
+}
+
+.note .note_buttons button {
+    background-color: #307e69;
+    color: white;
+    padding: 0.3em 0.5em;
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    border-radius: unset;
+    text-transform: uppercase;
+    font-weight: 700;
+    border: none;
+    transition: 0.5s;
+}
+
+.note .note_buttons button:hover{
+    background-color:#3ea086;
+}
