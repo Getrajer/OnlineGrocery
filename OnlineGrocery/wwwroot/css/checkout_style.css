@@ -3,18 +3,20 @@
     justify-content:center;
     align-content:center;
     align-items:center;
+    padding:5em 0;
     min-height: 80vh;
 }
 
 .checkout .checkout_container{
     width:500px;
-    padding:1em 2em;
     box-shadow:   12px 12px 24px rgba(0, 0, 0, 0.60);
 }
 
 .checkout .title{
-    text-align:center;
-    padding:1em 0;
+    text-align: center;
+    padding: 1em 0;
+    background-color: #1e5a52;
+    color: white;
 }
 
 .checkout .title h1{
@@ -28,6 +30,8 @@
     display:grid;
     grid-template-columns: 1fr 1fr;
     grid-gap:10px;
+    padding:1em 2em;
+
 }
 
 .checkout .box{
@@ -36,11 +40,11 @@
 
 .checkout .mock{
     font-size:0.8rem;
-    padding:1em 0;
+    padding:1em 2em;
 }
 
 .checkout .form_box{
-    padding:1em 0;
+    padding:1em 2em;
 }
 
 .checkout input {
@@ -62,21 +66,29 @@
     letter-spacing:3px;
 }
 
+.checkout textarea{
+    width:100%;
+    resize:none;
+}
+
 .checkout .button_box{
-    padding:1em 0;
+    padding:1em 2em;
     text-align:right;
 }
 
-.checkout .button_box button{
-    background-color:white;
-    border:1px solid black;
-    padding:0.3em;
-    font-size:1.1rem;
-    font-weight:600;
+.checkout .button_box button {
+    background-color: #307e69;
+    color: white;
+    padding: 0.3em 0.5em;
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    border-radius: unset;
+    text-transform: uppercase;
+    font-weight: 700;
+    border: none;
     transition: 0.5s;
 }
 
-
 .checkout .button_box button:hover{
-    transform: translateY(-3px);
+    background-color:#3ea086;
 }
