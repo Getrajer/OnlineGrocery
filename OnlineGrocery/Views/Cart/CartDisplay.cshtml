@@ -47,7 +47,6 @@
                 </tfoot>
             </table>
         </div>
-        @Model.ShoppingCart.ShoppingCartId
         <div class="button_container">
             <a asp-controller="UserOrder" asp-action="Checkout" asp-route-Id="@Model.ShoppingCart.ShoppingCartId">Check out</a>
         </div>

@@ -1,9 +1,39 @@
 ﻿.cart{
     display:flex;
     justify-content:center;
+    min-height: 90vh;
+    padding: 6em 0;
 }
 
 .cart_container{
     width:100%;
     max-width:700px;
+}
+
+.cart .title {
+    text-align: center;
+    padding: 1em 0;
+    background-color: #1e5a52;
+    color: white;
+}
+
+.cart .button_container a {
+    background-color: #307e69;
+    display:block;
+    color: white;
+    padding: 0.3em 0.5em;
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    border-radius: unset;
+    text-transform: uppercase;
+    font-weight: 700;
+    border: none;
+    transition: 0.5s;
+    margin:0.5em;
+    text-align:center;
+    width:200px;
+}
+
+.cart .button_container a:hover{
+    background-color:#3ea086;
 }
