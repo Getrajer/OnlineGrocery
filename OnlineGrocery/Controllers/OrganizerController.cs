@@ -67,10 +67,13 @@ namespace OnlineGrocery.Controllers
         }
 
         [HttpGet]
-        public IActionResult Chat()
+        public async Task<IActionResult> Chat()
         {
+            var user = await _userManager.GetUserAsync(HttpContext.User);
             ChatViewModel model = new ChatViewModel();
             model.ChatMessages = _chatRepository.GetMessages();
+            model.UserId = user.Id;
+
             return View(model);
         }
 

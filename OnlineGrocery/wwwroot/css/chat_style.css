@@ -1,0 +1,102 @@
+﻿.chat{
+    display:flex;
+    justify-content:center;
+    padding: 6em 0;
+}
+
+.chat .chat_container{
+    width: 100%;
+    max-width: 750px;
+    box-shadow:   10px 10px 15px rgba(0, 0, 0, 0.40);
+}
+
+.chat .title{
+    text-align:center;
+    padding:2em 0;
+}
+
+.chat .create_comment .title{
+    text-align: center;
+    padding: 2em 0;
+    background-color: #1e5a52;
+    color: white;
+}
+
+.chat label{
+    display:block;
+    text-align:center;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    font-weight:800;
+}
+
+.chat .form_box_textarea{
+    height:150px;
+}
+
+.chat textarea {
+    width: 100%;
+    border:3px solid #c4c4c4;
+    border-radius: unset;
+    transition: 0.5s border;
+    height: 100px;
+    resize: none;
+    overflow-y: scroll;
+}
+
+.chat .button_box button{
+    background-color:#307e69;
+    color:white;
+    padding:0.3em 0.5em;
+    font-size:1.1rem;
+    letter-spacing:3px;
+    border-radius: unset;
+    text-transform:uppercase;
+    font-weight:700;
+    border:none;
+    transition: 0.5s;
+}
+
+.chat .button_box button:hover{
+    background-color:#3ea086;
+}
+
+.chat form {
+    padding: 1em 3em;
+}
+
+.chat .chat_messages{
+    padding:2em 2em;
+    display:grid;
+    width:100%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "u cu";
+    grid-gap: 10px;
+}
+
+.chat .current_user_coment{
+    grid-area: cu;
+    padding: 0 0.5em;
+}
+
+.chat .comment{
+    grid-area: u;
+    padding: 0 0.5em;
+}
+
+.chat .comment_txt{
+    color:white;
+    background-color: #1e5a52;
+    font-size:1.1rem;
+    padding: 1em 1em;
+    margin: 0;
+}
+
+.chat .user_i{
+    background-color: #143c37;
+    color:white;
+    font-size:0.8rem;
+    padding: 0.3em 1em;
+    font-weight:600;
+}

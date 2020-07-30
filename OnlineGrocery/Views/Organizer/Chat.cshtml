@@ -2,6 +2,7 @@
 
 <head>
     <link rel="stylesheet" href="~/css/main_admin_style.css" />
+    <link href="~/css/chat_style.css" rel="stylesheet" />
 </head>
 
 @{
@@ -23,30 +24,32 @@
                 <section class="chat">
                     <div class="chat_container">
 
-                        <div class="title">
-                            <h1>Create comment</h1>
+                        <div class="create_comment">
+                            <div class="title">
+                                <h1>Create comment</h1>
+                            </div>
+
+                            <form method="post">
+                                <div class="form_box_textarea">
+                                    <label asp-for="MessageText">Your message</label>
+                                    <textarea asp-for="MessageText"></textarea>
+                                    <span class="text-danger" asp-validation-for="MessageText"></span>
+                                </div>
+
+                                <div class="form_box">
+                                    <button class="btn btn-success" type="submit">Add comment</button>
+                                </div>
+
+                                <div asp-validation-summary="All" class="text-danger"></div>
+                            </form>
                         </div>
 
-                        <form method="post">
-                            <div class="form_box_textarea">
-                                <label asp-for="MessageText"></label>
-                                <textarea asp-for="MessageText"></textarea>
-                                <span class="text-danger" asp-validation-for="MessageText"></span>
-                            </div>
-
-                            <div class="form_box">
-                                <button class="btn btn-success" type="submit">Add comment</button>
-                            </div>
-
-                            <div asp-validation-summary="All" class="text-danger"></div>
-                        </form>
 
                         <div class="title">
                             <h1>Team Chat</h1>
                         </div>
 
                         <div class="chat_messages">
-
                             @if (Model.ChatMessages.Any())
                             {
                                 @foreach(var c in Model.ChatMessages)
@@ -58,7 +61,7 @@
                                                 @c.MessageText
                                             </p>
 
-                                            <p>Posted @c.Posted.Day/@c.Posted.Month/@c.Posted.Year by @c.UserName</p>
+                                            <p class="user_i">Posted @c.Posted.Day/@c.Posted.Month/@c.Posted.Year by @c.UserName</p>
                                         </div>
                                     }
                                     else
@@ -68,7 +71,7 @@
                                                 @c.MessageText
                                             </p>
 
-                                            <p>Posted @c.Posted.Day/@c.Posted.Month/@c.Posted.Year by @c.UserName</p>
+                                            <p class="user_i">Posted @c.Posted.Day/@c.Posted.Month/@c.Posted.Year by @c.UserName</p>
                                         </div>
                                     }
                                 }

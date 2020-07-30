@@ -1,0 +1,63 @@
+﻿
+.users_in_role{
+    display:flex;
+    justify-content:center;
+    width:100%;
+    padding: 6em 0;
+}
+
+.users_in_role .users_in_role_container{
+    width:100%;
+    max-width:700px;
+    box-shadow:   10px 10px 15px rgba(0, 0, 0, 0.40);
+    margin-bottom:5em;
+}
+
+.users_in_role .title {
+    text-align: center;
+    padding: 2em 0;
+    background-color: #1e5a52;
+    color: white;
+}
+
+.users_in_role form{
+    padding:1em 2em;
+}
+
+
+.users_in_role .button_box a{
+    background-color:#307e69;
+    color:white;
+    padding:0.3em 0.5em;
+    font-size:1.1rem;
+    letter-spacing:3px;
+    border-radius: unset;
+    text-transform:uppercase;
+    font-weight:700;
+    transition: 0.5s;
+}
+
+.users_in_role .button_box a:hover{
+    background-color:#3ea086;
+}
+
+.users_in_role .button_box{
+    padding: 1em 0;
+}
+
+.users_in_role .button_box button{
+    background-color:#307e69;
+    color:white;
+    padding:0.3em 0.5em;
+    font-size:1.1rem;
+    letter-spacing:3px;
+    border-radius: unset;
+    text-transform:uppercase;
+    font-weight:700;
+    border:none;
+    transition: 0.5s;
+}
+
+.users_in_role .button_box button:hover{
+    background-color:#3ea086;
+}
