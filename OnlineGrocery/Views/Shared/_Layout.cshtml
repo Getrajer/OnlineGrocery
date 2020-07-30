@@ -47,7 +47,7 @@
 
                         @if (signInManager.IsSignedIn(User))
                         {
-                            <li class="nav-item">
+                            <li class="nav-item user_link">
                                 <form class="logout_btn" method="post" asp-action="Logout" asp-controller="Account">
                                     <button type="submit">Logout</button>
                                 </form>
@@ -59,7 +59,7 @@
                         }
                         else
                         {
-                            <li class="nav-item">
+                            <li class="nav-item user_link">
                                 <a asp-controller="Account" asp-action="Register">Register</a>
                             </li>
 

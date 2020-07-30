@@ -150,6 +150,12 @@ body {
     color:rgba(81, 151, 89, 1);
 }
 
+@media screen and (min-width: 576px){
+    .user_link{
+        padding-left:5em;
+    }
+}
+
 @media screen and (max-width: 575px){
     nav{
         height:70px;
