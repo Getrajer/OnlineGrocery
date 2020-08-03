@@ -1,10 +1,10 @@
 ﻿@model EditProductViewModel
 
-    <head>
-        <link rel="stylesheet" href="~/css/main_admin_style.css" />
-        <link href="~/css/form_style.css" rel="stylesheet" />
-        <title>@Model.Title</title>
-    </head>
+<head>
+    <link rel="stylesheet" href="~/css/main_admin_style.css" />
+    <link href="~/css/form_style.css" rel="stylesheet" />
+    <title>@Model.Title</title>
+</head>
 
 @{
     Types typeList = new Types();
@@ -12,7 +12,10 @@
     //Change style for link with this ID
     AdminNavViewModel m = new AdminNavViewModel();
     m.LinkId = 3;
+    ViewBag.Title = "Edit product";
 }
+
+
 
 <section class="admin_site">
     <div class="admin_site_container">

@@ -11,13 +11,16 @@
     //Change style for link with this ID
     AdminNavViewModel m = new AdminNavViewModel();
     m.LinkId = 2;
+    ViewBag.Title = "Create Product";
 }
+
+
 
 
 <section class="admin_site">
     <div class="admin_site_container">
 
-        <partial name="_AdminNavigationPartial" model="m"/>
+        <partial name="_AdminNavigationPartial" model="m" />
 
         <div class="admin_content_page">
             <section class="form_page">

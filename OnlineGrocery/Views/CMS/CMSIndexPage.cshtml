@@ -8,10 +8,12 @@
 @{
     //Change style for link with this ID
     AdminNavViewModel m = new AdminNavViewModel();
-
-
+    ViewBag.Title = "CMS Index";
     m.LinkId = 9;
 }
+
+
+
 <form enctype="multipart/form-data" asp-controller="CMS" asp-action="CMSIndexPage" method="post" class="CMSIndex">
     <section class="admin_site">
         <div class="admin_site_container">

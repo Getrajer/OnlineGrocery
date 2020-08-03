@@ -3,20 +3,22 @@
 
 <head>
     <link rel="stylesheet" href="~/css/main_admin_style.css" />
-    <link rel="stylesheet" href="~/css/admin_display_products_style.css"/>
+    <link rel="stylesheet" href="~/css/admin_display_products_style.css" />
     <link rel="stylesheet" href="~/css/admin_main_panel.css" />
 </head>
 
-@{ 
+
+@{
     //Change style for link with this ID
     AdminNavViewModel m = new AdminNavViewModel();
     m.LinkId = 1;
+    ViewBag.Title = "Admin Page";
 }
 
 <section class="admin_site">
     <div class="admin_site_container">
 
-        <partial name="_AdminNavigationPartial" model="m"/>
+        <partial name="_AdminNavigationPartial" model="m" />
 
         <div class="admin_content_page">
             <div class="admin_main_panel">

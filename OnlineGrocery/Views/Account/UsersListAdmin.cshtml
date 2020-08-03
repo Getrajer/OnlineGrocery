@@ -9,12 +9,16 @@
     //Change style for link with this ID
     AdminNavViewModel m = new AdminNavViewModel();
     m.LinkId = 4;
+    ViewBag.Title = "Users";
+
 }
+
+
 
 <section class="admin_site">
     <div class="admin_site_container">
 
-        <partial name="_AdminNavigationPartial" model="m"/>
+        <partial name="_AdminNavigationPartial" model="m" />
 
         <div class="admin_content_page">
             <div class="table_page">

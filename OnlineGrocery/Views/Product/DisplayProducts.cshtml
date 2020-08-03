@@ -4,6 +4,10 @@
     <link rel="stylesheet" href="~/css/display_products_style.css" />
 </head>
 
+@{
+    ViewBag.Title = "Products";
+}
+
 <section class="products">
     <div class="products_container">
 
@@ -57,7 +61,7 @@
                     </li>
                 </ul>
             </div>
-            
+
             <div class="products_list">
                 <div class="products_list_container">
                     @foreach (var p in Model.Products)
