@@ -141,6 +141,7 @@ namespace OnlineGrocery.Controllers
         /// Will show details of the product
         /// </summary>
         /// <returns></returns>
+        [AllowAnonymous]
         public IActionResult ProductDetails(int? Id)
         {
             ProductModel product = _productRepository.GetProduct(Id.Value);

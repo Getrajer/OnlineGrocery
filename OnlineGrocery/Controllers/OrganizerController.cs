@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using OnlineGrocery.Models;
@@ -155,6 +156,7 @@ namespace OnlineGrocery.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> CreateMessageUser(CreateMessageViewModel viewModel)
         {
             if (ModelState.IsValid)

@@ -10,11 +10,13 @@
     box-shadow:   10px 10px 15px rgba(0, 0, 0, 0.40);
 }
 
-.chat .create_comment .title{
+.chat .title{
     text-align: center;
     padding: 2em 0;
-    background-color: #1e5a52;
-    color: white;
+}
+
+.chat  .title h1{
+    text-align:center;
 }
 
 .chat label{

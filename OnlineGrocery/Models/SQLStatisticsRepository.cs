@@ -27,7 +27,7 @@ namespace OnlineGrocery.Models
             //Update Info
             up_stat.LatestRegisterName = name;
             up_stat.LatestRegisterDate = timeRegistred;
-
+            up_stat.Id = 1;
             _context.Statistics.Update(up_stat);
             _context.SaveChanges();
             return name;

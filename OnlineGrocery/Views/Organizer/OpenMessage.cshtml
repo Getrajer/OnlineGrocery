@@ -2,6 +2,7 @@
 
 <head>
     <link rel="stylesheet" href="~/css/main_admin_style.css" />
+    <link href="~/css/open_message_style.css" rel="stylesheet" />
 </head>
 
 @{
@@ -41,7 +42,7 @@
 
 
                 <section class="manage_message">
-                    <div>
+                    <div class="manage_message_container">
                         <div class="title">
                             <h3>If you resolved issue mark it</h3>
                         </div>
@@ -55,7 +56,9 @@
 
 
                             <input hidden asp-for="Id" />
-                            <button type="submit">Submit Changes</button>
+                            <div class="button_container">
+                                <button type="submit">Submit Changes</button>
+                            </div>
                         </form>
 
                     </div>
