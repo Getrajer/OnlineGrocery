@@ -35,6 +35,7 @@ namespace OnlineGrocery.Controllers
             return View(model);
         }
 
+        [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Index(IndexViewModel viewModel)
         {

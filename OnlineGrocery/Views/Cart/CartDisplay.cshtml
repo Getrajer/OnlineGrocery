@@ -30,11 +30,11 @@
                     @foreach (var line in Model.ShoppingCart.ShoppingCartItems)
                     {
                         <tr>
-                            <td>@line.Product.Name @line.Product.Id</td>
+                            <td>@line.Product.Name</td>
                             <td>@line.Ammount</td>
-                            <td>@line.Product.Price.ToString("c")</td>
+                            <td>£@line.Product.Price.ToString()</td>
                             <td>
-                                @((line.Ammount * line.Product.Price).ToString("c"))
+                                £@((line.Ammount * line.Product.Price).ToString())
                             </td>
                             <td><a asp-controller="Cart" asp-action="RemoveFromShoppingCart" asp-route-Id="@line.Product.Id">Remove</a></td>
                             <td><a asp-controller="Cart" asp-action="RemoveAllOfItem" asp-route-Id="@line.Product.Id">Remove All</a></td>
@@ -45,7 +45,7 @@
                     <tr>
                         <td colspan="3" class="text-right">Total:</td>
                         <td class="text-right">
-                            @Model.ShoppingCartTotal.ToString("c")
+                            £@Model.ShoppingCartTotal.ToString()
                         </td>
                     </tr>
                 </tfoot>
@@ -56,7 +56,7 @@
         </div>
 
         <div class="button_container">
-            <a asp-controller="Cart" asp-action="ClearCart">Clear Chart</a>
+            <a asp-controller="Cart" asp-action="ClearCart">Clear Cart</a>
         </div>
 
     </div>
